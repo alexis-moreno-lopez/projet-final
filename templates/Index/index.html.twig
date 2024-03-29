@@ -1,0 +1,166 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+  
+
+
+
+  
+
+
+    
+
+
+
+
+{% block body %}
+    <header>
+        <div class="taille">
+            <video src="../img/video1.mp4" autoplay loop muted> scrolling="no" marginwidth="0" marginheight="0"
+                allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"
+                height="100%" width="100%"></video>
+        </div>
+    </header>
+    <main>
+        <section class="sec-un">
+            <div>
+                <h3 class="space-h3">Abonnement</h3>
+                <br>
+                <div class="Paragraphe-un">
+                    <p>Nous proposons deux abonnements. Vous pouvez choisir facilement celui qui vous convient le mieux.
+                    </p>
+
+                    <p>Si vous souhaitez compléter votre abonnement, vous pouvez ajouter les options « Coach sportif » «
+                        Nutrition
+                        » et «
+                        Spa ».</p>
+                </div>
+            </div>
+        </section>
+        <section class="sec-deux">
+
+            <div id="content">
+                <div class="container">
+                    <div class="retourne-card">
+                        <div class="design-card">
+                            <img src="/img/coach.sportif.jpg" alt="Coach sportif">
+                            <p class="bas-card">Coach sportif</p>
+                        </div>
+                        <div class="design-card-deux">
+                            <a href="https://fr.wikipedia.org/wiki/Coach_sportif" target="_blank">
+                                <h2>Coach sportif</h2>
+                            </a>
+
+                            <p class="description"> Profite de l'aide d'un entraineur personnel certifié. Le Coach
+                                Sportif
+                                (60min)
+                                t'aideras à prendre encore plus de plaisir pendant tes entrainements. à obtenir des
+                                résultats
+                                plus
+                                rapidement et à réduire le risque de blessures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="retourne-card">
+                        <div class="design-card">
+                            <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
+                            <p class="bas-card">Nutrition</p>
+                        </div>
+                        <div class="design-card-deux">
+                            <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                                <h2>Recette</h2>
+                            </a>
+
+                            <p class="description">Profite de chaques recettes qui sont mis à jour toutes les semaines
+                                pour une nutrion seine !. La meilleur facons d'atteindre votre objectif commence par
+                                l'alimentation.
+                                3 recettes (aperitif), 3 recettes (Plat de résistance), 3 recettes (Dessert).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="retourne-card">
+                        <div class="design-card">
+                            <img src="/img/spa.sportif.jpg" alt="Spa sportif">
+                            <p class="bas-card">Spa</p>
+                        </div>
+                        <div class="design-card-deux">
+                            <a href="https://fr.wikipedia.org/wiki/Spa_(%C3%A9tablissement)" target="_blank">
+                                <h2>Spa</h2>
+                            </a>
+
+                            <p class="description">Après le Sport, le réconfort ! accès au spa te permet de t'offrir une
+                                déttente
+                                musculaire. Le Spa est le meilleur moyen pour finir ta séance de sport.
+                                Le Spa contient 12 places et les serviettes sont à dispositions.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec-trois">
+            <div class="display">
+                <div class="maps">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2715.4374292622488!2d5.501178576272124!3d47.110098271148594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478d4cf022498495%3A0xad0ef800163c81ce!2sBasic-Fit!5e0!3m2!1sfr!2sfr!4v1689679621454!5m2!1sfr!2sfr"
+                        width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="reduit">
+
+                    <h3>CE CLUB
+                        EST OUVERT</h3>
+
+                    <div class="paragraphe-deux">
+                        <p> Vous êtes à la recherche d'une salle de sport sympa près de chez vous ?</p>
+                        <p>Quel que soit votre âge ou votre niveau de pratique, </p>
+                        <p> vous êtes le bienvenu dans notre centre de fitness situé 4 Rue Francois xavier bichat.</p>
+                        <p> Nous disposons d'une large gamme d'appareils de fitness et de cours collectifs.</p>
+                        <p> Passez nous voir au club pour choisir l'activité sportive qui vous convient le mieux.</p>
+                        <p> Ou inscrivez-vous en ligne dès maintenant !</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="contact" class="sec-quatre">
+            <div class="bloc-sec-form">
+                <h3 class="space-h3">Contacter le service client</h3>
+                <form action="">
+                    <div class="form-grid">
+                        <div>
+                            <label for="Nom">Nom</label>
+                            <input type="text" id="name">
+                        </div>
+                        <div>
+                            <label for="Prénom">Prénom</label>
+                            <input type="text" id="Prénom">
+                        </div>
+                        <div class="textarea">
+                            <label for="message">Message</label>
+                            <textarea id="message"></textarea>
+                        </div>
+                    </div>
+                    <input type="submit" class="valider" value="valider">
+                </form>
+            </div>
+        </section>
+        </main>
+
+        <div class="scroll-to-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    
+    <script src="/Index/index2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        {% endblock %}
+
+

@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    list-style: none;
+  }
+  
+  body {
+    background-color: rgb(242, 240, 240);
+    margin: 0 auto;
+    text-align: center;
+  }
+  html,
+  body {
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /*-------------------------------------------- navbar------------------------------------------------------------*/
+  .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  .navbar {
+    background-color: #fe7000;
+  height: 80px;
+
+  
+  }
+  
+  .navbar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    list-style-type: none;
+    padding: 0 100px;
+  
+  
+  }
+  .navbar li {
+    position: relative;
+    font-size: 1.3rem;
+  
+  }
+  .navbar li::before {
+    content: "";
+    width: 0;
+    height: 5px;
+    position: absolute;
+    background: black;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease; /* Transition fluide */
+  }
+  .navbar li:hover img {
+    opacity: 1; /* Annule l'effet de la barre sur les images */
+  }
+  
+  /* nav li:first-child {
+  color: white;
+  } */
+  
+  .navbar li:hover:before {
+    width: 100%; /* Ajuste la largeur au survol */
+  }
+  
+  .logoProfil {
+    height: 40px;
+    width: 40px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  
+  }
+  #offcanvasDarkNavbar {
+    background-color: #fe7000;
+  }
+
+  .nav-img {
+  
+    width: 50px;
+  }
+  @media (max-width: 1200px) { 
+
+    .nav-link {
+  color: black;
+  
+    }
+  
+  }
+  
+  /*--------------------------------------------Grand Titre------------------------------------------------------------*/
+  h1 {
+    color: white;
+    text-align: center;
+    margin: 1%;
+    padding: 10px 10px 10px 10px;
+    font-style: italic;
+  
+  }
+  header {
+    margin-bottom: 100px;
+  }
+    /*--------------------------------------------Fin------------------------------------------------------------*/
+  /*--------------------------------------------Formulaire------------------------------------------------------------*/
+  .form-control {
+    width: 350px;
+  }
+  form {
+    
+    justify-content: center;
+
+  }
+  .space-un {
+    padding-top: 50px;
+    
+  }
+  .space-deux {
+    padding: 50px 10px 100px 100px;
+
+  }
+  .gender {
+
+    display: flex;
+    justify-content: center;
+  }
+  .padding {
+padding-top: 50px;
+  }
+  .form-check {
+    width: 150px;
+    justify-content: center;
+  }
+  .gender-check {
+    margin:0px 0px 0px 50px;
+  }
+      /*--------------------------------------------Fin------------------------------------------------------------*/
+    /*--------------------------------------------MédiaQuery------------------------------------------------------------*/
+  @media (max-width: 860px) { 
+
+.responssive  {
+flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .space-deux {
+        padding-left: 0px;
+
+    }
+    
+}

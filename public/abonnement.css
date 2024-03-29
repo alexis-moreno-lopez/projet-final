@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    list-style: none;
+  }
+  
+  body {
+    background-color: rgb(242, 240, 240);
+    margin: 0 auto;
+    text-align: center;
+  }
+  html,
+  body {
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  /*-------------------------------------------- Titre------------------------------------------------------------*/
+  h1 {
+    color: white;
+    text-align: center;
+    margin: 1%;
+    padding: 10px 10px 10px 10px;
+  
+  }
+  /*-------------------------------------------- Fin------------------------------------------------------------*/
+  /*-------------------------------------------- navbar------------------------------------------------------------*/
+  .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .nav-img {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar {
+    background-color: #fe7000;
+  height: 80px;
+  
+  }
+  
+  .navbar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    list-style-type: none;
+    padding: 0 100px;
+  
+  
+  }
+  .navbar li {
+    position: relative;
+    font-size: 1.3rem;
+   
+  
+  }
+  .navbar li::before {
+    content: "";
+    width: 0;
+    height: 5px;
+    position: absolute;
+    background: black;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease; /* Transition fluide */
+  }
+  .navbar li:hover img {
+    opacity: 1; /* Annule l'effet de la barre sur les images */
+  }
+  
+  /* nav li:first-child {
+  color: white;
+  } */
+  
+  .navbar li:hover:before {
+    width: 100%; /* Ajuste la largeur au survol */
+  }
+  
+  .logoProfil {
+    height: 40px;
+    width: 40px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  
+  }
+  #offcanvasDarkNavbar {
+    background-color: #fe7000;
+  }
+  .nav-img {
+  
+    width: 50px;
+  }
+  @media (max-width: 1200px) { 
+  
+    .nav-link {
+      color: black;
+    }
+  }
+  
+  /*--------------------------------------------Fin------------------------------------------------------------*/
+  /*--------------------------------------------Un------------------------------------------------------------*/
+.un {
+padding: 50px 0px 50px 0px;
+    background-color: rgb(226, 224, 224);
+}
+/*--------------------------------------------Fin------------------------------------------------------------*/
+ /*--------------------------------------------Deux------------------------------------------------------------*/
+.deux {
+    padding: 50px 0px 50px 0px;
+}
+/*--------------------------------------------Fin------------------------------------------------------------*/
+ /*--------------------------------------------Trois------------------------------------------------------------*/
+.trois {
+    padding: 50px 0px 50px 0px;
+    background: rgb(226, 224, 224);
+}
+/*--------------------------------------------Fin------------------------------------------------------------*/
+/*--------------------------------------------Commun------------------------------------------------------------*/
+.box {
+
+    margin-left: 10%;
+    height: 400px;
+    width: 400px;
+    background: rgba(191, 191, 191,0.5);
+    border-radius: 20px;
+}
+.separation {
+background-color: #fe7000;
+    height: 15px;
+}
+h2 {
+padding: 10px;
+}
+h3 {
+    padding: 10px;
+    font-size: 1.5rem;
+}
+.margin {
+    margin-top: 20px;
+}
+
+.logoverif{
+    height: 20px;
+    width: 20px; 
+}
+
+.ligne {
+    display: flex;
+}
+.font {
+  font-size: 1.5rem;
+}
+.paragraphe-un {
+    padding: 100px;
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color:#fe7000;
+  color: white;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+.scroll-to-top i {
+  font-size: 20px;
+}
+
+/*--------------------------------------------Fin------------------------------------------------------------*/
+/*--------------------------------------------MediaQuery------------------------------------------------------------*/
+@media (max-width: 993px) { 
+
+  .ligne {
+flex-direction: column;
+  }
+  .box {
+    margin: 0;
+  }
+
+}
+@media (max-width: 700px) { 
+
+  .box {
+
+width: 300px;
+  }
+
+  .logoProfil {
+
+      height: 30px;
+      width: 30px;
+  
+}
+}
+/*--------------------------------------------Fin------------------------------------------------------------*/
