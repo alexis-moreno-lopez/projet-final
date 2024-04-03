@@ -11,7 +11,7 @@ class ProposController extends AbstractController
     #[Route('/propos', name: 'app_propos')]
     public function index(): Response
     {
-        return $this->render('propos/index.html.twig', [
+        return $this->render('propos/propos.html.twig', [
             'controller_name' => 'ProposController',
         ]);
     }

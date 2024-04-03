@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{%  block metaEtLinkSupplementaire %}
+ <link rel="stylesheet" href="/styles/profil.css" />
+{% endblock %}
+
+{% block body %}
+<header class="">
+    <div class="padding">
+      <div> <img class="appareil" src="../img/appareil-photo-numerique.png" alt=""></div>
+      <img class="photo" src="/img/profil.png" alt="">
+      <div class="prenom">
+        <p>Alexis Moreno-Lopez</p>
+      </div>
+      <div>
+        ID :39405930
+      </div>
+    </div>
+
+    <div class="padding">
+      <div class="placement">
+        <a href="/Abonnement/abonnement.html">
+          <p class="modification">Changer d'abonnement</p>
+        </a>
+      </div>
+      <div class="ligne container">
+        <div class="box">
+          <h2>PREMIUM</h2>
+
+          <div class="separation"></div>
+          <h3>39,99€ / 4 semaines</h3>
+          <p class="margin">
+            <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
+            club AccèsGym de 6h à 21h non-stop 7j/7
+          </p>
+          <p class="margin">
+            <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
+            Barres et
+            Haltères
+          </p>
+          <p class="margin">
+            <img class="logoverif" src="/img/verifier.png" alt="" />Recette
+          </p>
+          <p class="margin">
+            <img class="logoverif" src="/img/verifier.png" alt="" />Spa
+          </p>
+          <p class="margin">
+            <img class="logoverif" src="/img/verifier.png" alt="" />Coach
+          </p>
+        </div>
+  </header>
+  <section>
+    <div class="corners pb-5">
+      <div class="corner">
+        <ul class="list">
+          <li class="toggle-table">Paiements
+            <i class="fa-regular fa-hand-pointer"></i>
+            <i class="fa-regular fa-hand-point-down hidden"></i>
+          </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+        </ul>
+      </div>
+
+      <div class="corner">
+        <ul class="list">
+          <li class="toggle-table">Données personnelles
+            <i class="fa-regular fa-hand-pointer"></i>
+            <i class="fa-regular fa-hand-point-down hidden"></i>
+          </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Nom: Moreno-Lopez</li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Prénom: </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Date de Naissance: </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Numéro de téléphone:</li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Email:</li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Code Postale:</li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Ville:</li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Rue:</li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Numéro de Rue:</li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Info Complémentaire:</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block JavascriptDuBas %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleItems = document.querySelectorAll('.toggle-table');
+
+    toggleItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            const sublistItems = this.parentElement.querySelectorAll('li:not(.toggle-table)');
+            sublistItems.forEach(function(subitem) {
+                subitem.classList.toggle('hidden');
+            });
+
+            const handPointerIcon = this.querySelector('.fa-hand-pointer');
+            const handPointDownIcon = this.querySelector('.fa-hand-point-down');
+            handPointerIcon.classList.toggle('hidden');
+            handPointDownIcon.classList.toggle('hidden');
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,222 +1,270 @@
 {% extends 'base.html.twig' %}
 
+{%  block metaEtLinkSupplementaire %}
+    <link rel="stylesheet" href="styles/recette.css">
+    {% endblock %}
+
+{% block title %}Hello RecetteController!{% endblock %}
+
+{% block body %}
 <section class="section-un">
-  <div id="padding">
-    <h2 class="titre-un">aperitif</h2>
-  </div>
-  <div id="content">
-    <div class="container">
-      <div class="retourne-card">
-        <div class="design-card">
-          <img src="/img/pain.webp" alt="Coach sportif" />
-          <p class="bas-card">pain grillé</p>
-        </div>
-        <div class="design-card-deux">
-          <a href="https://fr.wikipedia.org/wiki/Coach_sportif" target="_blank"><h2>Pain Grillé</h2></a>
-          <p class="date">23/07/2020</p>
-          <p class="description">Profite de l'aide d'un entraineur personnel certifié. Le Coach Sportif (60min)</p>
-          <button class="recette text-white">Recette</button>
-        </div>
-      </div>
+    <div id="padding">
+        <h2 class="titre-un">aperitif</h2>
     </div>
+    <div id="content">
+        <div class="container">
+            <div class="retourne-card">
+                <div class="design-card">
+                    <img src="/img/pain.webp" alt="Coach sportif">
+                    <p class="bas-card">pain grillé</p>
+                </div>
+                <div class="design-card-deux">
+                    <a href="https://fr.wikipedia.org/wiki/Coach_sportif" target="_blank">
+                        <h2>Pain Grillé</h2>
+                    </a>
+                    <p class="date">23/07/2020</p>
+                    <p class="description"> Profite de l'aide d'un entraineur personnel certifié. Le Coach
+                        Sportif
+                        (60min)
+                  </p>
+                        <button class="recette text-white">Recette</button>
+                </div>
+            </div>
+        </div>
 
-    <div class="container">
-      <div class="retourne-card">
-        <div class="design-card">
-          <img src="/img/alimentation.sportif.jpg" alt="Nutrition" />
-          <p class="bas-card">Nutrition</p>
+        <div class="container">
+            <div class="retourne-card">
+                <div class="design-card">
+                    <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
+                    <p class="bas-card">Nutrition</p>
+                </div>
+                <div class="design-card-deux">
+                    <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                        <h2>Tulip</h2>
+                    </a>
+                    <p class="date">14/07/2020</p>
+                    <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
+                        bulbiferous
+                        geophytes. The flowers are usually large, showy and brightly coloured, generally red,
+                        yellow, or
+                        white.</p>
+                </div>
+            </div>
         </div>
-        <div class="design-card-deux">
-          <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h2>Tulip</h2></a>
-          <p class="date">14/07/2020</p>
-          <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <div class="retourne-card">
-        <div class="design-card">
-          <img src="/img/bol.jpeg" alt="Nutrition" />
-          <p class="bas-card">Nutrition</p>
+        <div class="container">
+            <div class="retourne-card">
+                <div class="design-card">
+                    <img src="/img/bol.jpeg" alt="Nutrition">
+                    <p class="bas-card">Nutrition</p>
+                </div>
+                <div class="design-card-deux">
+                    <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                        <h2>Tulip</h2>
+                    </a>
+                    <p class="date">14/07/2020</p>
+                    <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
+                        bulbiferous
+                        geophytes. The flowers are usually large, showy and brightly coloured, generally red,
+                        yellow, or
+                        white.</p>
+                </div>
+            </div>
         </div>
-        <div class="design-card-deux">
-          <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h2>Tulip</h2></a>
-          <p class="date">14/07/2020</p>
-          <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 <section class="section-deux">
-  <div id="padding">
-    <h2 class="titre-deux text-white">Plat de résistance</h2>
-  </div>
-  <div class="container">
-    <div class="retourne-card">
-      <div class="design-card">
-        <img src="/img/alimentation.sportif.jpg" alt="Nutrition" />
-        <p class="bas-card">Nutrition</p>
-      </div>
-      <div class="design-card-deux">
-        <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h2>Tulip</h2></a>
-        <p class="date">14/07/2020</p>
-        <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-      </div>
+    <div id="padding">
+        <h2 class="titre-deux text-white">Plat de résistance</h2>
     </div>
-  </div>
-  <div class="container">
-    <div class="retourne-card">
-      <div class="design-card">
-        <img src="/img/alimentation.sportif.jpg" alt="Nutrition" />
-        <p class="bas-card">Nutrition</p>
-      </div>
-      <div class="design-card-deux">
-        <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h2>Tulip</h2></a>
-        <p class="date">14/07/2020</p>
-        <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-      </div>
+    <div class="container">
+        <div class="retourne-card">
+            <div class="design-card">
+                <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
+                <p class="bas-card">Nutrition</p>
+            </div>
+            <div class="design-card-deux">
+                <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                    <h2>Tulip</h2>
+                </a>
+                <p class="date">14/07/2020</p>
+                <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
+                    bulbiferous
+                    geophytes. The flowers are usually large, showy and brightly coloured, generally red,
+                    yellow, or
+                    white.</p>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="container">
+</div>
+<div class="container">
     <div class="retourne-card">
-      <div class="design-card">
-        <img src="/img/alimentation.sportif.jpg" alt="Nutrition" />
-        <p class="bas-card">Nutrition</p>
-      </div>
-      <div class="design-card-deux">
-        <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h2>Tulip</h2></a>
-        <p class="date">14/07/2020</p>
-        <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-      </div>
+        <div class="design-card">
+            <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
+            <p class="bas-card">Nutrition</p>
+        </div>
+        <div class="design-card-deux">
+            <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                <h2>Tulip</h2>
+            </a>
+            <p class="date">14/07/2020</p>
+            <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
+                bulbiferous
+                geophytes. The flowers are usually large, showy and brightly coloured, generally red,
+                yellow, or
+                white.</p>
+        </div>
     </div>
-  </div>
+</div>
+</div>
+<div class="container">
+    <div class="retourne-card">
+        <div class="design-card">
+            <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
+            <p class="bas-card">Nutrition</p>
+        </div>
+        <div class="design-card-deux">
+            <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                <h2>Tulip</h2>
+            </a>
+            <p class="date">14/07/2020</p>
+            <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
+                bulbiferous
+                geophytes. The flowers are usually large, showy and brightly coloured, generally red,
+                yellow, or
+                white.</p>
+        </div>
+    </div>
+</div>
+</div>
 </section>
-
 <section>
-  <div id="padding">
-    <h2 class="titre-un">Dessert</h2>
-  </div>
-  <div class="container">
-    <div class="retourne-card">
-      <div class="design-card">
-        <img src="/img/alimentation.sportif.jpg" alt="Nutrition" />
-        <p class="bas-card">Nutrition</p>
-      </div>
-      <div class="design-card-deux">
-        <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h2>Tulip</h2></a>
-        <p class="date">14/07/2020</p>
-        <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-      </div>
+    <div id="padding">
+        <h2 class="titre-un">Dessert</h2>
     </div>
-  </div>
-  <div class="container">
-    <div class="retourne-card">
-      <div class="design-card">
-        <img src="/img/alimentation.sportif.jpg" alt="Nutrition" />
-        <p class="bas-card">Nutrition</p>
-      </div>
-      <div class="design-card-deux">
-        <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h2>Tulip</h2></a>
-        <p class="date">14/07/2020</p>
-        <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-      </div>
+    <div class="container">
+        <div class="retourne-card">
+            <div class="design-card">
+                <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
+                <p class="bas-card">Nutrition</p>
+            </div>
+            <div class="design-card-deux">
+                <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                    <h2>Tulip</h2>
+                </a>
+                <p class="date">14/07/2020</p>
+                <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
+                    bulbiferous
+                    geophytes. The flowers are usually large, showy and brightly coloured, generally red,
+                    yellow, or
+                    white.</p>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+<div class="container">
+    <div class="retourne-card">
+        <div class="design-card">
+            <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
+            <p class="bas-card">Nutrition</p>
+        </div>
+        <div class="design-card-deux">
+            <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                <h2>Tulip</h2>
+            </a>
+            <p class="date">14/07/2020</p>
+            <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
+                bulbiferous
+                geophytes. The flowers are usually large, showy and brightly coloured, generally red,
+                yellow, or
+                white.</p>
+        </div>
+    </div>
+</div>
+</div>
 
-  <div class="container">
+<div class="container">
     <div class="retourne-card">
-      <div class="design-card">
-        <img src="/img/alimentation.sportif.jpg" alt="Nutrition" />
-        <p class="bas-card">Nutrition</p>
-      </div>
-      <div class="design-card-deux">
-        <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h2>Tulip</h2></a>
-        <p class="date">14/07/2020</p>
-        <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-      </div>
+        <div class="design-card">
+            <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
+            <p class="bas-card">Nutrition</p>
+        </div>
+        <div class="design-card-deux">
+            <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
+                <h2>Tulip</h2>
+            </a>
+            <p class="date">14/07/2020</p>
+            <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
+                bulbiferous
+                geophytes. The flowers are usually large, showy and brightly coloured, generally red,
+                yellow, or
+                white.</p>
+        </div>
     </div>
-  </div>
+</div>
+</div>
 </section>
 <section class="test">
-  <div id="myModal" class="modalImg d-none">
-    <div class="btn_close">
-      <div>
-        <button type="button" class="btn-close" id="btn-close" aria-label="Close"></button>
+<div id="myModal" class="modalImg d-none">
+        <div class="btn_close">
+            <div>
+              
+                <button type="button" class="btn-close" id="btn-close" aria-label="Close"></button> 
 
-        <h3>Pain Grillé</h3>
-      </div>
-      <div>
-        <img src="/img/pain.webp" alt="" />
-      </div>
-      <div class="espace">
-        <img class="chrono" src="/img/chronometre.png" alt="" />
-        <p>12min</p>
-      </div>
-      <div>
-        <div class="corners pb-5">
-          <div class="corner">
-            <ul class="list">
-              <li class="toggle-table">
-                Ingrédients
-                <i class="fa-regular fa-hand-pointer"></i>
-                <i class="fa-regular fa-hand-point-down hidden"></i>
-              </li>
-              <li class="hidden">
-                <i class="fa-solid fa-arrow-right"></i>
-              </li>
-              <li class="hidden">
-                <i class="fa-solid fa-arrow-right"></i>
-              </li>
-              <li class="hidden">
-                <i class="fa-solid fa-arrow-right"></i>
-              </li>
-              <li class="hidden">
-                <i class="fa-solid fa-arrow-right"></i>
-              </li>
-              <li class="hidden">
-                <i class="fa-solid fa-arrow-right"></i>
-              </li>
-              <li class="hidden">
-                <i class="fa-solid fa-arrow-right"></i>
-              </li>
-            </ul>
-          </div>
+                 
+                    <h3>Pain Grillé</h3>
+                </div>
+                <div>
+                    <img src="/img/pain.webp" alt="">
+                </div>
+                <div class="espace">
+                    <img class="chrono" src="/img/chronometre.png" alt="">
+                    <p>12min</p>
+                </div>
+                <div>
+                    <div class="corners pb-5">
+                        <div class="corner">
+                            <ul class="list">
+                                <li class="toggle-table">Ingrédients
+                                    <i class="fa-regular fa-hand-pointer"></i>
+                                    <i class="fa-regular fa-hand-point-down hidden"></i>
+                                </li>
+                                <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+                                <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+                                <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+                                <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+                                <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+                                <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+            <div class="background">
+           <p class="descriptif">Descriptif de la recette
+            <div class="text">ÉTAPE 1</div>
+
+            <div class="text">Détailler le chocolat en pépites.</div>
+            
+            <div class="text">ÉTAPE 2</div>
+            
+            <div class="text">Préchauffer le four à 180°C (thermostat 6). Dans un saladier, mettre 75 g de beurre, le sucre, l'oeuf entier, la vanille et mélanger le tout avec une cuillère en bois.</div>
+            
+            <div class="text">ÉTAPE 3</div>
+            
+            <div class="text">Ajouter petit à petit la farine mélangée à la levure, le sel et le chocolat.</div>
+            
+            <div class="text">ÉTAPE 4</div>
+            
+            <div class="text">Avec une feuille de papier essuie-tout, beurrer une plaque allant au four et former les cookies sur la plaque.</div>
+            
+            <div class="text">ÉTAPE 5</div>
+            <div class="text">Pour former les cookies, utiliser 2 cuillères à soupe et faire des petits tas espacés les uns des autres; ils grandiront à la cuisson.</div>
+            
+            <div class="text"> ÉTAPE 6</div>
+            <div class="text">Enfourner pour 10 minutes de cuisson.</div></p>
         </div>
-      </div>
-      <div class="background">
-      <p class="descriptif">
-        Descriptif de la recette<div class="text">ÉTAPE 1</div>
-
-        <div class="text">Détailler le chocolat en pépites.</div>
-
-        <div class="text">ÉTAPE 2</div>
-
-        <div class="text">Préchauffer le four à 180°C (thermostat 6). Dans un saladier, mettre 75 g de beurre, le sucre, l'oeuf entier, la vanille et mélanger le tout avec une cuillère en bois.</div>
-
-        <div class="text">ÉTAPE 3</div>
-
-        <div class="text">Ajouter petit à petit la farine mélangée à la levure, le sel et le chocolat.</div>
-
-        <div class="text">ÉTAPE 4</div>
-
-        <div class="text">Avec une feuille de papier essuie-tout, beurrer une plaque allant au four et former les cookies sur la plaque.</div>
-
-        <div class="text">ÉTAPE 5</div>
-        <div class="text">Pour former les cookies, utiliser 2 cuillères à soupe et faire des petits tas espacés les uns des autres; ils grandiront à la cuisson.</div>
-
-        <div class="text">ÉTAPE 6</div>
-        <div class="text">Enfourner pour 10 minutes de cuisson.</div>
-        </p>
-      </div>
+        </div>
     </div>
-  </div>
 </section>
-<div class="scroll-to-top">
-  <i class="fas fa-chevron-up"></i>
-</div>
-<script src="/Recette/recette.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 {% endblock %}

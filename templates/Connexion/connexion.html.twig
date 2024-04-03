@@ -1,0 +1,31 @@
+
+
+{%  block metaEtLinkSupplementaire %}
+  <link rel="stylesheet" href="/styles/connexion.css">
+{% endblock %}
+
+
+
+{% block body %}
+<main>
+    <section id="connexion">
+      <div class="box container">
+        <div class="test1">
+          <img src="/img/logo.png" alt="" />
+        </div>
+        <form action="./accueil.php" method="POST">
+
+          <!-- Ajout de method="POST" -->
+          <input class="inputconect" placeholder="Email" type="text" />
+          <input class="inputconect" placeholder="Password" type="text" />
+
+          <div class="btnconnexion">
+            <input type="submit" class="valider" value="Valider" />
+            <a href="admin.php"></a>
+            <!-- Cela semble être un lien, mais il n'y a pas de texte à l'intérieur -->
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+{% endblock %}

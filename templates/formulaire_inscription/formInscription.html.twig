@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+
+
+{%  block metaEtLinkSupplementaire %}
+  <link rel="stylesheet" href="/styles/formInscription.css" />
+{% endblock %}
+
+
+{% block title %}Hello FormulaireInscriptionController!{% endblock %}
+
+{% block body %}
+ <header>
+    <div>
+      <h2 class="padding">Abonnez-vous à AccèsGym !</h2>
+    </div>
+  </header>
+  <section>
+    <form>
+      <div class="gender">
+        <div class=" gender-check">
+          <input type="checkbox" class="form-check-input">
+          <label class="form-check-label" for="checkLabel1">Homme</label>
+        </div>
+        <div class="gender-check">
+          <input type="checkbox" class="form-check-input">
+          <label class="form-check-label" for="checkLabel2">Femme</label>
+        </div>
+      </div>
+      <div class="responssive d-flex justify-content-center">
+        <div class="space-un">
+          <div class="mb-3">
+            <label for="prenomInput" class="form-label">Prénom</label>
+            <input type="text" class="form-control" aria-describedby="prenom">
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="nomInput" class="form-label">Nom de famille</label>
+            <input type="text" class="form-control" aria-describedby="nom">
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="dateInput" class="form-label">Date de Naissance</label>
+            <input type="date" class="form-control" aria-describedby="date de naissance">
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="phoneInput" class="form-label">Numéro de téléphone</label>
+            <input type="tel" class="form-control" aria-describedby="telephone">
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <input type="email" class="form-control" aria-describedby="email">
+            <div class="form-text"></div>
+          </div>
+        </div>
+
+        <div class="space-deux">
+          <div class="mb-3">
+            <label for="codePostalInput" class="form-label">Code Postale</label>
+            <input type="text" class="form-control" aria-describedby="code postal">
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="villeInput" class="form-label">Ville</label>
+            <input type="text" class="form-control" aria-describedby="ville">
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="rueInput" class="form-label">Rue</label>
+            <input type="text" class="form-control" aria-describedby="rue">
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="numeroRueInput" class="form-label">Numéro de Rue</label>
+            <input type="text" class="form-control" aria-describedby="numero de rue">
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="infoCompIput" class="form-label">Info Complémentaire</label>
+            <input type="text" class="form-control" aria-describedby="info complementaire">
+            <div class="form-text"></div>
+          </div>
+
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input">
+            <label class="form-check-label" for="checkLabel3">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </div>
+      </div>
+    </form>
+  </section>
+{% endblock %}

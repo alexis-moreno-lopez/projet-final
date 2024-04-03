@@ -11,7 +11,7 @@ class CoachController extends AbstractController
     #[Route('/coach', name: 'app_coach')]
     public function index(): Response
     {
-        return $this->render('coach/index.html.twig', [
+        return $this->render('coach/coach.html.twig', [
             'controller_name' => 'CoachController',
         ]);
     }

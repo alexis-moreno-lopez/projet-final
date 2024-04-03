@@ -11,7 +11,7 @@ class FormulaireInscriptionController extends AbstractController
     #[Route('/formulaire/inscription', name: 'app_formulaire_inscription')]
     public function index(): Response
     {
-        return $this->render('formulaire_inscription/index.html.twig', [
+        return $this->render('formulaire_inscription/formInscription.html.twig', [
             'controller_name' => 'FormulaireInscriptionController',
         ]);
     }

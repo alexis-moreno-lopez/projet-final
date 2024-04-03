@@ -16,10 +16,14 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/index2.css">
+
+    {%  block metaEtLinkSupplementaire %}
     
+{% endblock %}
     
 
 </head>
+
         <title>{% block title %}Welcome!{% endblock %}</title>
 
         {% block stylesheets %}
@@ -42,21 +46,21 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav gap-3 flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" href="../Connexion/connexion.html">Connexion</a>
+                            <a class="nav-link" href="/connexion">Connexion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../Abonnement/abonnement.html">S'abonner</a>
+                            <a class="nav-link" href="/abonnement">S'abonner</a>
                         </li>
                         <h1 class="d-flex">Accès
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-img" href="/Index/index2.html">
+                                <a class="nav-img" href="/index">
                                     <img class="logoProfil" src="/img/sport.png" alt="">
                                 </a>
                             </li>
                             Gym
                         </h1>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="/index#contact">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/propos">À Propos</a>
@@ -101,12 +105,22 @@
                 </ul>
             </div>
         </footer>  
+                <div class="scroll-to-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
         
+        <script src="/recette.js"></script>
+        <script src="/profil.js"></script>
+        <script src="/connexion.js"></script>
+        <script src="/coach.js"></script>
+        <script src="/abonnement.js"></script>
         <script src="/index2.js"></script>
-        <script src="/Propos/propos.js"></script>
+        <script src="/propos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+{% block JavascriptDuBas %}{% endblock %}
 
                 {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
