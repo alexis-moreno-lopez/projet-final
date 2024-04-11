@@ -55,9 +55,16 @@ class Abonner
     #[ORM\OneToMany(targetEntity: Appointment::class, mappedBy: 'subscribe')]
     private Collection $appointments;
 
+    #[ORM\OneToOne(inversedBy: 'abonner', cascade: ['persist', 'remove'])]
+    private ?User $utilisateur = null;
+
+    #[ORM\OneToMany(targetEntity: Paiement::class, mappedBy: 'utilisateur')]
+    private Collection $paiements;
+
     public function __construct()
     {
         $this->appointments = new ArrayCollection();
+        $this->paiements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -233,6 +240,48 @@ class Abonner
             // set the owning side to null (unless already changed)
             if ($appointment->getSubscribe() === $this) {
                 $appointment->setSubscribe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?User
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?User $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Paiement>
+     */
+    public function getPaiements(): Collection
+    {
+        return $this->paiements;
+    }
+
+    public function addPaiement(Paiement $paiement): static
+    {
+        if (!$this->paiements->contains($paiement)) {
+            $this->paiements->add($paiement);
+            $paiement->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removePaiement(Paiement $paiement): static
+    {
+        if ($this->paiements->removeElement($paiement)) {
+            // set the owning side to null (unless already changed)
+            if ($paiement->getUtilisateur() === $this) {
+                $paiement->setUtilisateur(null);
             }
         }
 

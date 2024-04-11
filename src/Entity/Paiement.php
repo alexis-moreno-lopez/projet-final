@@ -19,6 +19,12 @@ class Paiement
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'paiements')]
+    private ?Abonner $utilisateur = null;
+
+    #[ORM\ManyToOne(inversedBy: 'paiements')]
+    private ?Abonnement $subscribe = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +50,30 @@ class Paiement
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Abonner
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Abonner $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    public function getSubscribe(): ?Abonnement
+    {
+        return $this->subscribe;
+    }
+
+    public function setSubscribe(?Abonnement $subscribe): static
+    {
+        $this->subscribe = $subscribe;
 
         return $this;
     }

@@ -39,10 +39,14 @@ class Coach
     #[ORM\OneToMany(targetEntity: Appointment::class, mappedBy: 'coach')]
     private Collection $appointments;
 
+    #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'coach')]
+    private Collection $utilisateur;
+
     public function __construct()
     {
         $this->recettes = new ArrayCollection();
         $this->appointments = new ArrayCollection();
+        $this->utilisateur = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -173,6 +177,36 @@ class Coach
             // set the owning side to null (unless already changed)
             if ($appointment->getCoach() === $this) {
                 $appointment->setCoach(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUtilisateur(): Collection
+    {
+        return $this->utilisateur;
+    }
+
+    public function addUtilisateur(User $utilisateur): static
+    {
+        if (!$this->utilisateur->contains($utilisateur)) {
+            $this->utilisateur->add($utilisateur);
+            $utilisateur->setCoach($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUtilisateur(User $utilisateur): static
+    {
+        if ($this->utilisateur->removeElement($utilisateur)) {
+            // set the owning side to null (unless already changed)
+            if ($utilisateur->getCoach() === $this) {
+                $utilisateur->setCoach(null);
             }
         }
 

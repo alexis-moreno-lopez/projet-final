@@ -32,6 +32,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\OneToOne(mappedBy: 'utilisateur', cascade: ['persist', 'remove'])]
+    private ?Abonner $abonner = null;
+
+    #[ORM\ManyToOne(inversedBy: 'utilisateur')]
+    private ?Coach $coach = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,5 +111,39 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getAbonner(): ?Abonner
+    {
+        return $this->abonner;
+    }
+
+    public function setAbonner(?Abonner $abonner): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($abonner === null && $this->abonner !== null) {
+            $this->abonner->setUtilisateur(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($abonner !== null && $abonner->getUtilisateur() !== $this) {
+            $abonner->setUtilisateur($this);
+        }
+
+        $this->abonner = $abonner;
+
+        return $this;
+    }
+
+    public function getCoach(): ?Coach
+    {
+        return $this->coach;
+    }
+
+    public function setCoach(?Coach $coach): static
+    {
+        $this->coach = $coach;
+
+        return $this;
     }
 }
