@@ -22,7 +22,7 @@ class AbonnementCrudController extends AbstractCrudController
         return [
 
             TextField::new('name'),
-            IntegerField::new('tarif'),
+            TextField::new('tarif'),
             TextField::new('text'),
 
 

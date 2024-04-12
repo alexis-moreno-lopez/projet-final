@@ -48,12 +48,12 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Abonnement', 'fas fa-list', Abonnement::class);
-        yield MenuItem::linkToCrud('Abonner', 'fas fa-list', Abonner::class);
-        yield MenuItem::linkToCrud('Appointment', 'fas fa-list', Appointment::class);
-        yield MenuItem::linkToCrud('Coach', 'fas fa-list',Coach::class);
-        yield MenuItem::linkToCrud('Paiement', 'fas fa-list',Paiement::class);
-        yield MenuItem::linkToCrud('Recette', 'fas fa-list',Recette::class);
-        yield MenuItem::linkToCrud('User', 'fas fa-list',User::class);
+        yield MenuItem::linkToCrud('Abonnement', 'fa-solid fa-scroll' , Abonnement::class);
+        yield MenuItem::linkToCrud('Abonner', 'fa-solid fa-folder-open', Abonner::class);
+        yield MenuItem::linkToCrud('Appointment', 'fa-solid fa-calendar-days', Appointment::class);
+        yield MenuItem::linkToCrud('Coach', 'fa-solid fa-medal',Coach::class);
+        yield MenuItem::linkToCrud('Paiement', 'fa-solid fa-credit-card',Paiement::class);
+        yield MenuItem::linkToCrud('Recette', 'fa-solid fa-lemon',Recette::class);
+        yield MenuItem::linkToCrud('User', 'fa-solid fa-circle-user',User::class);
     }
 }

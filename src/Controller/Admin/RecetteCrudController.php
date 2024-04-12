@@ -22,7 +22,7 @@ class RecetteCrudController extends AbstractCrudController
         return [
 
             TextField::new('name'),
-            TextField::new('picture'),
+            ImageField::new('picture'),
             TextField::new('text'),
             AssociationField::new('author'),
 

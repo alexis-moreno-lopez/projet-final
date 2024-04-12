@@ -19,7 +19,7 @@ class Abonnement
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?float $tarif = null;
+    private ?string $tarif = null;
 
     #[ORM\Column(length: 255)]
     private ?string $text = null;
@@ -49,12 +49,12 @@ class Abonnement
         return $this;
     }
 
-    public function getTarif(): ?float
+    public function getTarif(): ?string
     {
         return $this->tarif;
     }
 
-    public function setTarif(float $tarif): static
+    public function setTarif(string $tarif): static
     {
         $this->tarif = $tarif;
 

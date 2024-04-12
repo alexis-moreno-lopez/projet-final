@@ -19,7 +19,6 @@ body {
 }
 
 #connexion {
-    background: #fe7000;
     background-image: url(/img/sportif-5.webp);
     justify-content: center;
     background-repeat: no-repeat;
@@ -50,6 +49,7 @@ img {
 form {
 display: flex;
   flex-direction: column;
+
 }
 
 input {
@@ -121,3 +121,16 @@ margin-bottom: 150px;
       margin: 10px 10px 30px 10px;
     }
   }
+ 
+@media screen and (min-width: 900px) and (max-width: 1300px) {
+  #connexion {
+    height: 700px;
+  }
+
+  form {
+   
+  }
+} 
+
+  
+
