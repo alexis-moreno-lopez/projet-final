@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {%  block metaEtLinkSupplementaire %}
-  <link rel="stylesheet" href="styles/abonnement.css" />
+  <link rel="stylesheet" href={{asset('styles/abonnement.css')}} />
   {% endblock %}
 
 {% block title %}Hello AbonnementController!{% endblock %}
@@ -130,4 +130,7 @@
 
     </section>
   </main>
+{% endblock %}
+{% block JavascriptDuBas %}
+<script src={{asset("/abonnement.js")}}></script>
 {% endblock %}

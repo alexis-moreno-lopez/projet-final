@@ -56,9 +56,9 @@ class Abonner
     private Collection $appointments;
 
     #[ORM\OneToOne(inversedBy: 'abonner', cascade: ['persist', 'remove'])]
-    private ?User $utilisateur = null;
+    private ?User $user = null;
 
-    #[ORM\OneToMany(targetEntity: Paiement::class, mappedBy: 'utilisateur')]
+    #[ORM\OneToMany(targetEntity: Paiement::class, mappedBy: 'user')]
     private Collection $paiements;
 
     public function __construct()
@@ -246,14 +246,14 @@ class Abonner
         return $this;
     }
 
-    public function getUtilisateur(): ?User
+    public function getUser(): ?User
     {
-        return $this->utilisateur;
+        return $this->user;
     }
 
-    public function setUtilisateur(?User $utilisateur): static
+    public function setUser(?User $user): static
     {
-        $this->utilisateur = $utilisateur;
+        $this->user = $user;
 
         return $this;
     }
@@ -270,7 +270,7 @@ class Abonner
     {
         if (!$this->paiements->contains($paiement)) {
             $this->paiements->add($paiement);
-            $paiement->setUtilisateur($this);
+            $paiement->setAbonner($this);
         }
 
         return $this;
@@ -280,8 +280,8 @@ class Abonner
     {
         if ($this->paiements->removeElement($paiement)) {
             // set the owning side to null (unless already changed)
-            if ($paiement->getUtilisateur() === $this) {
-                $paiement->setUtilisateur(null);
+            if ($paiement->getAbonner() === $this) {
+                $paiement->setAbonner(null);
             }
         }
 

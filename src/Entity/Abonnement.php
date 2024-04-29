@@ -24,7 +24,7 @@ class Abonnement
     #[ORM\Column(length: 255)]
     private ?string $text = null;
 
-    #[ORM\OneToMany(targetEntity: Paiement::class, mappedBy: 'subscribe')]
+    #[ORM\OneToMany(targetEntity: Paiement::class, mappedBy: 'subscription')]
     private Collection $paiements;
 
     public function __construct()
@@ -85,7 +85,7 @@ class Abonnement
     {
         if (!$this->paiements->contains($paiement)) {
             $this->paiements->add($paiement);
-            $paiement->setSubscribe($this);
+            $paiement->setSubscription($this);
         }
 
         return $this;
@@ -96,7 +96,7 @@ class Abonnement
         if ($this->paiements->removeElement($paiement)) {
             // set the owning side to null (unless already changed)
             if ($paiement->getSubscribe() === $this) {
-                $paiement->setSubscribe(null);
+                $paiement->setSubscription(null);
             }
         }
 

@@ -30,7 +30,7 @@ class CoachCrudController extends AbstractCrudController
             EmailField::new('email'),
             TelephoneField::new('telephone'),
             MoneyField::new('salary'),
-            AssociationField::new('utilisateur'),
+            AssociationField::new('user'),
 
 
         ];

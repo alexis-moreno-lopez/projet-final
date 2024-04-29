@@ -6,6 +6,7 @@ use App\Entity\Abonner;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,13 @@ class AbonnerType extends AbstractType
             ->add('name')
             ->add('firstName')
             ->add('email')
-            ->add('gender')
+            ->add('gender'
+            //   'required' => true,
+            //   'data' => [
+            //     'Homme' => 'Homme',
+            //     'Femme' => 'Femme',
+            //   ]
+            )
             ->add('dateOfBirth', null, [
                 'widget' => 'single_text',
             ])
@@ -27,7 +34,7 @@ class AbonnerType extends AbstractType
             ->add('emailConfirmation')
             ->add('city')
             ->add('address')
-            ->add('subscription')
+            // ->add('subscription')
         ;
     }
 

@@ -33,20 +33,20 @@ class Coach
     #[ORM\Column]
     private ?int $salary = null;
 
-    #[ORM\ManyToMany(targetEntity: Recette::class, mappedBy: 'author')]
+    #[ORM\ManyToMany(targetEntity: Recette::class, mappedBy: 'coach')]
     private Collection $recettes;
 
     #[ORM\OneToMany(targetEntity: Appointment::class, mappedBy: 'coach')]
     private Collection $appointments;
 
     #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'coach')]
-    private Collection $utilisateur;
+    private Collection $user;
 
     public function __construct()
     {
         $this->recettes = new ArrayCollection();
         $this->appointments = new ArrayCollection();
-        $this->utilisateur = new ArrayCollection();
+        $this->user = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -138,7 +138,7 @@ class Coach
     {
         if (!$this->recettes->contains($recette)) {
             $this->recettes->add($recette);
-            $recette->addAuthor($this);
+            $recette->addCoach($this);
         }
 
         return $this;
@@ -147,7 +147,7 @@ class Coach
     public function removeRecette(Recette $recette): static
     {
         if ($this->recettes->removeElement($recette)) {
-            $recette->removeAuthor($this);
+            $recette->removeCoach($this);
         }
 
         return $this;
@@ -186,27 +186,27 @@ class Coach
     /**
      * @return Collection<int, User>
      */
-    public function getUtilisateur(): Collection
+    public function getUser(): Collection
     {
-        return $this->utilisateur;
+        return $this->user;
     }
 
-    public function addUtilisateur(User $utilisateur): static
+    public function addUser(User $user): static
     {
-        if (!$this->utilisateur->contains($utilisateur)) {
-            $this->utilisateur->add($utilisateur);
-            $utilisateur->setCoach($this);
+        if (!$this->user->contains($user)) {
+            $this->user->add($user);
+            $user->setCoach($this);
         }
 
         return $this;
     }
 
-    public function removeUtilisateur(User $utilisateur): static
+    public function removeUser(User $user): static
     {
-        if ($this->utilisateur->removeElement($utilisateur)) {
+        if ($this->user->removeElement($user)) {
             // set the owning side to null (unless already changed)
-            if ($utilisateur->getCoach() === $this) {
-                $utilisateur->setCoach(null);
+            if ($user->getCoach() === $this) {
+                $user->setCoach(null);
             }
         }
 

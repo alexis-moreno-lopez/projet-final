@@ -132,5 +132,89 @@ margin-bottom: 150px;
   }
 } 
 
+h1 {
+  color: white;
+  text-align: center;
+  margin: 1%;
+  padding: 10px 10px 10px 10px;
+  font-style: italic;
+
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.nav-img {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar {
+
+  background-color: #fe7000;
+height: 80px;
+
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  list-style-type: none;
+  padding: 0 100px;
+
+
+}
+.navbar li {
+  position: relative;
+font-size: 1.3rem;
+font-style: italic;
+ 
+
+}
+.navbar li::before {
+  content: "";
+  width: 0;
+  height: 5px;
+  position: absolute;
+  background: black;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease; /* Transition fluide */
+}
+.navbar li:hover img {
+  opacity: 1; /* Annule l'effet de la barre sur les images */
+}
+
+/* nav li:first-child {
+color: white;
+} */
+
+.navbar li:hover:before {
+  width: 100%; /* Ajuste la largeur au survol */
+}
+
+.logoProfil {
+  height: 40px;
+  width: 40px;
+}
+#offcanvasDarkNavbar {
+  background-color: #fe7000;
+}
+a {
+  text-decoration: none;
+  color: black;
+
+}
+.nav-img {
+
+  width: 50px;
+}
   
 

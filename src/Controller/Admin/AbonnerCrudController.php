@@ -36,7 +36,7 @@ class AbonnerCrudController extends AbstractCrudController
             TextField::new('city'),
             TextField::new('adress'),
             TextField::new('subscribe'),
-            AssociationField::new('utilisateur'),
+            AssociationField::new('user'),
 
 
         ];

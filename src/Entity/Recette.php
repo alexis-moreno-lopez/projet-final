@@ -25,11 +25,11 @@ class Recette
     private ?string $text = null;
 
     #[ORM\ManyToMany(targetEntity: Coach::class, inversedBy: 'recettes')]
-    private Collection $author;
+    private Collection $coach;
 
     public function __construct()
     {
-        $this->author = new ArrayCollection();
+        $this->coach = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,23 +76,23 @@ class Recette
     /**
      * @return Collection<int, Coach>
      */
-    public function getAuthor(): Collection
+    public function getCoach(): Collection
     {
-        return $this->author;
+        return $this->coach;
     }
 
-    public function addAuthor(Coach $author): static
+    public function addCoach(Coach $coach): static
     {
-        if (!$this->author->contains($author)) {
-            $this->author->add($author);
+        if (!$this->coach->contains($coach)) {
+            $this->coach->add($coach);
         }
 
         return $this;
     }
 
-    public function removeAuthor(Coach $author): static
+    public function removeCoach(Coach $coach): static
     {
-        $this->author->removeElement($author);
+        $this->coach->removeElement($coach);
 
         return $this;
     }

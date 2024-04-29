@@ -22,10 +22,10 @@ class PaiementCrudController extends AbstractCrudController
     {
         return [
 
-            AssociationField::new('utilisateur'),
+            AssociationField::new('user'),
             MoneyField::new('amount'),
             DateTimeField::new('createdAt'),
-            AssociationField::new('subscribe'),
+            AssociationField::new('subscription'),
 
 
 

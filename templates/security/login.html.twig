@@ -2,29 +2,7 @@
 
 {# {% block title %}Log in!{% endblock %} #}
 
-{% block body %}
-{# <form method="post"> #}
 
-
-    {# {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %} #}
-
-    {# <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1> #}
-   
-   
-
-
-    {# <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
-    </div> #}
-
-{# </form> #}
-{% endblock %}
 
 
 
@@ -41,7 +19,7 @@
         <div class="test1">
           <img src="/img/logo.png" alt="" />
         </div>
-        <form action="./accueil.php" method="POST">
+        <form method="POST">
         
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

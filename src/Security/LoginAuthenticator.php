@@ -49,7 +49,7 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
+        return new RedirectResponse("http://127.0.0.1:8000/");
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{%  block metaEtLinkSupplementaire %}
+  <link rel="stylesheet" href={{asset('styles/coach.css')}}>
+{% endblock %}
+
 {% block title %}Hello CoachController!{% endblock %}
 
 {% block body %}
@@ -17,4 +21,8 @@
         <li>Your template at <code>C:/laragon/www/projet-final/my_project_directory/templates/coach/index.html.twig</code></li>
     </ul>
 </div>
+{% endblock %}
+
+{% block JavascriptDuBas %}
+<script src={{asset("/coach.js")}}></script>
 {% endblock %}

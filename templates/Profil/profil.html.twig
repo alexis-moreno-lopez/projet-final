@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {%  block metaEtLinkSupplementaire %}
- <link rel="stylesheet" href="/styles/profil.css" />
+ <link rel="stylesheet" href={{asset('styles/profil.css')}} />
 {% endblock %}
 
 {% block body %}
@@ -88,6 +88,7 @@
   </section>
 {% endblock %}
 {% block JavascriptDuBas %}
+<script src={{asset("/profil.js")}}></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const toggleItems = document.querySelectorAll('.toggle-table');

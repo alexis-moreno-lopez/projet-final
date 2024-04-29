@@ -1,7 +1,7 @@
-
+{% extends 'base.html.twig' %}
 
 {%  block metaEtLinkSupplementaire %}
-  <link rel="stylesheet" href="/styles/connexion.css">
+  <link rel="stylesheet" href={{asset('styles/connexion.css')}}>
 {% endblock %}
 
 
@@ -28,4 +28,7 @@
       </div>
     </section>
   </main>
+{% endblock %}
+{% block JavascriptDuBas %} 
+<script src={{asset("/connexion.js")}}></script>
 {% endblock %}

@@ -12,115 +12,99 @@
       <h2 class="padding">Abonnez-vous à AccèsGym !</h2>
     </div>
   </header>
-  <section>
+  <section class="">
   
     {# {{ form_start(inscriptionForm) }} #}
 
 
-      {{ form_errors(registrationForm) }}
+      {# {{ form_errors(registrationForm) }} #}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{form_row(registrationForm.abonner.name)}}
-        {{form_row()}}
-        {{ form_row(registrationForm.agreeTerms) }}
-        
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-
-    <form>   
-     {% for flash_error in app.flashes('verify_email_error') %}
+    
+{{ form_start(registrationForm, {'attr': {'class': 'form'}}) }}
+{% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
       <div class="gender">
-        <div class="gender-check">
-            
-  
-
-          <input type="checkbox" class="form-check-input" />
-          <label class="form-check-label" for="checkLabel1">Homme</label>
-        </div>
-        <div class="gender-check">
-          <input type="checkbox" class="form-check-input" />
-          <label class="form-check-label" for="checkLabel2">Femme</label>
-        </div>
-      </div>
+<div class="gender-check">
+    {{ form_label(registrationForm.abonner.gender, 'Homme', {'label_attr': {'class': 'form-check-label'}}) }}
+    {{ form_widget(registrationForm.abonner.gender, {'attr': {'class': 'form-check-input'}, 'label': false}) }}
+</div>
+{# <div class="gender-check">
+    {{ form_label(registrationForm.abonner.gender, 'Femme', {'label_attr': {'class': 'form-check-label'}}) }}
+    {{ form_widget(registrationForm.abonner.gender, {'attr': {'class': 'form-check-input'}, 'label': false}) }}
+</div> #}
+    </div>
       <div class="responssive d-flex justify-content-center">
         <div class="space-un">
           <div class="mb-3">
-       
+            {{ form_label(registrationForm.abonner.name, 'Prénom', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(registrationForm.abonner.name, {'attr': {'class': 'form-control'}}) }}
+    
+          </div>
+            <div class="mb-3">
+              {{ form_label(registrationForm.abonner.firstName, 'Nom de famille', {'label_attr': {'class': 'form-label'}}) }}
+              {{ form_widget(registrationForm.abonner.firstName, {'attr': {'class': 'form-control'}}) }}
+    
+            </div>
+              <div class="mb-3">
+                {{ form_label(registrationForm.abonner.dateOfBirth, 'Date de Naissance', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(registrationForm.abonner.dateOfBirth, {'attr': {'class': 'form-control'}}) }}
+    
+              </div>
+                <div class="mb-3">
+                  {{ form_label(registrationForm.abonner.telephone, 'telephone', {'label_attr': {'class': 'form-label'}}) }}
+                  {{ form_widget(registrationForm.abonner.telephone, {'attr': {'class': 'form-control'}}) }}
+    
+                </div>
+                      <div class="mb-3">
+                        {{ form_label(registrationForm.abonner.email, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(registrationForm.abonner.email, {'attr': {'class': 'form-control'}}) }}
+    
+                      </div>
+                        <div class="mb-3">
+                          {{ form_label(registrationForm.abonner.emailConfirmation, 'Email de confirmation', {'label_attr': {'class': 'form-label'}}) }}
+                          {{ form_widget(registrationForm.abonner.emailConfirmation, {'attr': {'class': 'form-control'}}) }}
+    
+                        </div>
 
-            <label for="prenomInput" class="form-label">Prénom</label>
-            <input type="text" class="form-control" aria-describedby="prenom" />
-            <div class="form-text"></div>
-          </div>
-          <div class="mb-3">
-          
 
-            <label for="nomInput" class="form-label">Nom de famille</label>
-            <input type="text" class="form-control" aria-describedby="nom" />
-            <div class="form-text"></div>
-          </div>
-          <div class="mb-3">
-        
+                          <div class="space-deux">
+                            <div class="mb-3">
+                              {{ form_label(registrationForm.abonner.postalCode, 'Code Postal', {'label_attr': {'class': 'form-label'}}) }}
+                              {{ form_widget(registrationForm.abonner.postalCode, {'attr': {'class': 'form-control'}}) }}
+                              
+                            </div>
+                              <div class="mb-3">
+                                {{ form_label(registrationForm.abonner.city, 'Ville', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(registrationForm.abonner.city, {'attr': {'class': 'form-control'}}) }}
+                                  
+                              </div>
+                                <div class="mb-3">
+                                  {{ form_label(registrationForm.abonner.street, 'Rue', {'label_attr': {'class': 'form-label'}}) }}
+                                  {{ form_widget(registrationForm.abonner.street, {'attr': {'class': 'form-control'}}) }}
+    
+                                </div>
+                                  <div class="mb-3">
+                                    {{ form_label(registrationForm.abonner.address, 'Numéro de Rue', {'label_attr': {'class': 'form-label'}}) }}
+                                    {{ form_widget(registrationForm.abonner.address, {'attr': {'class': 'form-control'}}) }}
+    
+                                  </div>
 
-            <label for="dateInput" class="form-label">Date de Naissance</label>
-            <input type="date" class="form-control" aria-describedby="date de naissance" />
-            <div class="form-text"></div>
-          </div>
-          <div class="mb-3">
-     
-            <label for="phoneInput" class="form-label">Numéro de téléphone</label>
-            <input type="tel" class="form-control" aria-describedby="telephone" />
-            <div class="form-text"></div>
-          </div>
-          <div class="mb-3">
+                                    <div class="mb-3">
+                                      {{ form_label(registrationForm.plainPassword, 'Mot de passe', {'label_attr': {'class': 'form-label'}}) }} 
+                                      {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}, 'label': 'Password'}) }}
+                                    
+                                    </div>
 
-            <label for="emailInput" class="form-label">Email</label>
-            <input type="email" class="form-control" aria-describedby="email" />
-            <div class="form-text"></div>
-          </div>
-        </div>
+                                      <div class="mb-3 form-check">
+                                        {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label" for="checkLabel3">Check me out</label>
+                                          </div>
 
-        <div class="space-deux">
-          <div class="mb-3">
-            <label for="codePostalInput" class="form-label">Code Postale</label>
-            <input type="text" class="form-control" aria-describedby="code postal" />
-            <div class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="villeInput" class="form-label">Ville</label>
-            <input type="text" class="form-control" aria-describedby="ville" />
-            <div class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="rueInput" class="form-label">Rue</label>
-            <input type="text" class="form-control" aria-describedby="rue" />
-            <div class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="numeroRueInput" class="form-label">Numéro de Rue</label>
-            <input type="text" class="form-control" aria-describedby="numero de rue" />
-            <div class="form-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="infoCompIput" class="form-label">Info Complémentaire</label>
-            <input type="text" class="form-control" aria-describedby="info complementaire" />
-            <div class="form-text"></div>
-          </div>
-
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" />
-            <label class="form-check-label" for="checkLabel3">Check me out</label>
-          </div>
           <button type="submit" class="btn btn-primary">S'inscrire</button>
         </div>
       </div>
-    </form> 
-  </section>
+    {{ form_end(registrationForm) }} 
+  </section> 
 {% endblock %}

@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
-
-{% block metaEtLinkSupplementaire %}
-  <link rel="stylesheet" href="styles/index2.css" />
-{% endblock %}
+  
+{%  block metaEtLinkSupplementaire %}
+    <link rel="stylesheet" href={{asset('styles/index2.css')}}>
+    {% endblock %}
 
 {% block title %}
   Accueil
 {% endblock %}
+
+
 
 {% block body %}
   <header>
@@ -147,4 +149,7 @@
       </ul>
     </div>
   </footer>
+{% endblock %}
+{% block JavascriptDuBas %}
+<script src={{asset("/index2.js")}}></script>
 {% endblock %}

@@ -114,8 +114,7 @@
     width: 350px;
   }
   form {
-    
-    justify-content: center;
+
 
   }
   .space-un {
@@ -123,7 +122,7 @@
     
   }
   .space-deux {
-    padding: 50px 10px 100px 100px;
+    padding-top: 50px;
 
   }
   .gender {

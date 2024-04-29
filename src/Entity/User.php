@@ -34,10 +34,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\OneToOne(mappedBy: 'utilisateur', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Abonner $abonner = null;
 
-    #[ORM\ManyToOne(inversedBy: 'utilisateur')]
+    #[ORM\ManyToOne(inversedBy: 'user')]
     private ?Coach $coach = null;
 
     #[ORM\Column(type: 'boolean')]
@@ -127,12 +127,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // unset the owning side of the relation if necessary
         if ($abonner === null && $this->abonner !== null) {
-            $this->abonner->setUtilisateur(null);
+            $this->abonner->setUser(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($abonner !== null && $abonner->getUtilisateur() !== $this) {
-            $abonner->setUtilisateur($this);
+        if ($abonner !== null && $abonner->getUser() !== $this) {
+            $abonner->setUser($this);
         }
 
         $this->abonner = $abonner;

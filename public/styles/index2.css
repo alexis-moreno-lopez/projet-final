@@ -437,7 +437,10 @@ padding-bottom: 5%;
   line-height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  display: none;
+display: flex;
+justify-content: center;
+align-items: center;
+
 }
 
 .scroll-to-top i {

@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {%  block metaEtLinkSupplementaire %}
-<link rel="stylesheet" href="/styles/propos.css"/>
-{% endblock %}
+    <link rel="stylesheet" href={{asset('styles/propos.css')}}>
+    {% endblock %}
 
 {% block title %}Hello ProposController!{% endblock %}
 
@@ -90,4 +90,7 @@
   <div class="scroll-to-top">
     <i class="fas fa-chevron-up"></i>
   </div>
+{% endblock %}
+{% block JavascriptDuBas %}
+<script src={{asset("/propos.js")}}></script>
 {% endblock %}
