@@ -22,11 +22,8 @@ class Abonner
     #[ORM\Column(length: 255)]
     private ?string $firstName = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
-
     #[ORM\Column]
-    private ?bool $gender = null;
+    private ?string $gender = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateOfBirth = null;
@@ -49,9 +46,6 @@ class Abonner
     #[ORM\Column(length: 255)]
     private ?string $address = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $subscription = null;
-
     #[ORM\OneToMany(targetEntity: Appointment::class, mappedBy: 'subscribe')]
     private Collection $appointments;
 
@@ -60,6 +54,10 @@ class Abonner
 
     #[ORM\OneToMany(targetEntity: Paiement::class, mappedBy: 'user')]
     private Collection $paiements;
+
+    #[ORM\ManyToOne(inversedBy: 'abonners')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Abonnement $subscription = null;
 
     public function __construct()
     {
@@ -95,25 +93,12 @@ class Abonner
 
         return $this;
     }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): static
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function isGender(): ?bool
+    public function isGender(): ?string
     {
         return $this->gender;
     }
 
-    public function setGender(bool $gender): static
+    public function setGender(string $gender): static
     {
         $this->gender = $gender;
 
@@ -204,18 +189,6 @@ class Abonner
         return $this;
     }
 
-    public function getSubscription(): ?string
-    {
-        return $this->subscription;
-    }
-
-    public function setSubscription(string $subscription): static
-    {
-        $this->subscription = $subscription;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Appointment>
      */
@@ -284,6 +257,18 @@ class Abonner
                 $paiement->setAbonner(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSubscription(): ?Abonnement
+    {
+        return $this->subscription;
+    }
+
+    public function setSubscription(?Abonnement $subscription): static
+    {
+        $this->subscription = $subscription;
 
         return $this;
     }

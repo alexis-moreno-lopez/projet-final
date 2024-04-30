@@ -25,17 +25,16 @@ class AbonnerCrudController extends AbstractCrudController
         return [
 
             TextField::new('name'),
-            TextField::new('firsName'),
-            EmailField::new('email'),
-            ChoiceField::new('gender'),
+            TextField::new('firstName'),
+            TextField::new('gender'),
             DateField::new('dateOfBirth'),
             TelephoneField::new('telephone'),
             TextField::new('postalCode'),
             TextField::new('street'),
             TextField::new('emailConfirmation'),
             TextField::new('city'),
-            TextField::new('adress'),
-            TextField::new('subscribe'),
+            TextField::new('address'),
+            AssociationField::new('subscription'),
             AssociationField::new('user'),
 
 

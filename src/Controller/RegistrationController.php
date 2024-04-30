@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Abonnement;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Repository\AbonnementRepository;
 use App\Security\EmailVerifier;
 use App\Security\LoginAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,10 +26,18 @@ class RegistrationController extends AbstractController
     {
     }
 
-    #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
+    #[Route('/register/{name}', name: 'app_register')]
+    public function register(
+    Request $request, 
+    UserPasswordHasherInterface $userPasswordHasher, 
+    Security $security, 
+    EntityManagerInterface $entityManager,
+    AbonnementRepository $abonnementRepository,
+    string $name,
+    ): Response
     {
         $user = new User();
+        $abonnement = $abonnementRepository->findOneBy(['name' => $name]);
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
@@ -40,6 +50,8 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // $user->getAbonner()->setEmail($user->getEmail());
+            $user->getAbonner()->setSubscription($abonnement);
             $entityManager->persist($user);
             $entityManager->flush();
 

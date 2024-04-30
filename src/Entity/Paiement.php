@@ -22,8 +22,7 @@ class Paiement
     #[ORM\ManyToOne(inversedBy: 'paiements')]
     private ?Abonner $subscribe = null;
 
-    #[ORM\ManyToOne(inversedBy: 'paiements')]
-    private ?Abonnement $subscription = null;
+
 
     public function getId(): ?int
     {
@@ -66,15 +65,7 @@ class Paiement
         return $this;
     }
 
-    public function getSubscribe(): ?Abonnement
-    {
-        return $this->subscription;
-    }
 
-    public function setSubscription(?Abonnement $subscription): static
-    {
-        $this->subscription = $subscription;
 
-        return $this;
-    }
+
 }

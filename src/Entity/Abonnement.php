@@ -19,17 +19,22 @@ class Abonnement
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?string $tarif = null;
+    private ?int $tarif = null;
 
     #[ORM\Column(length: 255)]
     private ?string $text = null;
 
-    #[ORM\OneToMany(targetEntity: Paiement::class, mappedBy: 'subscription')]
-    private Collection $paiements;
+    #[ORM\OneToMany(targetEntity: Abonner::class, mappedBy: 'subscription', orphanRemoval: true)]
+    private Collection $abonners;
 
     public function __construct()
     {
-        $this->paiements = new ArrayCollection();
+        $this->abonners = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -49,12 +54,12 @@ class Abonnement
         return $this;
     }
 
-    public function getTarif(): ?string
+    public function getTarif(): ?int
     {
         return $this->tarif;
     }
 
-    public function setTarif(string $tarif): static
+    public function setTarif(int $tarif): static
     {
         $this->tarif = $tarif;
 
@@ -74,32 +79,33 @@ class Abonnement
     }
 
     /**
-     * @return Collection<int, Paiement>
+     * @return Collection<int, Abonner>
      */
-    public function getPaiements(): Collection
+    public function getAbonners(): Collection
     {
-        return $this->paiements;
+        return $this->abonners;
     }
 
-    public function addPaiement(Paiement $paiement): static
+    public function addAbonner(Abonner $abonner): static
     {
-        if (!$this->paiements->contains($paiement)) {
-            $this->paiements->add($paiement);
-            $paiement->setSubscription($this);
+        if (!$this->abonners->contains($abonner)) {
+            $this->abonners->add($abonner);
+            $abonner->setSubscription($this);
         }
 
         return $this;
     }
 
-    public function removePaiement(Paiement $paiement): static
+    public function removeAbonner(Abonner $abonner): static
     {
-        if ($this->paiements->removeElement($paiement)) {
+        if ($this->abonners->removeElement($abonner)) {
             // set the owning side to null (unless already changed)
-            if ($paiement->getSubscribe() === $this) {
-                $paiement->setSubscription(null);
+            if ($abonner->getSubscription() === $this) {
+                $abonner->setSubscription(null);
             }
         }
 
         return $this;
     }
+
 }

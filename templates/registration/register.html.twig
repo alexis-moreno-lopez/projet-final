@@ -26,17 +26,17 @@
     {% endfor %}
 
       <div class="gender">
-<div class="gender-check">
-    {{ form_label(registrationForm.abonner.gender, 'Homme', {'label_attr': {'class': 'form-check-label'}}) }}
-    {{ form_widget(registrationForm.abonner.gender, {'attr': {'class': 'form-check-input'}, 'label': false}) }}
-</div>
-{# <div class="gender-check">
-    {{ form_label(registrationForm.abonner.gender, 'Femme', {'label_attr': {'class': 'form-check-label'}}) }}
-    {{ form_widget(registrationForm.abonner.gender, {'attr': {'class': 'form-check-input'}, 'label': false}) }}
-</div> #}
+
+
     </div>
       <div class="responssive d-flex justify-content-center">
         <div class="space-un">
+
+<div class="mb-3">
+    {{ form_label(registrationForm.abonner.gender, 'Genre', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(registrationForm.abonner.gender, {'attr': {'class': 'form-control'}}) }}
+</div>
+
           <div class="mb-3">
             {{ form_label(registrationForm.abonner.name, 'Prénom', {'label_attr': {'class': 'form-label'}}) }}
             {{ form_widget(registrationForm.abonner.name, {'attr': {'class': 'form-control'}}) }}
@@ -58,8 +58,8 @@
     
                 </div>
                       <div class="mb-3">
-                        {{ form_label(registrationForm.abonner.email, null, {'label_attr': {'class': 'form-label'}}) }}
-                        {{ form_widget(registrationForm.abonner.email, {'attr': {'class': 'form-control'}}) }}
+                        
+                        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
     
                       </div>
                         <div class="mb-3">

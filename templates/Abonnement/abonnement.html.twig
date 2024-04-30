@@ -1,136 +1,138 @@
 {% extends 'base.html.twig' %}
 
-{%  block metaEtLinkSupplementaire %}
-  <link rel="stylesheet" href={{asset('styles/abonnement.css')}} />
-  {% endblock %}
+{% block metaEtLinkSupplementaire %}
+  <link rel="stylesheet" href="{{ asset('styles/abonnement.css') }}" />
+{% endblock %}
 
 {% block title %}Hello AbonnementController!{% endblock %}
 
 {% block body %}
  <main>
-    <section class="un">
-      <div class="ligne container">
-        <a href="/formulaire/inscription">
-          <div class="box">
-            <h2>JEUNE</h2>
 
-            <div class="separation"></div>
-            <h3>19,99€ / 4 semaines</h3>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
-              club AccèsGym de 6h à 21h non-stop 7j/7
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
-              Barres et
-              Haltères
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Recette
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/traverser.png" alt="" />Spa
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/traverser.png" alt="" />Coach
-            </p>
-          </div>
-        </a>
-        <div class="paragraphe-un container">
-          <h2>Étudiant</h2>
-          <p class="font">
-
-            Étudiants actifs, votre remise en forme commence ici !
-            Profitez d'un accès à nos installations haut de gamme avec notre abonnement spécial étudiant.
-            Tarifs atractif et pas cher garantie.
-            Rejoignez-nous maintenant et atteignez vos objectifs de remise en forme avec facilité !
-          </p>
-        </div>
-
-      </div>
-    </section>
-    <section class="deux">
-      <div class="ligne container">
-        <div class="paragraphe-un">
-          <h2>Relax</h2>
-          <p class="font">
-            Découvrez notre abonnement Confort pour une expérience de remise en forme ultime !
-            Profitez d'un accès exclusif à nos installations premium,
-            d'un service personnalisé et de nombreux avantages supplémentaires.
-            Rejoignez-nous dès maintenant et vivez une vie plus saine et plus confortable avec nous !
-          </p>
-        </div>
-        <a href="/formulaire/inscription">
-          <div class="box">
-            <h2>COMFORT</h2>
-
-            <div class="separation"></div>
-            <h3>24,99€ / 4 semaines</h3>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
-              club AccèsGym de 6h à 21h non-stop 7j/7
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
-              Barres et
-              Haltères
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Recette
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Spa
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/traverser.png" alt="" />Coach
-            </p>
-          </div>
-        </a>
-      </div>
-    </section>
-    <section class="trois">
-      <div class="ligne container">
-        <a href="/formulaire/inscription">
-          <div class="box">
-            <h2>PREMIUM</h2>
-
-            <div class="separation"></div>
-            <h3>39,99€ / 4 semaines</h3>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
-              club AccèsGym de 6h à 21h non-stop 7j/7
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
-              Barres et
-              Haltères
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Recette
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Spa
-            </p>
-            <p class="margin">
-              <img class="logoverif" src="/img/verifier.png" alt="" />Coach
-            </p>
-          </div>
-        </a>
-        <div class="paragraphe-un container">
-          <h2>Full</h2>
-          <p class="font">
-
-            Plongez dans l'excellence avec notre abonnement Premium,
-            conçu pour ceux qui recherchent le summum de la remise en forme et du bien-être.
-            Accès à nos installations haut de gamme, programmes exclusifs et services VIP vous attendent.
-            Rejoignez-nous dès maintenant et vivez une expérience de remise en forme inégalée !
-          </p>
-        </div>
-
-
-    </section>
-  </main>
+  
+ 
+                {% for abonnement in abonnements %}
+        <section class="un">
+            <div class="ligne container">
+                <a href="/formulaire/inscription"> 
+                    <div class="box">
+                        <h2> {{ abonnement.getName()}}</h2>
+                        <div class="separation"></div>
+                        <h3>{{ abonnement.getTarif()}}</h3>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />{{ abonnement.text}}
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
+                            club AccèsGym de 6h à 21h non-stop 7j/7
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
+                            Barres et Haltères
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Recette
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/traverser.png" alt="" />Spa
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/traverser.png" alt="" />Coach
+                        </p>
+                    </div>
+                </a>
+                <div class="paragraphe-un container">
+                    <h2>Étudiant</h2>
+                    <p class="font">
+                        Étudiants actifs, votre remise en forme commence ici !
+                        Profitez d'un accès à nos installations haut de gamme avec notre abonnement spécial étudiant.
+                        Tarifs atractif et pas cher garantie.
+                        Rejoignez-nous maintenant et atteignez vos objectifs de remise en forme avec facilité !
+                    </p>
+                </div>
+            </div>
+        </section>
+                {% endfor %}
+    {# {% elseif abonnements == 'confort' %}
+        <section class="deux">
+            <div class="ligne container">
+                <div class="paragraphe-un">
+                    <h2>Relax</h2>
+                    <p class="font">
+                        Découvrez notre abonnement Confort pour une expérience de remise en forme ultime !
+                        Profitez d'un accès exclusif à nos installations premium,
+                        d'un service personnalisé et de nombreux avantages supplémentaires.
+                        Rejoignez-nous dès maintenant et vivez une vie plus saine et plus confortable avec nous !
+                    </p>
+                </div>
+                <a href="/formulaire/inscription">
+                    <div class="box">
+                        <h2>COMFORT</h2>
+                        <div class="separation"></div>
+                        <h3>24,99€ / 4 semaines</h3>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
+                            club AccèsGym de 6h à 21h non-stop 7j/7
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
+                            Barres et Haltères
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Recette
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Spa
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/traverser.png" alt="" />Coach
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    {% elseif abonnements == 'premium' %}
+        <section class="trois">
+            <div class="ligne container">
+                <a href="/formulaire/inscription">
+                    <div class="box">
+                        <h2>PREMIUM</h2>
+                        <div class="separation"></div>
+                        <h3>39,99€ / 4 semaines</h3>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
+                            club AccèsGym de 6h à 21h non-stop 7j/7
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
+                            Barres et Haltères
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Recette
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Spa
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />Coach
+                        </p>
+                    </div>
+                </a>
+                <div class="paragraphe-un container">
+                    <h2>Full</h2>
+                    <p class="font">
+                        Plongez dans l'excellence avec notre abonnement Premium,
+                        conçu pour ceux qui recherchent le summum de la remise en forme et du bien-être.
+                        Accès à nos installations haut de gamme, programmes exclusifs et services VIP vous attendent.
+                        Rejoignez-nous dès maintenant et vivez une expérience de remise en forme inégalée !
+                    </p>
+                </div>
+            </div>
+        </section>
+    {% endif %} #}
+ </main>
 {% endblock %}
+
 {% block JavascriptDuBas %}
-<script src={{asset("/abonnement.js")}}></script>
+<script src="{{ asset('/abonnement.js') }}"></script>
 {% endblock %}

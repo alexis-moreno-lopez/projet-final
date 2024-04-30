@@ -17,7 +17,7 @@ class AbonnerType extends AbstractType
         $builder
             ->add('name')
             ->add('firstName')
-            ->add('email')
+            // ->add('email')
             ->add('gender'
             //   'required' => true,
             //   'data' => [
