@@ -22,8 +22,15 @@ class AbonnementCrudController extends AbstractCrudController
         return [
 
             TextField::new('name'),
-            IntegerField::new('tarif'),
-            TextField::new('text'),
+            TextField::new('tarif'),
+            // TextField::new('text'),
+            TextField::new('textSchedule'),
+            TextField::new('textActivity'),
+            TextField::new('textRecipe'),
+            TextField::new('textSpa'),
+            TextField::new('textCoach'),
+            TextField::new('title'),
+            TextField::new('textDescription'),
 
 
         ];

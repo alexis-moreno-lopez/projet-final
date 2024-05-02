@@ -22,7 +22,7 @@ class RecetteCrudController extends AbstractCrudController
         return [
 
             TextField::new('name'),
-            ImageField::new('picture')->setUploadDir('../public/assets/img'),
+            ImageField::new('picture')->setUploadDir('public/img'),
             TextField::new('text'),
             AssociationField::new('coach'),
         ];

@@ -43,6 +43,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    private ?string $test = null;
+
+    public function __toString()
+    {
+        return $this->email;
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -162,5 +170,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+    public function setTest(string $test): static
+    {
+        $this->test = $test;
+        return $this;
+    }
+
+    public function getTest(): string
+    {
+        return $this->test;
     }
 }

@@ -19,13 +19,33 @@ class Abonnement
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?int $tarif = null;
+    private ?string $tarif = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $text = null;
+
 
     #[ORM\OneToMany(targetEntity: Abonner::class, mappedBy: 'subscription', orphanRemoval: true)]
     private Collection $abonners;
+
+    #[ORM\Column(length: 255)]
+    private ?string $textSchedule = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $textActivity = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $textRecipe = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $textSpa = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $textCoach = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
+
+    #[ORM\Column(length: 500)]
+    private ?string $textDescription = null;
 
     public function __construct()
     {
@@ -54,29 +74,19 @@ class Abonnement
         return $this;
     }
 
-    public function getTarif(): ?int
+    public function getTarif(): ?string
     {
         return $this->tarif;
     }
 
-    public function setTarif(int $tarif): static
+    public function setTarif(string $tarif): static
     {
         $this->tarif = $tarif;
 
         return $this;
     }
 
-    public function getText(): ?string
-    {
-        return $this->text;
-    }
 
-    public function setText(string $text): static
-    {
-        $this->text = $text;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Abonner>
@@ -104,6 +114,90 @@ class Abonnement
                 $abonner->setSubscription(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTextSchedule(): ?string
+    {
+        return $this->textSchedule;
+    }
+
+    public function setTextSchedule(string $textSchedule): static
+    {
+        $this->textSchedule = $textSchedule;
+
+        return $this;
+    }
+
+    public function getTextActivity(): ?string
+    {
+        return $this->textActivity;
+    }
+
+    public function setTextActivity(string $textActivity): static
+    {
+        $this->textActivity = $textActivity;
+
+        return $this;
+    }
+
+    public function getTextRecipe(): ?string
+    {
+        return $this->textRecipe;
+    }
+
+    public function setTextRecipe(string $textRecipe): static
+    {
+        $this->textRecipe = $textRecipe;
+
+        return $this;
+    }
+
+    public function getTextSpa(): ?string
+    {
+        return $this->textSpa;
+    }
+
+    public function setTextSpa(string $textSpa): static
+    {
+        $this->textSpa = $textSpa;
+
+        return $this;
+    }
+
+    public function getTextCoach(): ?string
+    {
+        return $this->textCoach;
+    }
+
+    public function setTextCoach(string $textCoach): static
+    {
+        $this->textCoach = $textCoach;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getTextDescription(): ?string
+    {
+        return $this->textDescription;
+    }
+
+    public function setTextDescription(string $textDescription): static
+    {
+        $this->textDescription = $textDescription;
 
         return $this;
     }

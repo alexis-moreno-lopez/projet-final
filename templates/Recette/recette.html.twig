@@ -7,6 +7,7 @@
 {% block title %}Hello RecetteController!{% endblock %}
 
 {% block body %}
+{% for recette in recettes %}
 <section class="section-un">
     <div id="padding">
         <h2 class="titre-un">aperitif</h2>
@@ -20,7 +21,7 @@
                 </div>
                 <div class="design-card-deux">
                     <a href="https://fr.wikipedia.org/wiki/Coach_sportif" target="_blank">
-                        <h2>Pain Grillé</h2>
+                        <h2>{{ recette.name}}</h2>
                     </a>
                     <p class="date">23/07/2020</p>
                     <p class="description"> Profite de l'aide d'un entraineur personnel certifié. Le Coach
@@ -31,7 +32,7 @@
                 </div>
             </div>
         </div>
-
+{# 
         <div class="container">
             <div class="retourne-card">
                 <div class="design-card">
@@ -71,8 +72,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> #}
 </section>
+{% endfor %}
+
 <section class="section-deux">
     <div id="padding">
         <h2 class="titre-deux text-white">Plat de résistance</h2>
@@ -270,8 +273,9 @@
 
 
 
-{% block JavascriptDuBas %} 
+{% block javascripts %} 
 <script src={{asset("/recette.js")}}></script>
+<script src={{asset("/modal.js")}}></script>
 {% endblock %}
 {% endblock %}
 

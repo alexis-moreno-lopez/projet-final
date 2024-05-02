@@ -7,47 +7,37 @@
 {% block title %}Hello AbonnementController!{% endblock %}
 
 {% block body %}
- <main>
+<main>
 
-  
- 
                 {% for abonnement in abonnements %}
         <section class="un">
             <div class="ligne container">
-                <a href="/formulaire/inscription"> 
+                <a href="{{path('app_register', {name: abonnement.name})}}"> 
                     <div class="box">
                         <h2> {{ abonnement.getName()}}</h2>
                         <div class="separation"></div>
                         <h3>{{ abonnement.getTarif()}}</h3>
                         <p class="margin">
-                            <img class="logoverif" src="/img/verifier.png" alt="" />{{ abonnement.text}}
+                            <img class="logoverif" src="/img/verifier.png" alt="" />{{ abonnement.textSchedule}}
                         </p>
                         <p class="margin">
-                            <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
-                            club AccèsGym de 6h à 21h non-stop 7j/7
+                            <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textActivity}}
                         </p>
                         <p class="margin">
-                            <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
-                            Barres et Haltères
+                            <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textRecipe}}
                         </p>
                         <p class="margin">
-                            <img class="logoverif" src="/img/verifier.png" alt="" />Recette
+                            <img class="logoverif" src="/img/traverser.png" alt="" />{{abonnement.textSpa}}
                         </p>
                         <p class="margin">
-                            <img class="logoverif" src="/img/traverser.png" alt="" />Spa
-                        </p>
-                        <p class="margin">
-                            <img class="logoverif" src="/img/traverser.png" alt="" />Coach
+                            <img class="logoverif" src="/img/traverser.png" alt="" />{{abonnement.textCoach}}
                         </p>
                     </div>
                 </a>
                 <div class="paragraphe-un container">
-                    <h2>Étudiant</h2>
+                    <h2>{{abonnement.title}}</h2>
                     <p class="font">
-                        Étudiants actifs, votre remise en forme commence ici !
-                        Profitez d'un accès à nos installations haut de gamme avec notre abonnement spécial étudiant.
-                        Tarifs atractif et pas cher garantie.
-                        Rejoignez-nous maintenant et atteignez vos objectifs de remise en forme avec facilité !
+                   {{abonnement.textDescription}}
                     </p>
                 </div>
             </div>
@@ -133,6 +123,6 @@
  </main>
 {% endblock %}
 
-{% block JavascriptDuBas %}
-<script src="{{ asset('/abonnement.js') }}"></script>
+{% block javascripts %}
+<script src="{{ asset('js/abonnement.js') }}"></script>
 {% endblock %}
