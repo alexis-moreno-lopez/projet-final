@@ -14,12 +14,16 @@ class RecetteController extends AbstractController
     {
         $recettes = $recetteRepository->findAll();
         // pour des categorie
-        $aperitifs = $recetteRepository->findBy(['categorie' => 'aperitif']);
-        $plats = $recetteRepository->findBy(['categorie' => 'plat']);
-        $desserts = $recetteRepository->findBy(['categorie' => 'dessert']);
-        return $this->render('/recette/recette.html.twig', [
+        $aperitifs = $recetteRepository->findBy(['category' => 'aperitif']);
+        $plats = $recetteRepository->findBy(['category' => 'plat']);
+        $desserts = $recetteRepository->findBy(['category' => 'dessert']);
+
+        return $this->render('Recette/recette.html.twig', [
             'controller_name' => 'RecetteController',
             'recettes' => $recettes, // Transmettre l'identifiant de l'abonnement à la vue
+            'aperitifs' => $aperitifs,
+            'plats' => $plats,
+            'desserts' => $desserts,
         ]);
     }
 }

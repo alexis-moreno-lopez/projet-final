@@ -27,6 +27,7 @@ class AbonnerType extends AbstractType
             )
             ->add('dateOfBirth', null, [
                 'widget' => 'single_text',
+
             ])
             ->add('telephone')
             ->add('postalCode')

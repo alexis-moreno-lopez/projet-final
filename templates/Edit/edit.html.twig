@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+{% block metaEtLinkSupplementaire %}
+  <link rel="stylesheet" href="/styles/formInscription.css" />
+{% endblock %}
+{% block title %}Modifier mon profil{% endblock %}
+
+{% block body %}
+    <h1 class="text-dark">Modifier mon profil</h1>
+
+  <section class="">
+{{ form_start(form) }}
+  <div class="responssive d-flex justify-content-center">
+        <div class="space-un">
+        <div class="mb-3">
+    {{ form_label(form.abonner.gender, 'Genre', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.abonner.gender, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="mb-3">
+    {{ form_label(form.abonner.name, 'prénom', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.abonner.name, {'attr': {'class': 'form-control'}}) }}
+</div>
+    
+              <div class="mb-3">
+            {{ form_label(form.abonner.firstName, 'nom de famille', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.abonner.firstName, {'attr': {'class': 'form-control'}}) }}
+    
+          </div>
+
+              <div class="mb-3">
+                {{ form_label(form.abonner.dateOfBirth, 'Date de Naissance', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.abonner.dateOfBirth, {'attr': {'class': 'form-control'}}) }}
+    
+              </div>
+                <div class="mb-3">
+                  {{ form_label(form.abonner.telephone, 'telephone', {'label_attr': {'class': 'form-label'}}) }}
+                  {{ form_widget(form.abonner.telephone, {'attr': {'class': 'form-control'}}) }}
+    
+                </div>
+                      <div class="mb-3">
+                        
+                        {{ form_label(form.email, 'Email', {'label_attr': {'class': 'form-label'}}) }}
+   {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                      </div>
+                       </div>
+                        <div class="space-deux ms-5">
+                        <div class="mb-3">
+                          {{ form_label(form.abonner.emailConfirmation, 'Email de confirmation', {'label_attr': {'class': 'form-label'}}) }}
+                          {{ form_widget(form.abonner.emailConfirmation, {'attr': {'class': 'form-control'}}) }}
+    
+                        </div>
+
+
+                         
+                            <div class="mb-3">
+                              {{ form_label(form.abonner.postalCode, 'Code Postal', {'label_attr': {'class': 'form-label'}}) }}
+                              {{ form_widget(form.abonner.postalCode, {'attr': {'class': 'form-control'}}) }}
+                              
+                            </div>
+                              <div class="mb-3">
+                                {{ form_label(form.abonner.city, 'Ville', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(form.abonner.city, {'attr': {'class': 'form-control'}}) }}
+                                  
+                              </div>
+                                <div class="mb-3">
+                                  {{ form_label(form.abonner.street, 'Rue', {'label_attr': {'class': 'form-label'}}) }}
+                                  {{ form_widget(form.abonner.street, {'attr': {'class': 'form-control'}}) }}
+    
+                                </div>
+                                  <div class="mb-3">
+                                    {{ form_label(form.abonner.address, 'Numéro de Rue', {'label_attr': {'class': 'form-label'}}) }}
+                                    {{ form_widget(form.abonner.address, {'attr': {'class': 'form-control'}}) }}
+    
+                                  </div>
+
+                                    <div class="mb-3">
+                                      {{ form_label(form.plainPassword, 'Mot de passe', {'label_attr': {'class': 'form-label'}}) }} 
+                                      {{ form_widget(form.plainPassword, {'attr': {'class': 'form-control'}, 'label': 'Password'}) }}
+                                    
+                                    </div>
+
+        <input type="submit" class="valider" value="Valider" />
+    {{ form_end(form) }}
+{% endblock %}

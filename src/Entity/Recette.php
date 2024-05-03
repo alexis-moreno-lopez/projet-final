@@ -27,6 +27,18 @@ class Recette
     #[ORM\ManyToMany(targetEntity: Coach::class, inversedBy: 'recettes')]
     private Collection $coach;
 
+    #[ORM\Column(length: 255)]
+    private ?string $category = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $summarize = null;
+
+    #[ORM\Column]
+    private ?int $time = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $ingredient = null;
+
     public function __construct()
     {
         $this->coach = new ArrayCollection();
@@ -93,6 +105,54 @@ class Recette
     public function removeCoach(Coach $coach): static
     {
         $this->coach->removeElement($coach);
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getSummarize(): ?string
+    {
+        return $this->summarize;
+    }
+
+    public function setSummarize(string $summarize): static
+    {
+        $this->summarize = $summarize;
+
+        return $this;
+    }
+
+    public function getTime(): ?int
+    {
+        return $this->time;
+    }
+
+    public function setTime(int $time): static
+    {
+        $this->time = $time;
+
+        return $this;
+    }
+
+    public function getIngredient(): ?string
+    {
+        return $this->ingredient;
+    }
+
+    public function setIngredient(string $ingredient): static
+    {
+        $this->ingredient = $ingredient;
 
         return $this;
     }

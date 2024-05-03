@@ -10,10 +10,10 @@
       <div> <img class="appareil" src="../img/appareil-photo-numerique.png" alt=""></div>
       <img class="photo" src="/img/profil.png" alt="">
       <div class="prenom">
-        <p>Alexis Moreno-Lopez</p>
+        <p>{{ abonner.name }}</p>
       </div>
       <div>
-        ID :39405930
+        ID :{{ abonnerId }}
       </div>
     </div>
 
@@ -25,27 +25,24 @@
       </div>
       <div class="ligne container">
         <div class="box">
-          <h2>PREMIUM</h2>
+          <h2>{{ abonnement.name }}</h2>
 
           <div class="separation"></div>
-          <h3>39,99€ / 4 semaines</h3>
+          <h3>{{ abonnement.tarif }}</h3>
           <p class="margin">
-            <img class="logoverif" src="/img/verifier.png" alt="" />Accès à un
-            club AccèsGym de 6h à 21h non-stop 7j/7
+            <img class="logoverif" src="/img/verifier.png" alt="" />{{ abonnement.textSchedule}}
           </p>
           <p class="margin">
-            <img class="logoverif" src="/img/verifier.png" alt="" />Cardio-Trainig/ Musculation Guidée, Poids libres,
-            Barres et
-            Haltères
+            <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textActivity}}
           </p>
           <p class="margin">
-            <img class="logoverif" src="/img/verifier.png" alt="" />Recette
+            <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textRecipe}}
           </p>
           <p class="margin">
-            <img class="logoverif" src="/img/verifier.png" alt="" />Spa
+            <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textSpa}}
           </p>
           <p class="margin">
-            <img class="logoverif" src="/img/verifier.png" alt="" />Coach
+            <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textCoach}}
           </p>
         </div>
   </header>
@@ -72,17 +69,20 @@
             <i class="fa-regular fa-hand-pointer"></i>
             <i class="fa-regular fa-hand-point-down hidden"></i>
           </li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Nom: Moreno-Lopez</li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Prénom: </li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Date de Naissance: </li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Numéro de téléphone:</li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Email:</li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Code Postale:</li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Ville:</li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Rue:</li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Numéro de Rue:</li>
-          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> Info Complémentaire:</li>
+          <li class="hidden"> Nom:  {{ abonner.name }}</li>
+          <li class="hidden"> Prénom: {{ abonner.firstName }}</li> </li>
+          <li class="hidden"> Date de Naissance:{{ abonner.dateOfBirth|date('d/m/Y') }} </li>
+          <li class="hidden"> Numéro de téléphone:{{ abonner.telephone }}</li>
+          <li class="hidden"> Email:{{ abonner.emailConfirmation }}</li>
+          <li class="hidden"> Code Postale: {{ abonner.postalCode }}</li>
+          <li class="hidden"> Ville:{{ abonner.city }}</li>
+          <li class="hidden"> Rue:{{ abonner.street }}</li>
+          <li class="hidden"> Numéro de Rue: {{ abonner.address }}</li>
+          <li class="hidden"> Info Complémentaire:{{ abonner.subscription }}</li>
+          <a href="{{ path('app_edit') }}" class="modifier">modifier</a>
+          <a href="{{ path('app_unsubscribe', {'id': abonnerId}) }}" onclick="return confirm('Êtes-vous sûr de vouloir vous désabonner ?')">Désabonner</a>
         </ul>
+        
       </div>
     </div>
   </section>

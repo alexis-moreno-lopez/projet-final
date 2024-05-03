@@ -140,6 +140,19 @@ padding-top: 50px;
   .gender-check {
     margin:0px 0px 0px 50px;
   }
+  .valider {
+    height: 40px;
+    background: white;
+    border: 1px solid #fe7000;
+    border-radius: 50px;
+    padding: 13px 30px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .valider:hover {
+    background: #fe7000;
+  }
       /*--------------------------------------------Fin------------------------------------------------------------*/
     /*--------------------------------------------MédiaQuery------------------------------------------------------------*/
   @media (max-width: 860px) { 

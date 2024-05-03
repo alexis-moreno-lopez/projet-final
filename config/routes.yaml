@@ -3,3 +3,13 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+edit_profile:
+    path: '/edit'
+    controller: 'App\Controller\ProfilController::editProfil'
+    methods: ['GET']
+
+app_unsubscribe:
+    path: /profil/unsubscribe/{id}
+    controller: 'App\Controller\ProfilController::unsubscribe' # Remplacez par le contrôleur approprié
+    methods: ['GET', 'DELETE']

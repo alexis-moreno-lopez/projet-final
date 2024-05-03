@@ -7,21 +7,22 @@
 {% block title %}Hello RecetteController!{% endblock %}
 
 {% block body %}
-{% for recette in recettes %}
 <section class="section-un">
-    <div id="padding">
+    
+<div id="padding">
         <h2 class="titre-un">aperitif</h2>
     </div>
-    <div id="content">
+    <div class="">
+{% for aperitif in aperitifs %}
         <div class="container">
             <div class="retourne-card">
                 <div class="design-card">
-                    <img src="/img/pain.webp" alt="Coach sportif">
-                    <p class="bas-card">pain grillé</p>
+                    <img src="{{ asset('img/' ~ aperitif.picture) }}" alt="Coach sportif">
+                    <p class="bas-card">{{ aperitif.name }}</p>
                 </div>
                 <div class="design-card-deux">
                     <a href="https://fr.wikipedia.org/wiki/Coach_sportif" target="_blank">
-                        <h2>{{ recette.name}}</h2>
+                        <h2>{{ aperitif.name }}</h2>
                     </a>
                     <p class="date">23/07/2020</p>
                     <p class="description"> Profite de l'aide d'un entraineur personnel certifié. Le Coach
@@ -32,6 +33,7 @@
                 </div>
             </div>
         </div>
+        
 {# 
         <div class="container">
             <div class="retourne-card">
@@ -73,34 +75,37 @@
             </div>
         </div>
     </div> #}
-</section>
 {% endfor %}
+    </div>
+</section>
 
 <section class="section-deux">
     <div id="padding">
         <h2 class="titre-deux text-white">Plat de résistance</h2>
     </div>
+    <div class="">
+{% for plat in plats %}
     <div class="container">
         <div class="retourne-card">
             <div class="design-card">
-                <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
-                <p class="bas-card">Nutrition</p>
+                <img src="{{ asset('img/' ~ plat.picture) }}" alt="Nutrition">
+                <p class="bas-card">{{ plat.name }}</p>
             </div>
             <div class="design-card-deux">
                 <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
-                    <h2>Tulip</h2>
+                    <h2>{{ plat.name }}</h2>
                 </a>
                 <p class="date">14/07/2020</p>
-                <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
-                    bulbiferous
-                    geophytes. The flowers are usually large, showy and brightly coloured, generally red,
-                    yellow, or
-                    white.</p>
+                <p class="description">Profite de l'aide d'un entraineur personnel certifié. Le Coach
+                        Sportif
+                        (60min)
+                        </p>
+                    <button class="recette text-white">Recette</button>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
+
+{# <div class="container">
     <div class="retourne-card">
         <div class="design-card">
             <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
@@ -139,33 +144,37 @@
         </div>
     </div>
 </div>
+</div> #}
+
+{% endfor %}
 </div>
 </section>
 <section>
     <div id="padding">
         <h2 class="titre-un">Dessert</h2>
     </div>
+    <div class="">
+{% for dessert in desserts %}
     <div class="container">
         <div class="retourne-card">
             <div class="design-card">
-                <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
-                <p class="bas-card">Nutrition</p>
+                <img src="{{ asset('img/' ~ dessert.picture) }}" alt="Nutrition">
+                <p class="bas-card">{{ dessert.name }}</p>
             </div>
             <div class="design-card-deux">
                 <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
-                    <h2>Tulip</h2>
+                    <h2>{{ dessert.name }}</h2>
                 </a>
                 <p class="date">14/07/2020</p>
-                <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous
-                    bulbiferous
-                    geophytes. The flowers are usually large, showy and brightly coloured, generally red,
-                    yellow, or
-                    white.</p>
+                <p class="description">Profite de l'aide d'un entraineur personnel certifié. Le Coach
+                        Sportif
+                        (60min)</p>
+                    <button class="recette text-white">Recette</button>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
+
+{# <div class="container">
     <div class="retourne-card">
         <div class="design-card">
             <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
@@ -205,8 +214,12 @@
         </div>
     </div>
 </div>
+</div>  #}
+{% endfor %}
 </div>
 </section>
+
+
 <section class="test">
 <div id="myModal" class="modalImg d-none">
         <div class="btn_close">
