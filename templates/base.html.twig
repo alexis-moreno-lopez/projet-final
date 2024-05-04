@@ -36,14 +36,13 @@
     <li class="nav-item">
       <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{ path('app_profil') }}">profil</a>
-    </li>
+
 
                <select name="pets" id="pet-select" onchange="redirectToPage()">
             <option value="">plus</option>
+            <option value="profil" href="{{ path('app_profil') }}">Profil</option>
             <option value="recette" href="{{ path('app_recette') }}">Recette</option>
-            <option value="coach">Coach</option>
+            <option value="coach" href="{{ path('app_coach')}}">Coach</option>
           </select>
           </li>
 
@@ -61,7 +60,7 @@
     </li>Gym
               </h1>
               <li class="nav-item">
-                 <a class="nav-link" href="{{ path('app_index') }}">Contact</a>
+                 <a class="nav-link" href="{{ path('app_index') }}#contact">Contact</a>
               </li>
               <li class="nav-item">
                  <a class="nav-link" href="{{ path('app_propos') }}">À Propos</a>

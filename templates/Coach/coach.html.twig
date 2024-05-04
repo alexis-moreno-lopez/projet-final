@@ -1,28 +1,68 @@
 {% extends 'base.html.twig' %}
 
 {%  block metaEtLinkSupplementaire %}
-  <link rel="stylesheet" href={{asset('styles/coach.css')}}>
+ <link rel="stylesheet" href={{asset('styles/coach.css')}} />
 {% endblock %}
-
-{% block title %}Hello CoachController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<header>
+    <div class="padding">
+      <div> <img class="appareil" src="../img/appareil-photo-numerique.png" alt=""></div>
+      <img class="photo" src="/img/profil.png" alt="">
+      <div class="prenom">
+        <p>blabla</p>
+      </div>
+      <div>
+        ID :
+      </div>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="padding">
+      <div class="placement">
+       
+         
+  </header>
+  <section>
+    <div class="corners pb-5">
+      <div class="corner">
+        <ul class="list">
+          <li class="toggle-table">Paiements
+            <i class="fa-regular fa-hand-pointer"></i>
+            <i class="fa-regular fa-hand-point-down hidden"></i>
+          </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+          <li class="hidden"><i class="fa-solid fa-arrow-right"></i> </li>
+        </ul>
+      </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/laragon/www/projet-final/my_project_directory/src/Controller/CoachController.php</code></li>
-        <li>Your template at <code>C:/laragon/www/projet-final/my_project_directory/templates/coach/index.html.twig</code></li>
-    </ul>
-</div>
+      <div class="corner">
+        <ul class="list">
+          <li class="toggle-table">Données personnelles
+            <i class="fa-regular fa-hand-pointer"></i>
+            <i class="fa-regular fa-hand-point-down hidden"></i>
+          </li>
+          <li class="hidden"> Nom:  </li>
+          <li class="hidden"> Prénom: </li> </li>
+          <li class="hidden"> Date de Naissance: </li>
+          <li class="hidden"> Numéro de téléphone:</li>
+          <li class="hidden"> Email:</li>
+          <li class="hidden"> Code Postale:</li>
+          <li class="hidden"> Ville:</li>
+          <li class="hidden"> Rue:</li>
+          <li class="hidden"> Numéro de Rue:</li>
+          <li class="hidden"> Info Complémentaire:</li>
+          <a href="{{ path('app_edit') }}" class="modifier">modifier</a>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </section>
 {% endblock %}
-
-{% block JavascriptDuBas %}
-<script src={{asset("js/coach.js")}}></script>
+{% block javascripts %}
+<script src={{asset('js/coach.js')}}></script>
 {% endblock %}
