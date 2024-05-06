@@ -56,7 +56,7 @@ class Abonner
     private Collection $paiements;
 
     #[ORM\ManyToOne(inversedBy: 'abonners')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Abonnement $subscription = null;
 
     public function __construct()

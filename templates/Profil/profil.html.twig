@@ -10,11 +10,13 @@
       <div> <img class="appareil" src="../img/appareil-photo-numerique.png" alt=""></div>
       <img class="photo" src="/img/profil.png" alt="">
       <div class="prenom">
+      {% if abonner %}
         <p>{{ abonner.name }}</p>
       </div>
       <div>
         ID :{{ abonnerId }}
       </div>
+      {% endif %}
     </div>
 
     <div class="padding">
@@ -23,6 +25,7 @@
           <p class="modification">Changer d'abonnement</p>
         </a>
       </div>
+        {% if abonnement %}
       <div class="ligne container">
         <div class="box">
           <h2>{{ abonnement.name }}</h2>
@@ -45,6 +48,7 @@
             <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textCoach}}
           </p>
         </div>
+        {% endif %}
   </header>
   <section>
     <div class="corners pb-5">
@@ -63,6 +67,7 @@
         </ul>
       </div>
 
+{% if abonner %}
       <div class="corner">
         <ul class="list">
           <li class="toggle-table">Données personnelles
@@ -80,11 +85,12 @@
           <li class="hidden"> Numéro de Rue: {{ abonner.address }}</li>
           <li class="hidden"> Info Complémentaire:{{ abonner.subscription }}</li>
           <a href="{{ path('app_edit') }}" class="modifier">modifier</a>
-          <a href="{{ path('app_unsubscribe', {'id': abonnerId}) }}" onclick="return confirm('Êtes-vous sûr de vouloir vous désabonner ?')">Désabonner</a>
+          <a href="{{ path('app_profil_unsubscribe') }}" onclick="return confirm('Êtes-vous sûr de vouloir vous désabonner ?')">Désabonner</a>
         </ul>
         
       </div>
     </div>
+    {% endif %}
   </section>
 {% endblock %}
 {% block javascripts %}

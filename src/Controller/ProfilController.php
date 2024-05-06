@@ -9,6 +9,8 @@ use App\Entity\Abonner;
 use App\Form\AbonnerType;
 use App\Repository\AbonnerRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\SecurityBundle\Security;
 
 class ProfilController extends AbstractController
 {
@@ -51,6 +53,31 @@ class ProfilController extends AbstractController
             'numeroRue' => $numeroRue,
         ]);
     }
+
+
+    #[Route('/profil/unsubscribe', name: 'app_profil_unsubscribe')]
+    public function unsubscribe(Security $security, EntityManagerInterface $entityManager): Response
+    {
+        /* 
+        ** @var User
+        */
+        $user = $this->getUser(); // Récupère l'utilisateur connecté
+        $abonner = $user->getAbonner();
+
+        $abonner->setSubscription(null);
+
+$entityManager->remove($abonner);
+
+        $entityManager->flush();
+
+
+        $security->logout(false);
+
+        return $this->redirectToRoute('app_index');
+
+    }
+
+    
 
     
 
