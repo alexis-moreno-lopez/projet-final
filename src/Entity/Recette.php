@@ -21,7 +21,7 @@ class Recette
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 1000)]
     private ?string $text = null;
 
     #[ORM\ManyToMany(targetEntity: Coach::class, inversedBy: 'recettes')]

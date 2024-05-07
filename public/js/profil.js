@@ -1,5 +1,4 @@
-
-
+console.log('test');
 document.addEventListener('DOMContentLoaded', function() {
     const toggleItems = document.querySelectorAll('.toggle-table');
 

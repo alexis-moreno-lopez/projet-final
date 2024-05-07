@@ -22,7 +22,7 @@
     <div class="padding">
       <div class="placement">
         <a href="/Abonnement/abonnement.html">
-          <p class="modification">Changer d'abonnement</p>
+                    <a class="modification"href="{{ path('app_profil_unsubscribe') }}" onclick="return confirm('Êtes-vous sûr de vouloir vous désabonner ?')">Désabonner</a>
         </a>
       </div>
         {% if abonnement %}
@@ -84,8 +84,8 @@
           <li class="hidden"> Rue:{{ abonner.street }}</li>
           <li class="hidden"> Numéro de Rue: {{ abonner.address }}</li>
           <li class="hidden"> Info Complémentaire:{{ abonner.subscription }}</li>
-          <a href="{{ path('app_edit') }}" class="modifier">modifier</a>
-          <a href="{{ path('app_profil_unsubscribe') }}" onclick="return confirm('Êtes-vous sûr de vouloir vous désabonner ?')">Désabonner</a>
+          <li class="hidden"><a href="{{ path('app_edit') }}" class="modifier">modifier</a></li>
+
         </ul>
         
       </div>
