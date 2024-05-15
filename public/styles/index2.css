@@ -45,7 +45,7 @@ h1 {
 
   background-color: #fe7000;
 height: 80px;
-
+min-width: 80px;
 }
 
 .navbar ul {
@@ -429,7 +429,7 @@ padding-bottom: 5%;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color:#fe7000;
+  background-color: #fe7000;
   color: white;
   width: 40px;
   height: 40px;
@@ -442,10 +442,11 @@ padding-bottom: 5%;
 
 .scroll-to-top i {
   font-size: 20px;
+  display: inline-block; /* Assurez-vous que l'icône est traitée comme un bloc en ligne */
+  line-height: 40px; /* Assurez-vous que l'icône est alignée verticalement avec le bouton */
 }
 
 /*--------------------------------------------Fin------------------------------------------------------------*/
-
 
 
 

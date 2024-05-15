@@ -42,7 +42,7 @@
  
     background-color: #fe7000;
   height: 80px;
-  
+  min-width: 80px;
   }
   
   .navbar ul {
@@ -245,13 +245,19 @@ padding: 10px;
     padding: 10px;
     width: 350px;
   }
-.recette {
-  height: 40px;
-  width: 60px;
-  background: #fe7000;
-  border-radius: 20%;
-
-}
+  .recette {
+    background: white;
+    border: 1px solid #fe7000;
+    border-radius: 50px;
+    padding: 13px 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 11px;
+  }
+  .recette:hover {
+    background: #fe7000;
+  }
 
 
 
@@ -276,17 +282,14 @@ padding: 10px;
   .btn-close{
     display: flex;
     align-items: end;
-    justify-content: right;
-  color: white;
+    border: 1px solid black;
+background-color: white;
 
 
 
-  }
-  
-  #btn_close {
-    background: white;
 
   }
+
   .chrono {
     height: 30px;
     width: 30px;
@@ -357,7 +360,7 @@ padding: 10px;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color:#fe7000;
+  background-color: #fe7000;
   color: white;
   width: 40px;
   height: 40px;
@@ -367,12 +370,19 @@ padding: 10px;
   cursor: pointer;
   display: none;
 }
-.zero {
-  margin: 0px;
-}
+
 .scroll-to-top i {
   font-size: 20px;
+  display: inline-block; /* Assurez-vous que l'icône est traitée comme un bloc en ligne */
+  line-height: 40px; /* Assurez-vous que l'icône est alignée verticalement avec le bouton */
 }
+.zero {
+  margin: 0px;
+  padding-bottom: 10px;
+
+
+}
+
 .text {
   text-align: start;
   padding: 20px;

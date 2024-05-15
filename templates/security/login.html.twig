@@ -9,9 +9,7 @@
     <main>
         <section id="connexion">
             <div class="box container">
-                <div class="test1">
-                    <img src="{{ asset('img/logo.png') }}" alt="" />
-                </div>
+
                 <form method="POST">
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -33,4 +31,7 @@
             </div>
         </section>
     </main>
+{% endblock %}
+{% block javascripts %}
+<script src={{asset("js/login.js")}}></script>
 {% endblock %}

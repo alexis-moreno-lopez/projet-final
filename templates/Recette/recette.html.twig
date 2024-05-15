@@ -22,14 +22,16 @@
                 </div>
                 <div class="design-card-deux">
                     <a href="https://fr.wikipedia.org/wiki/Coach_sportif" target="_blank">
-                        <h3>{{ aperitif.name }}</h3>
+                        <h3 class="pt-2">{{ aperitif.name }}</h3>
                     </a>
                     
                     <p class="description">{{ aperitif.summarize }}</p>
                     <p class="hidden text-recipe">{{aperitif.text}}</p>
                      <p class="hidden ingredient-recipe">{{aperitif.ingredient}}</p> 
                   </p>
-                         <button class="recette text-white" data-name="{{ aperitif.name }}" data-picture="{{ asset('img/' ~ aperitif.picture) }}" data-time="{{ aperitif.time }}" data-text="{{aperitif.text}}" data-ingredient="{{aperitif.ingredient}}">Recette</button>
+                 
+                         <button class="recette" data-name="{{ aperitif.name }}" data-picture="{{ asset('img/' ~ aperitif.picture) }}" data-time="{{ aperitif.time }}" data-text="{{aperitif.text}}" data-ingredient="{{aperitif.ingredient}}">Recette</button>
+                         
                 </div>
             </div>
         </div>
@@ -93,13 +95,13 @@
             </div>
             <div class="design-card-deux">
                 <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
-                    <h3>{{ plat.name }}</h3>
+                    <h3 class="pt-2">{{ plat.name }}</h3>
                 </a>
                 
                 <p class="description">{{ plat.summarize }}
                 <p class="hidden text-recipe">{{plat.text}}</p>
                         </p>
-                            <button class="recette text-white" data-name="{{ plat.name }}" data-picture="{{ asset('img/' ~ plat.picture) }}" data-time="{{ plat.time }}" data-text="{{plat.text}}" data-ingredient="{{plat.ingredient}}">Recette</button>
+                            <button class="recette" data-name="{{ plat.name }}" data-picture="{{ asset('img/' ~ plat.picture) }}" data-time="{{ plat.time }}" data-text="{{plat.text}}" data-ingredient="{{plat.ingredient}}">Recette</button>
             </div>
         </div>
     </div>
@@ -162,12 +164,12 @@
             </div>
             <div class="design-card-deux">
                 <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
-                    <h3>{{ dessert.name }}</h3>
+                    <h3 class="pt-2">{{ dessert.name }}</h3>
                 </a>
                 
                 <p class="description">{{ dessert.summarize }}</p>
                 <p class="hidden text-recipe">{{dessert.text}}</p>
-                     <button class="recette text-white" data-name="{{ dessert.name }}" data-picture="{{ asset('img/' ~ dessert.picture) }}" data-time="{{ dessert.time }}" data-text="{{dessert.text}}" data-ingredient="{{dessert.ingredient}}">Recette</button>
+                     <button class="recette" data-name="{{ dessert.name }}" data-picture="{{ asset('img/' ~ dessert.picture) }}" data-time="{{ dessert.time }}" data-text="{{dessert.text}}" data-ingredient="{{dessert.ingredient}}">Recette</button>
     <!-- ... -->
             </div>
         </div>
@@ -227,7 +229,7 @@
                 <button type="button" class="btn-close" id="btn-close" aria-label="Close"></button> 
 
                  
-                    <h3 class="zero">titre</h3>
+                    <h3 class="zero text-white">titre</h3>
                 </div>
                 <div>
                     <img class="image" src="/img/pain.webp" alt="">

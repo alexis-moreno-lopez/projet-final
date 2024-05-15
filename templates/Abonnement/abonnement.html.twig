@@ -9,11 +9,18 @@
 {% block body %}
 <main>
 
-                {% for abonnement in abonnements %}
-        <section class="un">
-            <div class="ligne container">
-                <a href="{{path('app_register', {name: abonnement.name})}}"> 
-                    <div class="box">
+        {% for abonnement in abonnements %}
+    <section class="un">
+        <div class="ligne container">
+            {% if loop.index is even %} {# Vérifie si l'itération est paire #}
+                <div class="paragraphe-un container"> {# Div contenant le texte à gauche #}
+                    <h2>{{abonnement.title}}</h2> {# Titre de l'abonnement #}
+                    <p class="font">
+                       {{abonnement.textDescription}} {# Texte de description de l'abonnement #}
+                    </p>
+                </div>
+                <a href="{{path('app_register', {name: abonnement.name})}}">
+                    <div class="box"> {# Div contenant la boîte à droite #}
                         <h2> {{ abonnement.getName()}}</h2>
                         <div class="separation"></div>
                         <h3>{{ abonnement.getTarif()}}</h3>
@@ -34,15 +41,39 @@
                         </p>
                     </div>
                 </a>
-                <div class="paragraphe-un container">
+            {% else %} {# Si l'itération est impaire #}
+                <a href="{{path('app_register', {name: abonnement.name})}}"> 
+                    <div class="box"> {# Div contenant la boîte à gauche #}
+                        <h2> {{ abonnement.getName()}}</h2>
+                        <div class="separation"></div>
+                        <h3>{{ abonnement.getTarif()}}</h3>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />{{ abonnement.textSchedule}}
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textActivity}}
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/verifier.png" alt="" />{{abonnement.textRecipe}}
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/traverser.png" alt="" />{{abonnement.textSpa}}
+                        </p>
+                        <p class="margin">
+                            <img class="logoverif" src="/img/traverser.png" alt="" />{{abonnement.textCoach}}
+                        </p>
+                    </div>
+                </a>
+                <div class="paragraphe-un container"> {# Div contenant le texte à droite #}
                     <h2>{{abonnement.title}}</h2>
                     <p class="font">
-                   {{abonnement.textDescription}}
+                       {{abonnement.textDescription}}
                     </p>
                 </div>
-            </div>
-        </section>
-                {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+{% endfor %}
     {# {% elseif abonnements == 'confort' %}
         <section class="deux">
             <div class="ligne container">
