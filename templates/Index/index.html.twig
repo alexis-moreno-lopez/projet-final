@@ -96,32 +96,23 @@
     <section id="contact" class="sec-quatre">
       <div class="bloc-sec-form">
         <h3 class="space-h3">Contacter le service client</h3>
-        <form action="envoyer_mail.php" method="post">
-          <div class="form-grid">
-            <div>
-
-            {# {{ form_label(inscriptionForm.) }}
-            {{ form_widget(inscriptionForm.) }} #}
-              <label for="Nom">Nom</label>
-              <input type="text" id="name" />
-            </div>
-            <div>
-
-            {# {{ form_label(inscriptionForm.) }}
-            {{ form_widget(inscriptionForm.) }} #}
-              <label for="Prénom">Prénom</label>
-              <input type="text" id="Prénom" />
-            </div>
-            <div class="textarea">
-
-            {# {{ form_label(inscriptionForm.) }}
-            {{ form_widget(inscriptionForm.) }} #}
-              <label for="message">Message</label>
-              <textarea id="message"></textarea>
-            </div>
-          </div>
-          <input type="submit" class="valider" value="valider" />
-        </form>
+      <form action="{{ path('app_send_email') }}" method="post">
+    <div class="form-grid">
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" />
+        </div>
+        <div>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" />
+        </div>
+        <div class="textarea">
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+        </div>
+    </div>
+    <input type="submit" class="valider" value="valider" />
+</form>
       </div>
     </section>
   </main>
