@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const buttons = document.querySelectorAll(".recette");
+    const buttons = document.querySelectorAll(".bouton");
     const modal = document.getElementById("myModal");
     const closeButton = document.querySelector("#btn-close");
     const modalTitle = document.querySelector("#myModal h3");

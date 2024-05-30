@@ -101,12 +101,19 @@
 
                                       <div class="mb-3 form-check">
                                         {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
-                                        <label class="form-check-label" for="checkLabel3">Check me out</label>
+                                       <label class="form-check-label" for="checkLabel3">j'accepte les <a href="{{ path('app_rgpd') }}">Conditions</a></label>
+                                        
                                           </div>
 
-          <button type="submit" class="btn btn-primary">S'inscrire</button>
-        </div>
+                                           <div class="space">
+<a href=""><button type="submit" class="bouton">suivant<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a>
+</div>
+
+
       
     {{ form_end(registrationForm) }} </div>
   </section> 
+  {% block javascripts %}
+<script src={{asset("js/formInscription.js")}}></script>
+{% endblock %}
 {% endblock %}

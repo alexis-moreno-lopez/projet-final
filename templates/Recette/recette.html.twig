@@ -1,42 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{%  block metaEtLinkSupplementaire %}
-    <link rel="stylesheet" href={{asset('styles/recette.css')}}>
-    {% endblock %}
+{% block metaEtLinkSupplementaire %}
+  <link rel="stylesheet" href="{{ asset('styles/recette.css') }}" />
+{% endblock %}
 
-{% block title %}Hello RecetteController!{% endblock %}
+{% block title %}
+  Hello RecetteController!
+{% endblock %}
 
 {% block body %}
-<section class="section-un">
-    
-<div id="padding">
-        <h2 class="titre-un">aperitif</h2>
+    <section class="section-un">
+    <div id="padding">
+      <h2 class="titre-un">aperitif</h2>
     </div>
     <div class="">
-{% for aperitif in aperitifs %}
+      {% for aperitif in aperitifs %}
         <div class="container">
-            <div class="retourne-card">
-                <div class="design-card">
-                    <img src="{{ asset('img/' ~ aperitif.picture) }}" alt="Coach sportif">
-                    <p class="bas-card">{{ aperitif.name }}</p>
-                </div>
-                <div class="design-card-deux">
-                    <a href="https://fr.wikipedia.org/wiki/Coach_sportif" target="_blank">
-                        <h3 class="pt-2">{{ aperitif.name }}</h3>
-                    </a>
-                    
-                    <p class="description">{{ aperitif.summarize }}</p>
-                    <p class="hidden text-recipe">{{aperitif.text}}</p>
-                     <p class="hidden ingredient-recipe">{{aperitif.ingredient}}</p> 
-                  </p>
-                 
-                         <button class="recette" data-name="{{ aperitif.name }}" data-picture="{{ asset('img/' ~ aperitif.picture) }}" data-time="{{ aperitif.time }}" data-text="{{aperitif.text}}" data-ingredient="{{aperitif.ingredient}}">Recette</button>
-                         
-                </div>
+          <div class="retourne-card">
+            <div class="design-card">
+              <img src="{{ asset('img/' ~ aperitif.picture) }}" alt="Coach sportif" />
+              <p class="bas-card">{{ aperitif.name }}</p>
             </div>
+            <div class="design-card-deux">
+              <a href="https://fr.wikipedia.org/wiki/Coach_sportif" target="_blank"><h3 class="pt-2">{{ aperitif.name }}</h3></a>
+
+              <p class="description">{{ aperitif.summarize }}</p>
+              <p class="hidden text-recipe">{{ aperitif.text }}</p>
+              <p class="hidden ingredient-recipe">{{ aperitif.ingredient }}</p>
+
+              <div class="space">
+                <button class="bouton" data-name="{{ aperitif.name }}" data-picture="{{ asset('img/' ~ aperitif.picture) }}" data-time="{{ aperitif.time }}" data-text="{{ aperitif.text }}" data-ingredient="{{ aperitif.ingredient }}">Recette<span class=""><i class="fa-solid fa-arrow-right"></i></span></button>
+              </div>
+              {# <button class="recette" data-name="{{ aperitif.name }}" data-picture="{{ asset('img/' ~ aperitif.picture) }}" data-time="{{ aperitif.time }}" data-text="{{aperitif.text}}" data-ingredient="{{aperitif.ingredient}}">Recette</button> #}
+            </div>
+          </div>
         </div>
-        
-{# 
+
+        {# 
         <div class="container">
             <div class="retourne-card">
                 <div class="design-card">
@@ -77,36 +77,38 @@
             </div>
         </div>
     </div> #}
-{% endfor %}
+      {% endfor %}
     </div>
-</section>
+    </section>
 
-<section class="section-deux">
+  <section class="section-deux">
     <div id="padding">
-        <h2 class="titre-deux text-white">Plat de résistance</h2>
+      <h2 class="titre-deux text-white">Plat de résistance</h2>
     </div>
     <div class="">
-{% for plat in plats %}
-    <div class="container">
-        <div class="retourne-card">
+      {% for plat in plats %}
+        <div class="container">
+          <div class="retourne-card">
             <div class="design-card">
-                <img src="{{ asset('img/' ~ plat.picture) }}" alt="Nutrition">
-                <p class="bas-card">{{ plat.name }}</p>
+              <img src="{{ asset('img/' ~ plat.picture) }}" alt="Nutrition" />
+              <p class="bas-card">{{ plat.name }}</p>
             </div>
             <div class="design-card-deux">
-                <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
-                    <h3 class="pt-2">{{ plat.name }}</h3>
-                </a>
-                
-                <p class="description">{{ plat.summarize }}
-                <p class="hidden text-recipe">{{plat.text}}</p>
-                        </p>
-                            <button class="recette" data-name="{{ plat.name }}" data-picture="{{ asset('img/' ~ plat.picture) }}" data-time="{{ plat.time }}" data-text="{{plat.text}}" data-ingredient="{{plat.ingredient}}">Recette</button>
-            </div>
-        </div>
-    </div>
+              <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h3 class="pt-2">{{ plat.name }}</h3></a>
 
-{# <div class="container">
+              <p class="description">
+                {{ plat.summarize }}
+                <p class="hidden text-recipe">{{ plat.text }}</p>
+              </p>
+              <div class="space">
+                <button class="bouton" data-name="{{ plat.name }}" data-picture="{{ asset('img/' ~ plat.picture) }}" data-time="{{ plat.time }}" data-text="{{ plat.text }}" data-ingredient="{{ plat.ingredient }}">Recette<span class=""><i class="fa-solid fa-arrow-right"></i></span></button>
+              </div>
+              {# <button class="recette" data-name="{{ plat.name }}" data-picture="{{ asset('img/' ~ plat.picture) }}" data-time="{{ plat.time }}" data-text="{{plat.text}}" data-ingredient="{{plat.ingredient}}">Recette</button> #}
+            </div>
+          </div>
+        </div>
+
+        {# <div class="container">
     <div class="retourne-card">
         <div class="design-card">
             <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
@@ -146,36 +148,37 @@
     </div>
 </div>
 </div> #}
-
-{% endfor %}
-</div>
-</section>
-<section>
+      {% endfor %}
+    </div>
+  </section>
+  <section>
     <div id="padding">
-        <h2 class="titre-un">Dessert</h2>
+      <h2 class="titre-un">Dessert</h2>
     </div>
     <div class="">
-{% for dessert in desserts %}
-    <div class="container">
-        <div class="retourne-card">
+      {% for dessert in desserts %}
+        <div class="container">
+          <div class="retourne-card">
             <div class="design-card">
-                <img src="{{ asset('img/' ~ dessert.picture) }}" alt="Nutrition">
-                <p class="bas-card">{{ dessert.name }}</p>
+              <img src="{{ asset('img/' ~ dessert.picture) }}" alt="Nutrition" />
+              <p class="bas-card">{{ dessert.name }}</p>
             </div>
             <div class="design-card-deux">
-                <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank">
-                    <h3 class="pt-2">{{ dessert.name }}</h3>
-                </a>
-                
-                <p class="description">{{ dessert.summarize }}</p>
-                <p class="hidden text-recipe">{{dessert.text}}</p>
-                     <button class="recette" data-name="{{ dessert.name }}" data-picture="{{ asset('img/' ~ dessert.picture) }}" data-time="{{ dessert.time }}" data-text="{{dessert.text}}" data-ingredient="{{dessert.ingredient}}">Recette</button>
-    <!-- ... -->
-            </div>
-        </div>
-    </div>
+              <a href="https://fr.wikipedia.org/wiki/Nutrition" target="_blank"><h3 class="pt-2">{{ dessert.name }}</h3></a>
 
-{# <div class="container">
+              <p class="description">{{ dessert.summarize }}</p>
+              <p class="hidden text-recipe">{{ dessert.text }}</p>
+
+              <div class="space">
+                <button class="bouton" data-name="{{ dessert.name }}" data-picture="{{ asset('img/' ~ dessert.picture) }}" data-time="{{ dessert.time }}" data-text="{{ dessert.text }}" data-ingredient="{{ dessert.ingredient }}">Recette<span class=""><i class="fa-solid fa-arrow-right"></i></span></button>
+              </div>
+              {# <button class="recette" data-name="{{ dessert.name }}" data-picture="{{ asset('img/' ~ dessert.picture) }}" data-time="{{ dessert.time }}" data-text="{{dessert.text}}" data-ingredient="{{dessert.ingredient}}">Recette</button> #}
+              <!-- ... -->
+            </div>
+          </div>
+        </div>
+
+        {# <div class="container">
     <div class="retourne-card">
         <div class="design-card">
             <img src="/img/alimentation.sportif.jpg" alt="Nutrition">
@@ -216,51 +219,41 @@
     </div>
 </div>
 </div>  #}
-{% endfor %}
-</div>
-</section>
-
-
-<section class="test">
-<div id="myModal" class="modalImg d-none">
-        <div class="btn_close">
-            <div class="croix">
-              
-                <button type="button" class="btn-close" id="btn-close" aria-label="Close"></button> 
-
-                 
-                    <h3 class="zero text-white">titre</h3>
-                </div>
-                <div>
-                    <img class="image" src="/img/pain.webp" alt="">
-                </div>
-                <div class="espace d-flex justify-content-center">
-                    <img class="chrono" src="/img/chronometre.png" alt="">
-                    <p class="me-1">time </p> <p> min</p>
-                </div>
-                <div>
-                 <div class="ingredient mb-4"></div>
-                    
-            </div>
-            <div class="background">
-           <p class="descriptif">
-            <div class="text"></div>
-
-            
-            <div class="text"></div>
-
-</p>
-        </div>
-        </div>
+      {% endfor %}
     </div>
-</section>
+  </section>
 
+  <section class="test">
+    <div id="myModal" class="modalImg d-none">
+      <div class="btn_close">
+        <div class="croix">
+          <button type="button" class="btn-close" id="btn-close" aria-label="Close"></button>
 
+          <h3 class="zero text-white">titre</h3>
+        </div>
+        <div>
+          <img class="image" src="/img/pain.webp" alt="" />
+        </div>
+        <div class="espace d-flex justify-content-center">
+          <img class="chrono" src="/img/chronometre.png" alt="" />
+          <p class="me-1">time</p> <p>min</p>
+        </div>
+        <div>
+          <div class="ingredient mb-4"></div>
+        </div>
+        <div class="background">
+          <p class="descriptif">
+            <div class="text"></div>
 
+            <div class="text"></div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-{% block javascripts %} 
-<script src={{asset("js/modal.js")}}></script>
-<script src={{asset("js/recette.js")}}></script>
+  {% block javascripts %}
+    <script src="{{ asset('js/modal.js') }}"></script>
+    <script src="{{ asset('js/recette.js') }}"></script>
+  {% endblock %}
 {% endblock %}
-{% endblock %}
-

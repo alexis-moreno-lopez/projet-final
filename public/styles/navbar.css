@@ -1,9 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 h1 {
   color: white;
   text-align: center;
   margin: 1%;
   padding: 10px 10px 10px 50px;
 
+}
+body {
+  font-family: "Montserrat", sans-serif;
 }
 /*-------------------------------------------- Fin------------------------------------------------------------*/
 /*-------------------------------------------- navbar------------------------------------------------------------*/
@@ -33,6 +39,7 @@ height: 80px;
   padding: 0 5px;
   list-style-type: none;
   justify-content: space-around;
+  
 
 
 
@@ -46,7 +53,7 @@ height: 80px;
 .navbar li::before {
   content: "";
   width: 0;
-  height: 5px;
+  height: 3px;
   position: absolute;
   background: black;
   top: -5px;
@@ -92,5 +99,5 @@ background-color: white;
  background-color: #fe7000;
  color: white;
  padding: 0px;
- width: 75px;
+ width: 80px;
 }

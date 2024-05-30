@@ -1,9 +1,11 @@
+ 
 
+ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Montserrat, sans-serif;
   list-style: none;
 }
 
@@ -11,6 +13,7 @@ body {
   background-color: rgb(242, 240, 240);
   margin: 0 auto;
   text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 html,
 body {
@@ -68,7 +71,7 @@ font-style: italic;
 .navbar li::before {
   content: "";
   width: 0;
-  height: 5px;
+  height: 3px;
   position: absolute;
   background: black;
   top: -5px;
@@ -360,17 +363,65 @@ textarea {
   resize: none;
   height: 180px;
 }
-.valider {
-  background: white;
-  border: 1px solid #fe7000;
+.bouton {
+  justify-content: center;
+  border: 2px solid #fe7000;
   border-radius: 50px;
-  padding: 13px 30px;
+  padding: 12px 43px 12px 43px;
+  background-color: white;
+  color: black;
   display: inline-block;
+ 
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
+  width: auto; /* Vous pouvez définir une largeur fixe ici si nécessaire */
+  min-width: 150px; /* Largeur minimale du bouton */
+  max-width: 300px; /* Largeur maximale du bouton */
+  font-family: var(--alt-font);
+  font-weight: 500;
+  position: relative; /* Permet le positionnement absolu du span */
+  overflow: hidden; /* Pour masquer le cercle quand il est en dehors du bouton */
+  transition: all 300ms ease-in-out;
+  text-align: center; /* Centrer le texte horizontalement */
+  margin-top: 15px;
 }
-.valider:hover {
-  background: #fe7000;
+.bouton:hover {
+  background:#fe7000;
+  border: 2px solid #fe7000;
+  color: black;
+}
+
+.bouton > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Taille du cercle */
+  height: 30px; /* Taille du cercle */
+  position: absolute;
+  border-radius: 100%;
+  background-color: #fe7000; /* Couleur du cercle */
+  left: 8px; /* Positionne le cercle à gauche du bouton */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.5s ease-in-out; /* Transition pour le mouvement du cercle */
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.35);
+  opacity: 1; /* Le cercle est visible par défaut */
+}
+
+.bouton > span > i {
+  opacity: 0; /* La flèche est invisible par défaut */
+  transition: opacity 0.5s ease-in-out; /* Transition pour l'opacité de la flèche */
+}
+
+.bouton:hover > span {
+  left: calc(100% - 38px); /* Positionne le cercle à l'intérieur du bouton à droite */
+  background-color: white;
+}
+
+.bouton:hover > span > i {
+  opacity: 1; /* Rendre la flèche visible lors du survol */
+  color: black;
 }
 @media (min-height: 663px) { 
 
