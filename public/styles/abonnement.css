@@ -107,6 +107,9 @@
     .nav-link {
       color: black;
     }
+    .paragraphe-un {
+      padding: 0px 80px 80px 80px !important;
+    }
   }
   
   /*--------------------------------------------Fin------------------------------------------------------------*/
@@ -134,7 +137,7 @@ padding: 50px 0px 50px 0px;
 .box {
 
     margin-left: 10%;
-    height: 400px;
+    height: 410px;
     width: 400px;
     background: rgba(191, 191, 191,0.5);
     border-radius: 20px;
@@ -167,7 +170,7 @@ h3 {
   font-size: 1.5rem;
 }
 .paragraphe-un {
-    padding: 100px;
+    padding: 80px 80px 80px 80px;
 }
 .scroll-to-top {
   position: fixed;
@@ -199,6 +202,21 @@ flex-direction: column;
   }
   .box {
     margin: 0;
+    height: 420px;
+
+  }
+  .un {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .paragraphe-un {
+    padding-top: 80px !important;
   }
 
 }

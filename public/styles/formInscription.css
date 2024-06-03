@@ -47,7 +47,7 @@
   .navbar li {
     position: relative;
     font-size: 1.3rem;
-  
+    font-style: italic;
   }
   .navbar li::before {
     content: "";
@@ -150,18 +150,29 @@ padding-top: 50px;
 flex-direction: column;
         justify-content: center;
         align-items: center;
-        
     }
 
     .space-deux {
-        padding-left: 0px;
+        margin: 0px !important ;
+        border-radius: 0px 0px 20px 20px;
 
+    }
+    .space-un{
+
+        border-radius: 20px 20px 0px 0px;
+
+    }
+    .space-deux {
+      margin: 0px;
     }
     
 }
 a {
   color: blue;
   border-bottom: 1px solid blue;
+}
+input:hover {
+  border-color: #fe7000;
 }
 
 .bouton {
@@ -241,4 +252,30 @@ display: flex;
 }
 .form-check {
   width: 220px;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fe7000;
+  color: white;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+.scroll-to-top i {
+  font-size: 20px;
+  display: inline-block; /* Assurez-vous que l'icône est traitée comme un bloc en ligne */
+  line-height: 40px; /* Assurez-vous que l'icône est alignée verticalement avec le bouton */
+}
+.scroll-to-top i {
+  font-size: 20px;
+  display: inline-block; /* Assurez-vous que l'icône est traitée comme un bloc en ligne */
+  line-height: 40px; /* Assurez-vous que l'icône est alignée verticalement avec le bouton */
 }
