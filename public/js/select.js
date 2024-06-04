@@ -10,3 +10,4 @@ function redirectToPage() {
   window.location.href = "/profil";
 }
 }
+

@@ -19,58 +19,55 @@
     {% endblock %}
   </head>
 
-
-
-
   <body>
-    <nav class="navbar navbar-dark navbar-expand-xl ">
-      <div class="container-xxl d-flex text-center">
-        <button class="navbar-toggler p-3 bg-black" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-          <div class="offcanvas-header justify-content-end">
-            <!-- <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5> -->
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav gap-3 flex-grow-1">
-              {% if app.user %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-    </li>
-
-             <li> 
-               <select name="pets" id="pet-select" onchange="redirectToPage()">
-            <option value="">plus</option>
-            <option value="profil" href="{{ path('app_profil') }}">Profil</option>
-            <option value="recette" href="{{ path('app_recette') }}">Recette</option>
-            <option value="coach" href="{{ path('app_coach')}}">Coach</option>
-          </select>
-          </li>
-
-  {% else %}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-    </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_abonnement') }}">S'abonner</a>
-              </li>
-              {% endif %}
-  <h1 class="d-flex">
-    Accès<li class="nav-item d-flex align-items-center">
-     <a class="nav-img" href="{{ path('app_index') }}"><img class="logoProfil" src="{{ asset('img/sport.png') }}" alt="" /></a>
-    </li>Gym
-              </h1>
-              <li class="nav-item">
-                 <a class="nav-link" href="{{ path('app_index') }}#contact">Contact</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link" href="{{ path('app_propos') }}">À Propos</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+<nav class="navbar navbar-dark navbar-expand-xl ">
+  <div class="container-xxl d-flex text-center">
+    <button class="navbar-toggler p-3 bg-black" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header justify-content-end">
+        <!-- <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5> -->
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-    </nav>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav gap-3 flex-grow-1">
+          {% if app.user %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+            </li>
+            <li>
+              <select name="pets" id="pet-select" onchange="redirectToPage()">
+                <option value="">plus</option>
+                <option value="profil" href="{{ path('app_profil') }}">Profil</option>
+                <option value="recette" href="{{ path('app_recette') }}">Recette</option>
+                {% if app.user.abonner.subscription.name == 'PREMIUM' %}
+                  <option value="coach" href="{{ path('app_coach')}}">Coach</option>
+                {% endif %}
+              </select>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ path('app_abonnement') }}">S'abonner</a>
+            </li>
+          {% endif %}
+          <h1 class="d-flex">
+            Accès<li class="nav-item d-flex align-items-center">
+              <a class="nav-img" href="{{ path('app_index') }}"><img class="logoProfil" src="{{ asset('img/sport.png') }}" alt="" /></a>
+            </li>Gym
+          </h1>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_index') }}#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_propos') }}">À Propos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
     {% block header %}
 
     {% endblock %}
