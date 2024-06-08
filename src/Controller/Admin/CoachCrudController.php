@@ -29,8 +29,9 @@ class CoachCrudController extends AbstractCrudController
             IntegerField::new('age'),
             EmailField::new('email'),
             TelephoneField::new('telephone'),
-            MoneyField::new('salary'),
             AssociationField::new('user'),
+            
+
 
 
         ];

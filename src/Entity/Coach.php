@@ -30,7 +30,7 @@ class Coach
     #[ORM\Column(length: 255)]
     private ?string $telephone = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable:true)]
     private ?int $salary = null;
 
     #[ORM\ManyToMany(targetEntity: Recette::class, mappedBy: 'coach')]

@@ -6,90 +6,61 @@
 
 {% block body %}
 <header>
-    <div class="padding">
-      <div> <img class="appareil" src="../img/appareil-photo-numerique.png" alt=""></div>
-      <img class="photo" src="/img/profil.png" alt="">
+    <div class="padding a">
+     
+      <img class="photo" src="/img/coach1.jpg" alt="">
       <div class="prenom">
         <p>blabla</p>
       </div>
       <div>
         ID :
       </div>
+      <P class="test">Spécialités : Entraînement fonctionnel, Yoga, Pilates
+
+Biographie :
+Julie Martin est une coach passionnée par le bien-être global et l'équilibre corporel. Avec plus de 10 ans d'expérience dans le domaine du fitness, Julie a aidé de nombreuses personnes à atteindre leurs objectifs de remise en forme grâce à une approche holistique et personnalisée. Elle est certifiée en entraînement fonctionnel, yoga et pilates, et combine ces disciplines pour offrir des séances variées et dynamiques.
+
+Philosophie :
+"La clé du bien-être réside dans l'harmonie entre le corps et l'esprit. Mon objectif est de guider chaque individu vers une meilleure version de lui-même, tout en respectant ses capacités et ses besoins spécifiques."</P>
+    </div>
+    <div class="padding b">
+      
+      <img class="photo" src="/img/coach5.jpg" alt="">
+      <div class="prenom">
+        <p>blabla</p>
+      </div>
+      <div>
+        ID :
+      </div>
+       <P class="test">Spécialités : Musculation, Nutrition sportive, Coaching en ligne
+
+Biographie :
+Lucas Dupont est un expert en musculation et nutrition sportive avec plus de 8 ans d'expérience. Diplômé en sciences du sport et nutrition, Lucas a aidé des athlètes et des amateurs de fitness à améliorer leurs performances et à atteindre leurs objectifs de composition corporelle. Sa passion pour la transformation physique et son approche scientifique lui permettent de créer des programmes efficaces et adaptés à chaque individu.
+
+Philosophie :
+"Un bon entraînement doit être soutenu par une alimentation adéquate. Je suis ici pour vous guider et vous soutenir dans chaque étape de votre parcours fitness, que ce soit en salle ou à distance."</P>
+    </div>
+    
+    </div>
+    <div class="padding c">
+     
+      <img class="photo" src="/img/coach3.jpg" alt="">
+      <div class="prenom">
+        <p>blabla</p>
+      </div>
+      <div>
+        ID :
+      </div>
+       <P class="test">Spécialités : Cardio-training, CrossFit, Préparation physique
+
+Biographie :
+Sophie Bernard est une coach énergique et motivante spécialisée en cardio-training et CrossFit. Avec 7 ans d'expérience dans le domaine, elle a travaillé avec des clients de tous âges et niveaux de condition physique pour les aider à atteindre leurs objectifs de performance et de santé. Sophie est connue pour ses séances intenses et ses encouragements constants, qui poussent chacun à donner le meilleur de lui-même.
+
+Philosophie :
+"Le succès ne vient pas de la zone de confort. Je crois en la puissance du dépassement de soi et de l'entraînement intense pour obtenir des résultats durables. Ensemble, nous atteindrons des sommets."</P>
     </div>
 
-    <div class="padding">
-      <div class="placement">
-       
-         <div class="calendar">
-
-			<div class="col leftCol">
-				<div class="content">
-					<h1 class="date">Friday<span>September 12th</span></h1>
-					<div class="notes">
-						<p>
-							<input type="text" value="" placeholder="new note"/>
-							<a href="#" title="Add note" class="addNote animate">+</a>
-						</p>
-						<ul class="noteList">
-							<li>Headbutt a lion<a href="#" title="Remove note" class="removeNote animate">x</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="col rightCol">
-				<div class="content">
-					<h2 class="year">2013</h2>
-					<ul class="months">
-						<li><a href="#" title="Jan" data-value="1">Jan</a></li>
-						<li><a href="#" title="Feb" data-value="2">Feb</a></li>
-						<li><a href="#" title="Mar" data-value="3">Mar</a></li>
-						<li><a href="#" title="Apr" data-value="4">Apr</a></li>
-						<li><a href="#" title="May" data-value="5">May</a></li>
-						<li><a href="#" title="Jun" data-value="6">Jun</a></li>
-						<li><a href="#" title="Jul" data-value="7">Jul</a></li>
-						<li><a href="#" title="Aug" data-value="8">Aug</a></li>
-						<li><a href="#" title="Sep" data-value="9" class="selected">Sep</a></li>
-						<li><a href="#" title="Oct" data-value="10">Oct</a></li>
-						<li><a href="#" title="Nov" data-value="11">Nov</a></li>
-						<li><a href="#" title="Dec" data-value="12">Dec</a></li>
-					</ul>
-					<div class="clearfix"></div>
-					<ul class="weekday">
-						<li><a href="#" title="Mon" data-value="1">Mon</a></li>
-						<li><a href="#" title="Tue" data-value="2">Tue</a></li>
-						<li><a href="#" title="Wed" data-value="3">Wed</a></li>
-						<li><a href="#" title="Thu" data-value="4">Thu</a></li>
-						<li><a href="#" title="Fri" data-value="5">Fri</a></li>
-						<li><a href="#" title="Say" data-value="6">Sat</a></li>
-						<li><a href="#" title="Sun" data-value="7">Sun</a></li>
-					</ul>
-					<div class="clearfix"></div>
-					<ul class="days">
-						<script>
-							for( var _i = 1; _i <= 31; _i += 1 ){
-								var _addClass = '';
-								if( _i === 12 ){ _addClass = ' class="selected"'; }
-								
-								switch( _i ){
-									case 8:
-									case 10:
-									case 27:
-										_addClass = ' class="event"';
-									break;
-								}
-
-								document.write( '<li><a href="#" title="'+_i+'" data-value="'+_i+'"'+_addClass+'>'+_i+'</a></li>' );
-							}
-						</script>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-
-			<div class="clearfix"></div>
-
-		</div>
+   
   </header>
   
   
