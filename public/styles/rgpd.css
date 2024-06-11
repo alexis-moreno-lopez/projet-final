@@ -6,6 +6,7 @@
     box-sizing: border-box;
     list-style: none;
   }
+
   body {
     font-family: "Montserrat", sans-serif;
   }
@@ -22,8 +23,6 @@
   .navbar {
     background-color: #fe7000;
   height: 80px;
-
-  
   }
   
   .navbar ul {
@@ -33,14 +32,13 @@
     padding: 0 5px;
     list-style-type: none;
     padding: 0 100px;
-  
-  
   }
+
   .navbar li {
     position: relative;
     font-size: 1.3rem;
-  
   }
+
   .navbar li::before {
     content: "";
     width: 0;
@@ -52,6 +50,7 @@
     transform: translateX(-50%);
     transition: width 0.3s ease; /* Transition fluide */
   }
+
   .navbar li:hover img {
     opacity: 1; /* Annule l'effet de la barre sur les images */
   }
@@ -68,6 +67,7 @@
     height: 40px;
     width: 40px;
   }
+
   a {
     text-decoration: none;
     color: black;
@@ -78,15 +78,12 @@
   }
 
   .nav-img {
-  
     width: 50px;
   }
 
 
 article {
 padding: 20px;
-}
-p {
 }
 
 h1 {
@@ -95,14 +92,15 @@ h1 {
     margin: 1%;
     padding: 10px 10px 10px 10px;
     font-style: italic;
-  
   }
+
 h2 {
 font-size: 2.5rem;
 display: flex;
 justify-content: center;
 padding: 30px;
 }
+
 h3 {
     padding: 20px;
 }

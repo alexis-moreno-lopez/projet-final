@@ -1,176 +1,150 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-  }
-  
-  body {
-    background-color: rgb(242, 240, 240);
-    margin: 0 auto;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-  }
-  html,
-  body {
-    line-height: 1.5;
-    min-height: 100vh;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
 
-  /*-------------------------------------------- navbar------------------------------------------------------------*/
-  .nav-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-  }
-  
-  .navbar {
-    background-color: #fe7000;
+body {
+  background-color: rgb(242, 240, 240);
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/*-------------------------------------------- navbar------------------------------------------------------------*/
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.navbar {
+  background-color: #fe7000;
   height: 80px;
   min-width: 80px;
-  
-  }
-  
-  .navbar ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5px;
-    list-style-type: none;
-    padding: 0 100px;
-  
-  
-  }
-  .navbar li {
-    position: relative;
-    font-size: 1.3rem;
-    font-style: italic;
-  }
-  .navbar li::before {
-    content: "";
-    width: 0;
-    height: 3px;
-    position: absolute;
-    background: black;
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.3s ease; /* Transition fluide */
-  }
-  .navbar li:hover img {
-    opacity: 1; /* Annule l'effet de la barre sur les images */
-  }
-  
-  /* nav li:first-child {
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  list-style-type: none;
+  padding: 0 100px;
+}
+
+.navbar li {
+  position: relative;
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.navbar li::before {
+  content: "";
+  width: 0;
+  height: 3px;
+  position: absolute;
+  background: black;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease; /* Transition fluide */
+}
+
+.navbar li:hover img {
+  opacity: 1; /* Annule l'effet de la barre sur les images */
+}
+
+/* nav li:first-child {
   color: white;
   } */
-  
-  .navbar li:hover:before {
-    width: 100%; /* Ajuste la largeur au survol */
-  }
-  
-  .logoProfil {
-    height: 40px;
-    width: 40px;
-  }
 
-  #offcanvasDarkNavbar {
-    background-color: #fe7000;
-  }
-
-  .nav-img {
-  
-    width: 50px;
-  }
-  @media (max-width: 1200px) { 
-
-    .nav-link {
-  color: black;
-  
-    }
-  
-  }
-  
-  /*--------------------------------------------Grand Titre------------------------------------------------------------*/
-  h1 {
-    color: white;
-    text-align: center;
-    margin: 1%;
-    padding: 10px 10px 10px 10px;
-    font-style: italic;
-  
-  }
-  header {
-    margin-bottom: 100px;
-  }
-    /*--------------------------------------------Fin------------------------------------------------------------*/
-  /*--------------------------------------------Formulaire------------------------------------------------------------*/
-  .form-control {
-    width: 350px;
-  }
-
-  .space-un {
-    padding-top: 50px;
-    background-color: rgba(191, 191, 191,0.5);
-    border-radius: 20px;
-    height: 35rem;
-    padding: 10px;
-  }
-  .space-deux {
-    padding-top: 50px;
-    background-color: rgba(191, 191, 191,0.5);
-    border-radius: 20px;
-    height: 35rem;
-    padding: 10px;
-  }
-  .gender {
-
-    display: flex;
-    justify-content: center;
-  }
-  .padding {
-padding-top: 50px;
-  }
-  .form-check {
-    width: 150px;
-    justify-content: center;
-  }
-  .gender-check {
-    margin:0px 0px 0px 50px;
-  }
-
-      /*--------------------------------------------Fin------------------------------------------------------------*/
-    /*--------------------------------------------MédiaQuery------------------------------------------------------------*/
-  @media (max-width: 860px) { 
-
-.responssive  {
-flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .space-deux {
-        margin: 0px !important ;
-        border-radius: 0px 0px 20px 20px;
-
-    }
-    .space-un{
-
-        border-radius: 20px 20px 0px 0px;
-
-    }
-    .space-deux {
-      margin: 0px;
-    }
-    
+.navbar li:hover:before {
+  width: 100%; /* Ajuste la largeur au survol */
 }
+
+.logoProfil {
+  height: 40px;
+  width: 40px;
+}
+
+#offcanvasDarkNavbar {
+  background-color: #fe7000;
+}
+
+.nav-img {
+  width: 50px;
+}
+
+/*--------------------------------------------Grand Titre------------------------------------------------------------*/
+h1 {
+  color: white;
+  text-align: center;
+  margin: 1%;
+  padding: 10px 10px 10px 10px;
+  font-style: italic;
+}
+
+header {
+  margin-bottom: 100px;
+}
+/*--------------------------------------------Fin------------------------------------------------------------*/
+/*--------------------------------------------Formulaire------------------------------------------------------------*/
+.form-control {
+  width: 350px;
+}
+
+.space-un {
+  padding-top: 50px;
+  background-color: rgba(191, 191, 191, 0.5);
+  border-radius: 20px;
+  height: 35rem;
+  padding: 10px;
+}
+
+.space-deux {
+  padding-top: 50px;
+  background-color: rgba(191, 191, 191, 0.5);
+  border-radius: 20px;
+  height: 35rem;
+  padding: 10px;
+}
+
+.gender {
+  display: flex;
+  justify-content: center;
+}
+
+.padding {
+  padding-top: 50px;
+}
+
+.form-check {
+  width: 150px;
+  justify-content: center;
+}
+
+.gender-check {
+  margin: 0px 0px 0px 50px;
+}
+
+/*--------------------------------------------Fin------------------------------------------------------------*/
+/*--------------------------------------------MédiaQuery------------------------------------------------------------*/
+
 a {
   color: blue;
   border-bottom: 1px solid blue;
 }
+
 input:hover {
   border-color: #fe7000;
 }
@@ -183,7 +157,6 @@ input:hover {
   background-color: white;
   color: black;
   display: inline-block;
- 
   text-transform: uppercase;
   letter-spacing: 0.5px;
   width: auto; /* Vous pouvez définir une largeur fixe ici si nécessaire */
@@ -197,8 +170,9 @@ input:hover {
   text-align: center; /* Centrer le texte horizontalement */
   margin-top: 15px;
 }
+
 .bouton:hover {
-  background:#fe7000;
+  background: #fe7000;
   border: 2px solid #fe7000;
   color: black;
 }
@@ -227,7 +201,9 @@ input:hover {
 }
 
 .bouton:hover > span {
-  left: calc(100% - 38px); /* Positionne le cercle à l'intérieur du bouton à droite */
+  left: calc(
+    100% - 38px
+  ); /* Positionne le cercle à l'intérieur du bouton à droite */
   background-color: white;
 }
 
@@ -235,6 +211,7 @@ input:hover {
   opacity: 1; /* Rendre la flèche visible lors du survol */
   color: black;
 }
+
 .space {
   padding-bottom: 40px;
 }
@@ -248,8 +225,9 @@ input:hover {
   justify-content: center;
 } */
 .form-check-label {
-display: flex;
+  display: flex;
 }
+
 .form-check {
   width: 220px;
 }
@@ -274,8 +252,36 @@ display: flex;
   display: inline-block; /* Assurez-vous que l'icône est traitée comme un bloc en ligne */
   line-height: 40px; /* Assurez-vous que l'icône est alignée verticalement avec le bouton */
 }
+
 .scroll-to-top i {
   font-size: 20px;
   display: inline-block; /* Assurez-vous que l'icône est traitée comme un bloc en ligne */
   line-height: 40px; /* Assurez-vous que l'icône est alignée verticalement avec le bouton */
+}
+
+@media (max-width: 1200px) {
+  .nav-link {
+    color: black;
+  }
+}
+
+@media (max-width: 860px) {
+  .responssive {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .space-deux {
+    margin: 0px !important ;
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  .space-un {
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .space-deux {
+    margin: 0px;
+  }
 }
