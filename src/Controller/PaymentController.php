@@ -4,17 +4,24 @@
 namespace App\Controller;
 
 use App\Entity\Abonnement;
+use App\Entity\User;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PaymentController extends AbstractController
 {
-    #[Route("/stripe-checkout/{id}", name:"stripe_checkout")]
-    public function stripeCheckout(Abonnement $abonnement): Response
+    #[Route("/stripe-checkout", name: "stripe_checkout", methods: ['GET', 'POST'])]
+    public function stripeCheckout(Abonnement $abonnement, User $user)
     {
+
+  
+        $price = intval($abonnement->getTarif()) + 0.99;
+
+
         // Configurez Stripe avec votre clé secrète
         Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
 
@@ -22,7 +29,9 @@ class PaymentController extends AbstractController
         $YOUR_DOMAIN = 'http://127.0.0.1:8000/';
 
         // Créez une session de paiement Stripe
-        $checkout_session = Session::create([
+
+        $checkout_session = \Stripe\Checkout\Session::create([
+            'customer_email' => $user->getEmail(),
             'payment_method_types' => ['card'],
             'line_items' => [[
                 'price_data' => [
@@ -30,21 +39,22 @@ class PaymentController extends AbstractController
                     'product_data' => [
                         'name' => $abonnement->getName(),
                     ],
-                    'unit_amount' => $abonnement->getTarif() * 100, // Convertir le prix en cents
+                    'unit_amount' => $price * 100,
                 ],
                 'quantity' => 1,
             ]],
-            'mode' => 'subscription',
-            'success_url' => $YOUR_DOMAIN . '/confirmation/' . $abonnement->getId(),
-            'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
+            'mode' => 'payment',
+            'success_url' => $YOUR_DOMAIN . 'confirmation/' . $abonnement->getId(),
+            'cancel_url' => $YOUR_DOMAIN . 'cancel',
             'automatic_tax' => [
                 'enabled' => true,
             ],
         ]);
-        
+
         // Rediriger l'utilisateur vers l'URL de paiement Stripe
-        return $this->redirect($checkout_session->url);
+        return new RedirectResponse($checkout_session->url);
     }
+
 //     #[Route('/confirmation/{id}', name: 'confirmation')]
 // public function confirmation(Abonnement $abonnement): Response
 // {

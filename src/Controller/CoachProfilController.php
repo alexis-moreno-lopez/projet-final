@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Recette;
 use App\Form\RecetteType;
 use App\Repository\AbonnerRepository;
+use App\Repository\RecetteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -12,12 +13,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+// ICI autoriser que les coachs
+
 class CoachProfilController extends AbstractController
 {
     #[Route('/coachprofil', name: 'app_coach_profil')]
-    public function index(Request $request,  AbonnerRepository $abonnerRepository, EntityManagerInterface $entityManager): Response
+    public function index(Request $request,  AbonnerRepository $abonnerRepository, EntityManagerInterface $entityManager, RecetteRepository $recetteRepository): Response
     {
         $user = $this->getUser(); // Récupère l'utilisateur connecté
+        // vérifier si c'est un coach
+       // $roles = $user->getRoles();
 
         $abonner = $abonnerRepository->findOneBy(['user' => $user]); // Récupère l'objet Abonner correspondant à l'utilisateur connecté
 
@@ -35,6 +40,10 @@ class CoachProfilController extends AbstractController
         $ville = $abonner->getCity();
         $rue = $abonner->getStreet();
         $numeroRue = $abonner->getAddress();
+
+        $recettes = $recetteRepository->findBy(['user' => $user->getId()]);
+       
+
 
         $recette = new Recette();
         $form = $this->createForm(RecetteType::class, $recette);
@@ -66,6 +75,7 @@ $entityManager->persist($recette);
             'rue' => $rue,
             'numeroRue' => $numeroRue,
             'form' => $form->createView(),
+            'recettes' => $recettes,
         ]);
     }
 

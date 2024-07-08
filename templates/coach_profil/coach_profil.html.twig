@@ -23,6 +23,11 @@
      
   </header>
 
+  {% for recette in recettes %}
+  <p>{{recette.name}}</p>
+  <a href="{{path('app_recette_delete', {id: recette.id})}}" class="btn btn-danger"> Supprimer </a>
+  {% endfor %}
+
   <section class="d-flex justify-content-center ">
 <div class="test">
   {% if abonner %}

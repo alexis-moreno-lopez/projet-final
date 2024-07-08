@@ -78,4 +78,11 @@ class RecetteController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/recette/delete/{id}', name: 'app_recette_delete')]
+    function delete(Recette $recette, EntityManagerInterface $entityManager){
+        $entityManager->remove($recette);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_coach_profil');
+    }
 }

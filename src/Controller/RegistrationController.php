@@ -22,6 +22,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use App\Controller\PaymentController;
 
 class RegistrationController extends AbstractController
 {
@@ -34,6 +35,7 @@ class RegistrationController extends AbstractController
     Request $request, 
     AbonnementRepository $abonnementRepository,
     string $name,
+    PaymentController $paymentController,
     ): Response
     {
         $user = new User();
@@ -44,7 +46,7 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $session = $request->getSession();
             $session->set('user', $user);
-            $this->stripeCheckout($abonnement, $user);
+            $paymentController->stripeCheckout($abonnement, $user);
             // encode the plain password
             // $user->setPassword(
             //     $userPasswordHasher->hashPassword(
