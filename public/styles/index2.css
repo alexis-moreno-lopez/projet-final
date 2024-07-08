@@ -65,7 +65,9 @@ h1 {
   background-color: var(--navbar-btn-color);
   height: 80px;
   min-width: 80px;
+  gap: 100px;
 }
+
 
 .navbar ul {
   display: flex;

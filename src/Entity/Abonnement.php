@@ -21,8 +21,6 @@ class Abonnement
     #[ORM\Column]
     private ?string $tarif = null;
 
-
-
     #[ORM\OneToMany(targetEntity: Abonner::class, mappedBy: 'subscription', orphanRemoval: true)]
     private Collection $abonners;
 

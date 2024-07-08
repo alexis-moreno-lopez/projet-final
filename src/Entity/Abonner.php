@@ -46,8 +46,6 @@ class Abonner
     #[ORM\Column(length: 255)]
     private ?string $address = null;
 
-    #[ORM\OneToMany(targetEntity: Appointment::class, mappedBy: 'subscribe')]
-    private Collection $appointments;
 
     #[ORM\OneToOne(inversedBy: 'abonner', cascade: ['persist', 'remove'])]
     private ?User $user = null;
@@ -61,7 +59,6 @@ class Abonner
 
     public function __construct()
     {
-        $this->appointments = new ArrayCollection();
         $this->paiements = new ArrayCollection();
     }
 
@@ -185,36 +182,6 @@ class Abonner
     public function setAddress(string $address): static
     {
         $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Appointment>
-     */
-    public function getAppointments(): Collection
-    {
-        return $this->appointments;
-    }
-
-    public function addAppointment(Appointment $appointment): static
-    {
-        if (!$this->appointments->contains($appointment)) {
-            $this->appointments->add($appointment);
-            $appointment->setSubscribe($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAppointment(Appointment $appointment): static
-    {
-        if ($this->appointments->removeElement($appointment)) {
-            // set the owning side to null (unless already changed)
-            if ($appointment->getSubscribe() === $this) {
-                $appointment->setSubscribe(null);
-            }
-        }
 
         return $this;
     }

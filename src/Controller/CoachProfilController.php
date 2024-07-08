@@ -1,20 +1,21 @@
 <?php
+
 namespace App\Controller;
 
-use App\Entity\Abonner;
+use App\Entity\Recette;
+use App\Form\RecetteType;
 use App\Repository\AbonnerRepository;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Routing\Attribute\Route;
 
-class ProfilController extends AbstractController
+class CoachProfilController extends AbstractController
 {
-    #[Route('/profil', name: 'app_profil')]
-    public function index(AbonnerRepository $abonnerRepository): Response
+    #[Route('/coachprofil', name: 'app_coach_profil')]
+    public function index(Request $request,  AbonnerRepository $abonnerRepository, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser(); // Récupère l'utilisateur connecté
 
@@ -35,8 +36,22 @@ class ProfilController extends AbstractController
         $rue = $abonner->getStreet();
         $numeroRue = $abonner->getAddress();
 
+        $recette = new Recette();
+        $form = $this->createForm(RecetteType::class, $recette);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $recette->setUser($user);
+$entityManager->persist($recette);
+            // dd($recette);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'reccete .');
+
+            return $this->redirectToRoute('app_coach_profil');
+        }
         // Envoie les informations de l'abonné à la vue Twig
-        return $this->render('profil/profil.html.twig', [
+        return $this->render('coach_profil/coach_profil.html.twig', [
             'controller_name' => 'ProfilController',
             'abonnement' => $abonnement,
             'abonner' => $abonner,
@@ -50,43 +65,10 @@ class ProfilController extends AbstractController
             'ville' => $ville,
             'rue' => $rue,
             'numeroRue' => $numeroRue,
+            'form' => $form->createView(),
         ]);
     }
 
-    /**
-     * @Route("/profil/delete/{id}", name="app_profil_delete", methods={"DELETE"})
-     */
-    public function deleteAbonner(Abonner $abonner, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->getUser() !== $abonner->getUser()) {
-            throw $this->createAccessDeniedException();
-        }
 
-        $entityManager->remove($abonner);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('app_home'); // Redirigez vers la page d'accueil ou une autre page appropriée
-    }
-
-    /**
-     * @Route("/profil/unsubscribe/{id}", name="app_profil_unsubscribe", methods={"GET"})
-     */
-    public function unsubscribe(Abonner $abonner, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
-    {
-        $user = $userRepository->find($abonner->getUser()->getId());
-
-        if ($this->getUser() !== $user) {
-            throw $this->createAccessDeniedException();
-        }
-
-        // Supprime l'abonnement de l'abonner
-        $abonner->setSubscription(null);
-
-        // Supprime l'abonner de la base de données
-        $entityManager->remove($abonner);
-        $entityManager->flush();
-
-        // Redirige vers la page d'accueil ou une autre page appropriée
-        return $this->redirectToRoute('app_index');
-    }
+    
 }

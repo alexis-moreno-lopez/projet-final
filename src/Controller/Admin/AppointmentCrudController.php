@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Appointment;
+use App\Repository\AppointmentRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
@@ -14,7 +15,7 @@ class AppointmentCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Appointment::class;
+        return AppointmentCrudController::class;
     }
 
     public function configureFields(string $pageName): iterable

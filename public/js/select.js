@@ -8,6 +8,8 @@ function redirectToPage() {
     window.location.href = "/coach";
   }else if (selectedValue === "profil") {
   window.location.href = "/profil";
+  }else if (selectedValue === "seul") {
+  window.location.href = "/coachprofil";
 }
 }
 

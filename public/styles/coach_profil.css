@@ -1,0 +1,405 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background-color: rgb(242, 240, 240);
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin: 1%;
+  padding: 10px 10px 10px 10px;
+}
+/*-------------------------------------------- Fin------------------------------------------------------------*/
+/*-------------------------------------------- navbar------------------------------------------------------------*/
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.nav-img {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  background-color: #fe7000;
+  height: 80px;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  list-style-type: none;
+  padding: 0 100px;
+}
+
+.navbar li {
+  position: relative;
+  font-size: 1.3rem;
+}
+
+.navbar li::before {
+  content: "";
+  width: 0;
+  height: 3px;
+  position: absolute;
+  background: black;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease; /* Transition fluide */
+}
+
+.navbar li:hover img {
+  opacity: 1; /* Annule l'effet de la barre sur les images */
+}
+
+/* nav li:first-child {
+  color: white;
+  } */
+
+.navbar li:hover:before {
+  width: 100%; /* Ajuste la largeur au survol */
+}
+
+.logoProfil {
+  height: 40px;
+  width: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#offcanvasDarkNavbar {
+  background-color: #fe7000;
+}
+
+.nav-img {
+  width: 50px;
+}
+
+/*--------------------------------------------Grand Titre------------------------------------------------------------*/
+h1 {
+  text-align: center;
+  margin: 1%;
+  padding: 10px 10px 10px 10px;
+}
+/*--------------------------------------------Fin------------------------------------------------------------*/
+header {
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 50px;
+  display: flex;
+}
+
+.padding {
+  padding-top: 100px;
+}
+
+.photo {
+  height: 200px;
+  width: 200px;
+  border-radius: 30px;
+}
+
+.appareil {
+  margin-right: 100px;
+  height: 40px;
+  width: 40px;
+}
+
+.prenom {
+  margin-top: 10px;
+}
+
+.modification {
+  background: rgba(254, 112, 0, 0.7);
+  border-radius: 10px;
+
+  width: 100px;
+}
+
+.box {
+  margin-left: 10%;
+  height: 400px;
+  width: 400px;
+  background: rgba(191, 191, 191, 0.5);
+  border-radius: 20px;
+}
+
+.separation {
+  background-color: #fe7000;
+  height: 15px;
+}
+
+h2 {
+  padding: 10px;
+}
+
+h3 {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.margin {
+  margin-top: 20px;
+}
+
+.logoverif {
+  height: 20px;
+  width: 20px;
+}
+
+.ligne {
+  display: flex;
+}
+
+.paragraphe-un {
+  padding: 100px;
+}
+
+.placement {
+  display: flex;
+  justify-content: start;
+  margin-left: 65px;
+  margin-bottom: 5px;
+}
+
+.corners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.corner {
+  border-radius: 25px;
+  border: 1px solid #000000;
+  padding: 30px;
+  width: 400px;
+  height: fit-content;
+  font-size: 1.8rem;
+  line-height: 1.7;
+  background-color: white;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toggle-table {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-table i {
+  margin-left: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+li {
+  text-align: start;
+  font-size: 1.5rem;
+}
+
+section {
+  padding-top: 50px;
+  background: #413434;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fe7000;
+  color: white;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+.scroll-to-top i {
+  font-size: 20px;
+  display: inline-block; /* Assurez-vous que l'icône est traitée comme un bloc en ligne */
+  line-height: 40px; /* Assurez-vous que l'icône est alignée verticalement avec le bouton */
+}
+
+.bouton {
+  justify-content: center;
+  border: 2px solid #fe7000;
+  border-radius: 50px;
+  padding: 12px 43px 12px 43px;
+  background-color: white;
+  color: black;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: auto; /* Vous pouvez définir une largeur fixe ici si nécessaire */
+  min-width: 150px; /* Largeur minimale du bouton */
+  max-width: 300px; /* Largeur maximale du bouton */
+  font-family: var(--alt-font);
+  font-weight: 500;
+  position: relative; /* Permet le positionnement absolu du span */
+  overflow: hidden; /* Pour masquer le cercle quand il est en dehors du bouton */
+  transition: all 300ms ease-in-out;
+  text-align: center; /* Centrer le texte horizontalement */
+  margin-top: 15px;
+}
+
+.bouton:hover {
+  background: #fe7000;
+  border: 2px solid #fe7000;
+  color: black;
+}
+
+.bouton > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Taille du cercle */
+  height: 30px; /* Taille du cercle */
+  position: absolute;
+  border-radius: 100%;
+  background-color: #fe7000; /* Couleur du cercle */
+  left: 8px; /* Positionne le cercle à gauche du bouton */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.5s ease-in-out; /* Transition pour le mouvement du cercle */
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.35);
+  opacity: 1; /* Le cercle est visible par défaut */
+}
+
+.bouton > span > i {
+  opacity: 0; /* La flèche est invisible par défaut */
+  transition: opacity 0.5s ease-in-out; /* Transition pour l'opacité de la flèche */
+}
+
+.bouton:hover > span {
+  left: calc(
+    100% - 38px
+  ); /* Positionne le cercle à l'intérieur du bouton à droite */
+  background-color: white;
+}
+
+.bouton:hover > span > i {
+  opacity: 1; /* Rendre la flèche visible lors du survol */
+  color: black;
+}
+
+@media (max-width: 1200px) {
+  .nav-link {
+    color: black;
+  }
+}
+
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+  }
+  .corners {
+    flex-direction: column;
+  }
+  .corner {
+    width: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .corner {
+    width: 300px;
+  }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}

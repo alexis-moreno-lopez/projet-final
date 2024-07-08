@@ -24,8 +24,6 @@ class Recette
     #[ORM\Column(length: 1000)]
     private ?string $text = null;
 
-    #[ORM\ManyToMany(targetEntity: Coach::class, inversedBy: 'recettes')]
-    private Collection $coach;
 
     #[ORM\Column(length: 255)]
     private ?string $category = null;
@@ -39,10 +37,10 @@ class Recette
     #[ORM\Column(length: 255)]
     private ?string $ingredient = null;
 
-    public function __construct()
-    {
-        $this->coach = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(inversedBy: 'recettes')]
+    private ?User $user = null;
+
+
 
     public function getId(): ?int
     {
@@ -81,30 +79,6 @@ class Recette
     public function setText(string $text): static
     {
         $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Coach>
-     */
-    public function getCoach(): Collection
-    {
-        return $this->coach;
-    }
-
-    public function addCoach(Coach $coach): static
-    {
-        if (!$this->coach->contains($coach)) {
-            $this->coach->add($coach);
-        }
-
-        return $this;
-    }
-
-    public function removeCoach(Coach $coach): static
-    {
-        $this->coach->removeElement($coach);
 
         return $this;
     }
@@ -153,6 +127,18 @@ class Recette
     public function setIngredient(string $ingredient): static
     {
         $this->ingredient = $ingredient;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

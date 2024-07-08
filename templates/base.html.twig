@@ -35,14 +35,36 @@
               <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
             </li>
             <li>
-              <select name="pets" id="pet-select" onchange="redirectToPage()">
+              {# <select name="pets" id="pet-select" onchange="redirectToPage()">
                 <option value="">plus</option>
+                              {% if 'ROLE_COACH' in app.user.roles %}
+                <option value="seul" href="{{ path('app_coach_profil') }}">cProfil</option>
+              {% else %}
+              
                 <option value="profil" href="{{ path('app_profil') }}">Profil</option>
+                {% else %}
                 <option value="recette" href="{{ path('app_recette') }}">Recette</option>
                 {% if app.user.abonner.subscription.name == 'PREMIUM' %}
                   <option value="coach" href="{{ path('app_coach')}}">Coach</option>
                 {% endif %}
-              </select>
+              </select> #}
+              <select name="pets" id="pet-select" onchange="redirectToPage()">
+    <option value="">plus</option>
+    {% if 'ROLE_COACH' in app.user.roles %}
+        <option value="seul" href="{{ path('app_coach_profil') }}">cProfil</option>
+        <option value="recette" href="{{ path('app_recette') }}">Recette</option>
+        <option value="coach" href="{{ path('app_coach')}}">Coach</option>
+    {% else %}
+        <option value="profil" href="{{ path('app_profil') }}">Profil</option>
+        {% if app.user.abonner.subscription.name == 'PREMIUM' %}
+            <option value="coach" href="{{ path('app_coach')}}">Coach</option>
+        {% endif %}
+        <option value="recette" href="{{ path('app_recette') }}">Recette</option>
+    {% endif %}
+</select>
+            </li>
+            <li class="nav-item">
+
             </li>
           {% else %}
             <li class="nav-item">
@@ -52,7 +74,7 @@
               <a class="nav-link" href="{{ path('app_abonnement') }}">S'abonner</a>
             </li>
           {% endif %}
-          <h1 class="d-flex">
+          <h1 class="d-flex" id="k">
             Accès<li class="nav-item d-flex align-items-center">
               <a class="nav-img" href="{{ path('app_index') }}"><img class="logoProfil" src="{{ asset('img/sport.png') }}" alt="" /></a>
             </li>Gym
@@ -85,10 +107,9 @@
       <i class="fas fa-chevron-up"></i>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src={{asset("js/select.js")}}></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     {% block javascripts %}
 

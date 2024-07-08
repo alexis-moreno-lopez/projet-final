@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -38,13 +40,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Abonner $abonner = null;
 
-    #[ORM\ManyToOne(inversedBy: 'user')]
-    private ?Coach $coach = null;
-
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
     private ?string $test = null;
+
+    #[ORM\OneToMany(targetEntity: Recette::class, mappedBy: 'user')]
+    private Collection $recettes;
+
+    public function __construct()
+    {
+        $this->recettes = new ArrayCollection();
+    }
+
+
+
 
     public function __toString()
     {
@@ -148,19 +158,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-    public function getCoach(): ?Coach
-    {
-        return $this->coach;
-    }
-
-    public function setCoach(?Coach $coach): static
-    {
-        $this->coach = $coach;
-
-        return $this;
-    }
-
     public function isVerified(): bool
     {
         return $this->isVerified;
@@ -183,4 +180,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->test;
     }
+
+    /**
+     * @return Collection<int, Recette>
+     */
+    public function getRecettes(): Collection
+    {
+        return $this->recettes;
+    }
+
+    public function addRecette(Recette $recette): static
+    {
+        if (!$this->recettes->contains($recette)) {
+            $this->recettes->add($recette);
+            $recette->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecette(Recette $recette): static
+    {
+        if ($this->recettes->removeElement($recette)) {
+            // set the owning side to null (unless already changed)
+            if ($recette->getUser() === $this) {
+                $recette->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+    
 }

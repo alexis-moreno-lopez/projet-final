@@ -9,9 +9,12 @@ use App\Repository\AbonnementRepository;
 use App\Security\EmailVerifier;
 use App\Security\LoginAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
+use Stripe\Checkout\Session;
+use Stripe\Stripe;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
@@ -26,12 +29,9 @@ class RegistrationController extends AbstractController
     {
     }
 
-    #[Route('/register/{name}', name: 'app_register')]
+    #[Route('/register/{name}', name: 'app_register', methods:['GET', 'POST'])]
     public function register(
     Request $request, 
-    UserPasswordHasherInterface $userPasswordHasher, 
-    Security $security, 
-    EntityManagerInterface $entityManager,
     AbonnementRepository $abonnementRepository,
     string $name,
     ): Response
@@ -42,11 +42,95 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $session = $request->getSession();
+            $session->set('user', $user);
+            $this->stripeCheckout($abonnement, $user);
             // encode the plain password
-            $user->setPassword(
+            // $user->setPassword(
+            //     $userPasswordHasher->hashPassword(
+            //         $user,
+            //         $form->get('plainPassword')->getData()
+            //     )
+            // );
+
+            // // $user->getAbonner()->setEmail($user->getEmail());
+            // $user->getAbonner()->setSubscription($abonnement);
+            // $entityManager->persist($user);
+            // $entityManager->flush();
+
+            // // generate a signed url and email it to the user
+            // $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+            //     (new TemplatedEmail())
+            //         ->from(new Address('accesgym@gmail.com', 'Accesgym Confirmation Mail'))
+            //         ->to($user->getEmail())
+            //         ->subject('Please Confirm your Email')
+            //         ->htmlTemplate('registration/confirmation_email.html.twig')
+            // );
+
+            // // do anything else you need here, like send an email
+
+            // return $security->login($user, LoginAuthenticator::class, 'main');
+        }
+
+        return $this->render('registration/register.html.twig', [
+            'registrationForm' => $form,
+            'abonnement'=>$abonnement,
+        ]);
+    }
+
+
+
+    #[Route("/stripe-checkout", name:"stripe_checkout", methods: ['GET', 'POST'])]
+    public function stripeCheckout(Abonnement $abonnement, User $user)
+    {
+      
+
+        $price = intval($abonnement->getTarif()) +0.99;
+        
+
+        // Configurez Stripe avec votre clé secrète
+        Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
+
+        // URL de votre domaine (changez ceci selon votre environnement)
+        $YOUR_DOMAIN = 'http://127.0.0.1:8000/';
+
+        // Créez une session de paiement Stripe
+   
+        $checkout_session = \Stripe\Checkout\Session::create([
+            'customer_email' => $user->getEmail(),
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'eur',
+                    'product_data' => [
+                        'name' => $abonnement->getName(),
+                    ],
+                    'unit_amount' => $price * 100,
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => $YOUR_DOMAIN . 'confirmation/' . $abonnement->getId(),
+            'cancel_url' => $YOUR_DOMAIN . 'cancel',
+             'automatic_tax' => [
+                 'enabled' => true,
+             ],
+        ]);
+
+        // Rediriger l'utilisateur vers l'URL de paiement Stripe
+        return new RedirectResponse($checkout_session->url);
+
+    
+    }
+
+    #[Route('/confirmation/{abonnement}', name: 'app_confirmation')]
+    function confirmation(Abonnement $abonnement, User $user, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, Security $security, Request $request) {
+        $session = $request->getSession();
+        $user = $session->get('user');
+         $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $user->getPassword()
                 )
             );
 
@@ -67,12 +151,22 @@ class RegistrationController extends AbstractController
             // do anything else you need here, like send an email
 
             return $security->login($user, LoginAuthenticator::class, 'main');
-        }
 
-        return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form,
+        return $this->render('registration/confirmation.html.twig', [
+            
         ]);
     }
+
+    #[Route('/cancel', name: 'app_cancel')]
+    function cancel()
+    {
+        
+        // créez une page qui indique que le paiement a été refusée
+        return $this->render('registration/cancel.html.twig', [
+            
+        ]);
+    }
+
 
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
