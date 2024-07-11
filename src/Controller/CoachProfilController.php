@@ -18,18 +18,12 @@ use Symfony\Component\Routing\Attribute\Route;
 class CoachProfilController extends AbstractController
 {
     #[Route('/coachprofil', name: 'app_coach_profil')]
-    public function index(Request $request,  AbonnerRepository $abonnerRepository, EntityManagerInterface $entityManager, RecetteRepository $recetteRepository): Response
+    public function index(Request $request, AbonnerRepository $abonnerRepository, EntityManagerInterface $entityManager, RecetteRepository $recetteRepository): Response
     {
         $user = $this->getUser(); // Récupère l'utilisateur connecté
-        // vérifier si c'est un coach
-       // $roles = $user->getRoles();
-
         $abonner = $abonnerRepository->findOneBy(['user' => $user]); // Récupère l'objet Abonner correspondant à l'utilisateur connecté
-
         $abonnerId = $abonner->getId(); // Récupère l'ID de l'abonner
-
         $abonnement = $abonner->getSubscription(); // Récupère l'objet Abonnement correspondant à l'abonné
-
         // Récupère les informations de l'abonné
         $nom = $abonner->getName();
         $prenom = $abonner->getFirstName();
@@ -42,7 +36,6 @@ class CoachProfilController extends AbstractController
         $numeroRue = $abonner->getAddress();
 
         $recettes = $recetteRepository->findBy(['user' => $user->getId()]);
-       
 
 
         $recette = new Recette();
@@ -50,15 +43,44 @@ class CoachProfilController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $recette->setUser($user);
-$entityManager->persist($recette);
-            // dd($recette);
-            $entityManager->flush();
+            // $pictures = $form->get('pictures')->getData();
 
-            $this->addFlash('success', 'reccete .');
+            // foreach($pictures as $picture){
+            //     $fichier = md5(uniqId()) . '.' . $picture->guessExtension();
 
-            return $this->redirectToRoute('app_coach_profil');
-        }
+            //     $picture->move(
+            //         $this->getParameter('images_directory'),
+            //         $fichier
+            //     );
+
+
+
+            // }
+
+    $recette->setUser($user);
+    
+    // Vérification si l'image est fournie, sinon définir une valeur par défaut
+    if (is_null($recette->getPicture()) || empty($recette->getPicture())) {
+        $recette->setPicture('img/bol.jpeg'); // Chemin de l'image par défaut
+    }
+
+    $entityManager->persist($recette);
+    $entityManager->flush();
+
+    $this->addFlash('success', 'Recette ajoutée avec succès.');
+
+    return $this->redirectToRoute('app_coach_profil');
+}
+// if ($form->isSubmitted() && $form->isValid()) {
+//     $recette->setUser($user);
+// $entityManager->persist($recette);
+//     // dd($recette);
+//     $entityManager->flush();
+
+//     $this->addFlash('success', 'reccete .');
+
+//     return $this->redirectToRoute('app_coach_profil');
+// }
         // Envoie les informations de l'abonné à la vue Twig
         return $this->render('coach_profil/coach_profil.html.twig', [
             'controller_name' => 'ProfilController',

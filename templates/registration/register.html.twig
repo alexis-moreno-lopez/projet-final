@@ -60,14 +60,13 @@
                       <div class="mb-3">
                         
                         {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'form-label'}}) }}
-    {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
                       </div>
                       </div>
                       <div class="space-deux ms-5">
                         <div class="mb-3">
                           {{ form_label(registrationForm.abonner.emailConfirmation, 'Email de confirmation', {'label_attr': {'class': 'form-label'}}) }}
                           {{ form_widget(registrationForm.abonner.emailConfirmation, {'attr': {'class': 'form-control'}}) }}
-    
                         </div>
 
 
@@ -101,11 +100,10 @@
 
                                       <div class="mb-3 form-check">
                                         {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
-                                       <label class="form-check-label" for="checkLabel3">j'accepte les <a href="{{ path('app_rgpd') }}">Conditions</a></label>
+                                        <label class="form-check-label" for="checkLabel3">j'accepte les <a id="condition" href="{{ path('app_rgpd') }}">Conditions</a></label>
                                         
                                           </div>
-
-                                           <div class="space">
+                                          <div class="space">
 <button type="submit" class="bouton">suivant<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button>
 
 </div>

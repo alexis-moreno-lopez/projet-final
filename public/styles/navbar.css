@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  --main-bg-color: #fe7000;
+  --main-text-color: white;
+  --highlight-color: black;
+}
+
+
 h1 {
   color: white;
   text-align: center;
@@ -71,6 +78,7 @@ color: white;
 .logoProfil {
   height: 40px;
   width: 40px;
+  border-radius:10px;
 }
 
 a {

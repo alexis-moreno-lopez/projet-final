@@ -1,5 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+
+/* Déclaration des variables CSS */
+:root {
+  --navbar-bg-color: #fe7000;
+  --navbar-burger-color: #fe7000;
+  --navbar-bar-hover-color: black;
+  --navbar-text-burger-color: black;
+  --navbar-text-color: white;
+
+  --color-bg-button: white;
+  --color-bg-cercle-button-hover: white;
+  --color-bg-cercle-button: #fe7000;
+  --color-bg-button-hover: #fe7000;
+  --text-button-color: black;
+  --arrow-cercle-button-color: black;
+  --color-border-button-hover: #fe7000;
+
+  --box-color: rgb(0, 0, 0, 0.4);
+  --color-shadow: rgba(0, 0, 0, 0.35);
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +30,6 @@
 }
 
 body {
-  background-color: rgb(242, 240, 240);
   margin: 0 auto;
   text-align: center;
   font-family: "Montserrat", sans-serif;
@@ -36,18 +57,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-}
-
-.nav-img {
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: var(--navbar-text-color);
 }
 
 .navbar {
-  background-color: #fe7000;
+  background-color: var(--navbar-bg-color);
   height: 80px;
   min-width: 80px;
 }
@@ -84,8 +98,8 @@ body {
 }
 
 /* nav li:first-child {
-color: white;
-} */
+  color: white;
+  } */
 
 .navbar li:hover:before {
   width: 100%; /* Ajuste la largeur au survol */
@@ -94,15 +108,17 @@ color: white;
 .logoProfil {
   height: 40px;
   width: 40px;
+  border-radius:10px;
 }
 
+
 #offcanvasDarkNavbar {
-  background-color: #fe7000;
+  background-color: var( --navbar-burger-color);
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--navbar-text-burger-color);
 }
 
 .nav-img {
@@ -113,16 +129,12 @@ a {
   min-height: auto;
   height: 100%;
   width: 30%;
-  background-color: rgb(0, 0, 0, 0.4);
+  background-color: var(--box-color);
 }
 
 .margin {
   margin-top: 100px;
   margin-bottom: 250px;
-}
-
-img {
-  border-radius: 20px;
 }
 
 form {
@@ -142,18 +154,18 @@ input {
 
 .bouton {
   justify-content: center;
-  border: 2px solid #fe7000;
+  border: 2px solid var(--color-border-button);
   border-radius: 50px;
   padding: 10px 41px 10px 41px;
-  background-color: white;
-  color: black;
+  background-color: var(--color-bg-button);
+  color: var(--text-button-color);
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   width: auto; /* Vous pouvez définir une largeur fixe ici si nécessaire */
   min-width: 150px; /* Largeur minimale du bouton */
   max-width: 300px; /* Largeur maximale du bouton */
-  font-family: var(--alt-font);
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   position: relative; /* Permet le positionnement absolu du span */
   overflow: hidden; /* Pour masquer le cercle quand il est en dehors du bouton */
@@ -163,9 +175,8 @@ input {
 }
 
 .bouton:hover {
-  background: #fe7000;
-  border: 2px solid #fe7000;
-  color: black;
+  background: var(--color-bg-button-hover);
+  border: 2px solid var(--color-border-button-hover);
 }
 
 .bouton > span {
@@ -176,13 +187,13 @@ input {
   height: 30px; /* Taille du cercle */
   position: absolute;
   border-radius: 100%;
-  background-color: #fe7000; /* Couleur du cercle */
+  background-color: var(--color-bg-cercle-button); /* Couleur du cercle */
   left: 8px; /* Positionne le cercle à gauche du bouton */
   top: 50%;
   transform: translateY(-50%);
   transition: left 0.5s ease-in-out; /* Transition pour le mouvement du cercle */
-  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.35);
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 5px 10px 0 var(--color-shadow);
+  box-shadow: 0 5px 10px 0 var(--color-shadow);
   opacity: 1; /* Le cercle est visible par défaut */
 }
 
@@ -195,18 +206,18 @@ input {
   left: calc(
     100% - 38px
   ); /* Positionne le cercle à l'intérieur du bouton à droite */
-  background-color: white;
+  background-color: var(--color-bg-cercle-button-hover);
 }
 
 .bouton:hover > span > i {
   opacity: 1; /* Rendre la flèche visible lors du survol */
-  color: black;
+  color: var(--arrow-cercle-button-color);
 }
 
 
 
 h1 {
-  color: white;
+  color: var(--navbar-text-color);
   text-align: center;
   margin: 1%;
   padding: 10px 10px 10px 10px;
@@ -229,6 +240,15 @@ h1 {
   }
   input {
     margin: 10px 60px 30px 60px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav-link {
+    color: black;
+  }
+  #pet-select {
+    color: black;
   }
 }
 

@@ -1,20 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
+  --navbar-burger-color: #fe7000;
+  --navbar-bg-color: #fe7000;
+  --navbar-text-burger-color: black;
+  --navbar-bar-hover-color: black;
+  --navbar-text-color: white;
+
   --background-color: rgb(242, 240, 240);
-  --navbar-btn-color: #fe7000;
-  --navbar-link-color: white;
-  --navbar-link-hover-color: black;
-  --navbar-link-hover-bar-color: black;
+  --section-bg-color: rgb(226, 224, 224);
+
+  --color-bg-button-hover: #fe7000;
+  --arrow-cercle-button-hover-color: black;
+  --color-bg-cercle-button-hover: white;
+  --color-button-shadow: rgba(0, 0, 0, 0.35);
+  --text-button-color: black;
+  --color-border-button-hover: #fe7000;
+  --color-border-button: #fe7000;
+  --color-bg-cercle-button: #fe7000;
+  --color-bg-button: white;
+
   --card-bg-color: rgb(226, 224, 224);
-  --button-bg-color: white;
-  --button-text-color: black;
-  --button-border-color: #fe7000;
-  --button-hover-bg-color: #fe7000;
-  --button-hover-text-color: black;
-  --social-bg-color: #fe7000;
-  --footer-text-color: black;
-  --footer-bg-color: white;
+  --border-input-focus-color: #fe7000;
+
+  --text-shadow: #2d2d2d;
+  --color-footer-reseau: #fe7000;
+  --color-bg-icon-reseau: whitesmoke;
+  --color-border-icon-reseau: #ccc;
+  --color-scroll-icon: white;
+  --color-scroll-bg: #fe7000;
 }
 
 * {
@@ -38,7 +52,7 @@ body {
 }
 /*-------------------------------------------- Titre------------------------------------------------------------*/
 h1 {
-  color: white;
+  color: var(--navbar-text-color);
   text-align: center;
   margin: 1%;
   padding: 10px 10px 10px 10px;
@@ -51,7 +65,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--navbar-text-color);
 }
 
 .nav-img {
@@ -62,7 +76,7 @@ h1 {
 }
 
 .navbar {
-  background-color: var(--navbar-btn-color);
+  background-color: var(--navbar-bg-color);
   height: 80px;
   min-width: 80px;
   gap: 100px;
@@ -89,8 +103,8 @@ h1 {
   width: 0;
   height: 3px;
   position: absolute;
-  background: black;
-  top: -5px;
+  background: var(--navbar-bar-hover-color);
+   top: -5px;
   left: 50%;
   transform: translateX(-50%);
   transition: width 0.3s ease; /* Transition fluide */
@@ -111,15 +125,16 @@ color: white;
 .logoProfil {
   height: 40px;
   width: 40px;
+  border-radius:10px;
 }
 
 #offcanvasDarkNavbar {
-  background-color: var(--navbar-btn-color);
+  background-color: var(--navbar-burger-color);
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--navbar-text-burger-color);
 }
 
 .nav-img {
@@ -146,7 +161,7 @@ a {
 /*--------------------------------------------Fin------------------------------------------------------------*/
 /*--------------------------------------------sec-deux------------------------------------------------------------*/
 .sec-deux {
-  background-color: rgb(226, 224, 224);
+  background-color: var(--section-bg-color);
 }
 
 img {
@@ -207,6 +222,7 @@ h2 {
 
 .design-card,
 .design-card-deux {
+  background-color: var(--card-bg-color);
   backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -234,8 +250,8 @@ h2 {
 h3 {
   font-size: 30px;
   text-align: center;
-  text-shadow: -1px -1px 0 #2d2d2d, 1px -1px 0 #2d2d2d, -1px 1px 0 #2d2d2d,
-    1px 1px 0 #2d2d2d;
+  text-shadow: -1px -1px 0 var(--text-shadow), 1px -1px 0 var(--text-shadow), -1px 1px 0 var(--text-shadow),
+    1px 1px 0 var(--text-shadow);
 }
 
 .display {
@@ -270,7 +286,7 @@ p {
 /*--------------------------------------------Fin------------------------------------------------------------*/
 /*--------------------------------------------sec-quatre------------------------------------------------------------*/
 .sec-quatre {
-  background: rgb(226, 224, 224);
+  background: var(--section-bg-color);
 }
 
 .bloc-sec-form {
@@ -312,7 +328,7 @@ textarea {
 
 input[type="text"]:focus,
 textarea:focus {
-  outline: 2px solid var(--navbar-btn-color);
+  outline: 2px solid var(--border-input-focus-color);
 }
 
 textarea {
@@ -322,11 +338,11 @@ textarea {
 
 .bouton {
   justify-content: center;
-  border: 2px solid var(--navbar-btn-color);
+  border: 2px solid var(--color-border-button);
   border-radius: 50px;
   padding: 12px 43px 12px 43px;
-  background-color: white;
-  color: black;
+  background-color: var(--color-bg-button);
+  color: var(--text-button-color);
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -343,9 +359,9 @@ textarea {
 }
 
 .bouton:hover {
-  background: var(--navbar-btn-color);
-  border: 2px solid var(--navbar-btn-color);
-  color: black;
+  background: var(--color-bg-button-hover); 
+  border: 2px solid var(--color-border-button-hover);
+  color: var(--text-button-color);
 }
 
 .bouton > span {
@@ -356,13 +372,13 @@ textarea {
   height: 30px; /* Taille du cercle */
   position: absolute;
   border-radius: 100%;
-  background-color: var(--navbar-btn-color); /* Couleur du cercle */
+  background-color: var(--color-bg-cercle-button); /* Couleur du cercle */
   left: 8px; /* Positionne le cercle à gauche du bouton */
   top: 50%;
   transform: translateY(-50%);
   transition: left 0.5s ease-in-out; /* Transition pour le mouvement du cercle */
-  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.35);
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 5px 10px 0 var(--color-button-shadow);
+  box-shadow: 0 5px 10px 0 var(--color-button-shadow);
   opacity: 1; /* Le cercle est visible par défaut */
 }
 
@@ -375,19 +391,19 @@ textarea {
   left: calc(
     100% - 38px
   ); /* Positionne le cercle à l'intérieur du bouton à droite */
-  background-color: white;
+  background-color: var(--color-bg-cercle-button-hover);
 }
 
 .bouton:hover > span > i {
   opacity: 1; /* Rendre la flèche visible lors du survol */
-  color: black;
+  color: var(--arrow-cercle-button-hover-color);
 }
 
 /*--------------------------------------------Fin------------------------------------------------------------*/
 /*--------------------------------------------sec-cinq------------------------------------------------------------*/
 
 .nav-reseau {
-  background: var(--navbar-btn-color);
+  background: var(--color-footer-reseau);
   padding: 2%;
 }
 
@@ -401,8 +417,8 @@ textarea {
 }
 
 .nav-reseau a {
-  background-color: whitesmoke;
-  border: 1px solid #ccc;
+  background-color: var(--color-bg-icon-reseau);
+  border: 1px solid var(--color-border-icon-reseau);
   border-radius: 50px;
   width: 44px;
   height: 44px;
@@ -430,8 +446,8 @@ h4 {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: var(--navbar-btn-color);
-  color: white;
+  background-color: var(--color-scroll-bg);
+  color: var(--color-scroll-icon);
   width: 40px;
   height: 40px;
   text-align: center;
@@ -471,6 +487,9 @@ h4 {
 
 @media (max-width: 1200px) {
   .nav-link {
+    color: black;
+  }
+  #pet-select {
     color: black;
   }
 }

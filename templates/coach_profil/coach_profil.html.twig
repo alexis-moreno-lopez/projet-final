@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {%  block metaEtLinkSupplementaire %}
- <link rel="stylesheet" href={{asset('styles/coach_profil.css')}} />
+<link rel="stylesheet" href={{asset('styles/coach_profil.css')}} />
 {% endblock %}
 
 {% block body %}
@@ -23,39 +23,35 @@
      
   </header>
 
-  {% for recette in recettes %}
-  <p>{{recette.name}}</p>
-  <a href="{{path('app_recette_delete', {id: recette.id})}}" class="btn btn-danger"> Supprimer </a>
-  {% endfor %}
 
-  <section class="d-flex justify-content-center ">
-<div class="test">
-  {% if abonner %}
-      <div class="corner">
-        <ul class="list">
-          <li class="toggle-table">Données personnelles
-            <i class="fa-regular fa-hand-pointer"></i>
-            <i class="fa-regular fa-hand-point-down hidden"></i>
-          </li>
-          <li class="hidden"> Nom:  {{ abonner.name }}</li>
-          <li class="hidden"> Prénom: {{ abonner.firstName }}</li> </li>
-          <li class="hidden"> Date de Naissance:{{ abonner.dateOfBirth|date('d/m/Y') }} </li>
-          <li class="hidden"> Numéro de téléphone:{{ abonner.telephone }}</li>
-          <li class="hidden"> Email:{{ abonner.emailConfirmation }}</li>
-          <li class="hidden"> Code Postale: {{ abonner.postalCode }}</li>
-          <li class="hidden"> Ville:{{ abonner.city }}</li>
-          <li class="hidden"> Rue:{{ abonner.street }}</li>
-          <li class="hidden"> Numéro de Rue: {{ abonner.address }}</li>
-          <li class="hidden"> Info Complémentaire:{{ abonner.subscription }}</li>
-          <li class="hidden"><a class="no" href="{{ path('app_edit') }}"><button class="bouton">Modifier<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a></li>
-        </ul>
-        
+
+  <section class="d-flex justify-content-space-around ">
+      <div class="d-flex justify-content-center container test1">
+        {% if abonner %}
+          <div class="corner">
+            <ul class="list">
+              <li class="toggle-table">Données personnelles
+              <i class="fa-regular fa-hand-pointer"></i>
+              <i class="fa-regular fa-hand-point-down hidden"></i>
+              </li>
+              <li class="hidden"> Nom:  {{ abonner.name }}</li>
+              <li class="hidden"> Prénom: {{ abonner.firstName }}</li>
+              <li class="hidden"> Date de Naissance:{{ abonner.dateOfBirth|date('d/m/Y') }} </li>
+              <li class="hidden"> Numéro de téléphone:{{ abonner.telephone }}</li>
+              <li class="hidden"> Email:{{ abonner.emailConfirmation }}</li>
+              <li class="hidden"> Code Postale: {{ abonner.postalCode }}</li>
+              <li class="hidden"> Ville:{{ abonner.city }}</li>
+              <li class="hidden"> Rue:{{ abonner.street }}</li>
+              <li class="hidden"> Numéro de Rue: {{ abonner.address }}</li>
+              <li class="hidden"> Info Complémentaire:{{ abonner.subscription }}</li>
+              <li class="hidden"><a class="no" href="{{ path('app_edit') }}"><button class="bouton">Modifier<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a></li>
+            </ul>
+          </div>
       </div>
-    </div>
     {% endif %}
- <div class="container">
+    <div class="container test2">
         <h2>Ajouter une recette</h2>
-            {{ form_start(form) }}
+            {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
             <div class="form-group">
                 {{ form_label(form.name, 'Nom:') }}
                 {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
@@ -84,11 +80,35 @@
                 {{ form_label(form.ingredient, 'Ingrédients:') }}
                 {{ form_widget(form.ingredient, {'attr': {'class': 'form-control'}}) }}
             </div>
-
             <button type="submit">Ajouter</button>
             {{ form_end(form) }}
         {# </form> #}
     </div>
+</div>
+<div class="container d-flex justify-content-center container test3">
+        
+          <div class="corner">
+            <ul class="list">
+              <li class="toggle-table">recettes
+              <i class="fa-regular fa-hand-pointer"></i>
+              <i class="fa-regular fa-hand-point-down hidden"></i>
+              </li>
+              {% for recette in recettes %}
+              <li class="hidden"><p class="d-flex align-items-center">{{recette.name}}<a href="{{path('app_recette_delete', {id: recette.id})}}" class="bouton ms-3">supprimer<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a></p></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+              <li class="hidden"></li>
+               {% endfor %} 
+            </ul>
+          </div>
+      </div>
+
 </div>
   </section>
     {# <section>

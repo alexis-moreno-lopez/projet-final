@@ -1,4 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Déclaration des variables CSS */
+:root {
+  --color-background: #eeede9;
+  --color-font: white;
+  --color-font-secondary: black;
+  --color-navbar-bg: #fe7000;
+  --color-navbar-hover: black;
+  --color-link: black;
+  --color-link-hover: #ff462b;
+  --color-button-bg: rgba(254, 112, 0, 0.7);
+  --color-section-bg: rgb(214, 214, 214);
+  --color-scroll-bg: #fe7000;
+  --color-scroll-icon: white;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -91,6 +107,7 @@ h1 {
 .logoProfil {
   height: 40px;
   width: 40px;
+  border-radius:10px;
 }
 
 a {
@@ -222,6 +239,9 @@ a {
 
 @media (max-width: 1200px) {
   .nav-link {
+    color: black;
+  }
+  #pet-select {
     color: black;
   }
 }

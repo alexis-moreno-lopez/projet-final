@@ -1,5 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* Couleurs principales */
+  --navbar-bg-color: #fe7000; /* Couleur principale navbar */
+  --navbar-burger-color: #fe7000; /* Couleur burger */
+  --navbar-text-color: white; /* Couleur du texte de la navbar */
+  --navbar-bar-hover-color: black; /* Couleur de la bar au hover */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,11 +26,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--navbar-text-color);
   }
   
   .navbar {
-    background-color: #fe7000;
+    background-color: var(--navbar-bg-color);
   height: 80px;
   }
   
@@ -44,7 +53,7 @@
     width: 0;
     height: 3px;
     position: absolute;
-    background: black;
+    background: var(--navbar-bar-hover-color);
     top: -5px;
     left: 50%;
     transform: translateX(-50%);
@@ -66,6 +75,7 @@
   .logoProfil {
     height: 40px;
     width: 40px;
+    border-radius:10px;
   }
 
   a {
@@ -74,7 +84,7 @@
   
   }
   #offcanvasDarkNavbar {
-    background-color: #fe7000;
+    background-color: var(--navbar-burger-color);
   }
 
   .nav-img {
@@ -87,7 +97,7 @@ padding: 20px;
 }
 
 h1 {
-    color: white;
+    color:var(--navbar-text-color);
     text-align: center;
     margin: 1%;
     padding: 10px 10px 10px 10px;
@@ -105,3 +115,11 @@ h3 {
     padding: 20px;
 }
 
+@media (max-width: 1200px) {
+  .nav-link {
+    color: black;
+  }
+  #pet-select {
+    color: black;
+  }
+}

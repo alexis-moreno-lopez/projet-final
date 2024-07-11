@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+
+
+/* Déclaration des variables CSS */
+:root {
+
+
+  --navbar-bar-hover-color: black;
+  --navbar-text-burger-color: black;
+  --navbar-bg-color: #fe7000;
+  --navbar-text-color: white;
+  --color-separation-box-color: #fe7000;
+  --color-background: rgb(242, 240, 240);
+  --color-scroll-bg: #fe7000;
+  --navbar-burger-color: #fe7000;
+  --color-box-background: rgba(191, 191, 191, 0.5);
+  --color-scroll-icon: white;
+  --color-section-box: rgb(226, 224, 224);
+  --color-box-shadow: rgba(0, 0, 0, 0.5);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +28,7 @@
 }
 
 body {
-  background-color: rgb(242, 240, 240);
+  background-color: var(--color-background);
   margin: 0 auto;
   text-align: center;
   font-family: "Montserrat", sans-serif;
@@ -21,7 +41,7 @@ body {
 }
 /*-------------------------------------------- Titre------------------------------------------------------------*/
 h1 {
-  color: white;
+  color: var(--color-background);
   text-align: center;
   margin: 1%;
   padding: 10px 10px 10px 10px;
@@ -32,7 +52,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--navbar-text-color);
 }
 
 .nav-img {
@@ -43,7 +63,7 @@ h1 {
 }
 
 .navbar {
-  background-color: #fe7000;
+  background-color: var(--navbar-bg-color);
   height: 80px;
   min-width: 80px;
 }
@@ -67,7 +87,7 @@ h1 {
   width: 0;
   height: 3px;
   position: absolute;
-  background: black;
+  background:var(--navbar-bar-hover-color);
   top: -5px;
   left: 50%;
   transform: translateX(-50%);
@@ -89,15 +109,16 @@ h1 {
 .logoProfil {
   height: 40px;
   width: 40px;
+  border-radius:10px;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--navbar-text-burger-color);
 }
 
 #offcanvasDarkNavbar {
-  background-color: #fe7000;
+  background-color: var(--navbar-burger-color);
 }
 
 .nav-img {
@@ -110,8 +131,8 @@ a {
 /*--------------------------------------------Un------------------------------------------------------------*/
 .un {
   padding: 50px 0px 50px 0px;
-  background-color: rgb(226, 224, 224);
-  box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.5);
+  background-color:var(--color-section-box);
+  box-shadow: 0px 0px 17px var(--color-box-shadow);
 }
 /*--------------------------------------------Fin------------------------------------------------------------*/
 /*--------------------------------------------Deux------------------------------------------------------------*/
@@ -122,8 +143,8 @@ a {
 /*--------------------------------------------Trois------------------------------------------------------------*/
 .trois {
   padding: 50px 0px 50px 0px;
-  background: rgb(226, 224, 224);
-  box-shadow: -1px -10px 17px -9px rgba(0, 0, 0, 0.5);
+  background: var(--color-section-box);
+  box-shadow: -1px -10px 17px -9px var(--color-box-shadow);
 }
 /*--------------------------------------------Fin------------------------------------------------------------*/
 /*--------------------------------------------Box Abonnement------------------------------------------------------------*/
@@ -131,13 +152,13 @@ a {
   margin-left: 10%;
   height: 410px;
   width: 400px;
-  background: rgba(191, 191, 191, 0.5);
+  background: var(--color-box-background);
   border-radius: 20px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 10px var(--color-box-shadow);
 }
 
 .separation {
-  background-color: #fe7000;
+  background-color: var(--color-separation-box-color);
   height: 15px;
 }
 
@@ -176,8 +197,8 @@ h3 {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #fe7000;
-  color: white;
+  background-color: var(--color-scroll-bg);
+  color: var(--color-scroll-icon);
   width: 40px;
   height: 40px;
   text-align: center;
@@ -197,6 +218,9 @@ h3 {
 
 @media (max-width: 1200px) {
   .nav-link {
+    color: black;
+  }
+  #pet-select {
     color: black;
   }
   .paragraphe-un {
