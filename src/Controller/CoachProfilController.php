@@ -37,6 +37,8 @@ class CoachProfilController extends AbstractController
         $rue = $abonner->getStreet();
         $numeroRue = $abonner->getAddress();
 
+        $imageUrl = $abonner->getProfileImageUrl();
+
         /**
          * @var User $user
          * retrouver toutes les recettes de l'utilisateur
@@ -50,7 +52,6 @@ class CoachProfilController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $picture = $form->get('picture')->getData();
-      
 
             if ($picture) {
                 $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
