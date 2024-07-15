@@ -1,83 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{%  block metaEtLinkSupplementaire %}
- <link rel="stylesheet" href={{asset('styles/coach.css')}} />
+{% block metaEtLinkSupplementaire %}
+  <link rel="stylesheet" href="{{ asset('styles/coach.css') }}" />
 {% endblock %}
 
 {% block body %}
-<header> 
-<h2>Coach</h2>
-<div class="texte">
-<p class="style">À AccèGym, nous sommes fiers de vous présenter nos trois coaches passionnés, chacun spécialisé dans un domaine unique pour vous aider à atteindre vos objectifs de remise en forme et de bien-être.
-Que vous souhaitiez renforcer vos muscles, perdre du poids de manière saine ou simplement trouver la paix intérieure, nos coaches sont là pour vous accompagner à chaque étape de votre parcours. Prenez rendez-vous dès aujourd'hui et commencez à transformer votre vie avec AccèGym !</p>
-</div> 
-</header>
- <main>
-    <div class="padding a">
-     
-      <img class="photo" src="/img/coach1.jpg" alt="">
-      <div class="prenom">
-        <p></p>
-      </div>
-      <div>
-        ID :
-      </div>
-      <P class="biographie">Spécialités : Entraînement fonctionnel, Yoga, Pilates
-
-Biographie :
-Julie Martin est une coach passionnée par le bien-être global et l'équilibre corporel. Avec plus de 10 ans d'expérience dans le domaine du fitness, Julie a aidé de nombreuses personnes à atteindre leurs objectifs de remise en forme grâce à une approche holistique et personnalisée. Elle est certifiée en entraînement fonctionnel, yoga et pilates, et combine ces disciplines pour offrir des séances variées et dynamiques.
-
-Philosophie :
-"La clé du bien-être réside dans l'harmonie entre le corps et l'esprit. Mon objectif est de guider chaque individu vers une meilleure version de lui-même, tout en respectant ses capacités et ses besoins spécifiques."</P>
+    <header class="text-center">
+        <h2>Coach</h2>
+        <div class="texte">
+            <p class="style">À AccèGym, nous sommes fiers de vous présenter nos trois coaches passionnés, chacun spécialisé dans un domaine unique pour vous aider à atteindre vos objectifs de remise en forme et de bien-être. Que vous souhaitiez renforcer vos muscles, perdre du poids de manière saine ou simplement trouver la paix intérieure, nos coaches sont là pour vous accompagner à chaque étape de votre parcours. Prenez rendez-vous dès aujourd'hui et commencez à transformer votre vie avec AccèGym !</p>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row justify-content-around">
+                {% for coach in coaches %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ coach.abonner.name }}</h5>
+                            <p class="card-text">Téléphone : {{ coach.abonner.telephone }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <div class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
     </div>
-    <div class="padding b">
-      
-      <img class="photo" src="/img/coach5.jpg" alt="">
-      <div class="prenom">
-        <p>blabla</p>
-      </div>
-      <div>
-        ID :
-      </div>
-       <P class="biographie">Spécialités : Musculation, Nutrition sportive, Coaching en ligne
-
-Biographie :
-Lucas Dupont est un expert en musculation et nutrition sportive avec plus de 8 ans d'expérience. Diplômé en sciences du sport et nutrition, Lucas a aidé des athlètes et des amateurs de fitness à améliorer leurs performances et à atteindre leurs objectifs de composition corporelle. Sa passion pour la transformation physique et son approche scientifique lui permettent de créer des programmes efficaces et adaptés à chaque individu.
-
-Philosophie :
-"Un bon entraînement doit être soutenu par une alimentation adéquate. Je suis ici pour vous guider et vous soutenir dans chaque étape de votre parcours fitness, que ce soit en salle ou à distance."</P>
-    </div>
-    
-    </div>
-    <div class="padding c">
-     
-      <img class="photo" src="/img/coach3.jpg" alt="">
-      <div class="prenom">
-        <p>blabla</p>
-      </div>
-      <div>
-        ID :
-      </div>
-       <P class="biographie">Spécialités : Cardio-training, CrossFit, Préparation physique
-
-Biographie :
-Sophie Bernard est une coach énergique et motivante spécialisée en cardio-training et CrossFit. Avec 7 ans d'expérience dans le domaine, elle a travaillé avec des clients de tous âges et niveaux de condition physique pour les aider à atteindre leurs objectifs de performance et de santé. Sophie est connue pour ses séances intenses et ses encouragements constants, qui poussent chacun à donner le meilleur de lui-même.
-
-Philosophie :
-"Le succès ne vient pas de la zone de confort. Je crois en la puissance du dépassement de soi et de l'entraînement intense pour obtenir des résultats durables. Ensemble, nous atteindrons des sommets."</P>
-    </div>
-
-   
-</main>
-  
-  
-
-
-		
-
-
-
 {% endblock %}
+
 {% block javascripts %}
-<script src={{asset('js/coach.js')}}></script>
+<script src="{{ asset('js/coach.js') }}"></script>
 {% endblock %}

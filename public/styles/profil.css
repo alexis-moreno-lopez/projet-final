@@ -266,6 +266,10 @@ li {
   font-size: 1.5rem;
 }
 
+li .bouton {
+  font-size: 0.9rem;
+  }
+  
 section {
   padding-top: 50px;
   background: var(--section-bg-color);

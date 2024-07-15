@@ -35,7 +35,8 @@ class RegistrationController extends AbstractController
     Request $request, 
     AbonnementRepository $abonnementRepository,
     string $name,
-    PaymentController $paymentController,
+    PaymentController $paymentController, 
+    UserPasswordHasherInterface $userPasswordHasher
     ): Response
     {
         $user = new User();
@@ -44,9 +45,16 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
             $session = $request->getSession();
             $session->set('user', $user);
-            $paymentController->stripeCheckout($abonnement, $user);
+            return $this->redirectToRoute('stripe_checkout', ['id' => $abonnement->getId()]);
             // encode the plain password
             // $user->setPassword(
             //     $userPasswordHasher->hashPassword(
@@ -82,14 +90,15 @@ class RegistrationController extends AbstractController
 
 
 
-    #[Route("/stripe-checkout", name:"stripe_checkout", methods: ['GET', 'POST'])]
-    public function stripeCheckout(Abonnement $abonnement, User $user)
+    #[Route("/stripe-checkout/{id}", name:"stripe_checkout", methods: ['GET', 'POST'])]
+    public function stripeCheckout(Abonnement $abonnement, Request $request)
     {
-      
 
         $price = intval($abonnement->getTarif()) +0.99;
+        $session = $request->getSession();
         
-
+        $user = $session->get('user');
+        
         // Configurez Stripe avec votre clé secrète
         Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
 
@@ -97,7 +106,6 @@ class RegistrationController extends AbstractController
         $YOUR_DOMAIN = 'http://127.0.0.1:8000/';
 
         // Créez une session de paiement Stripe
-   
         $checkout_session = \Stripe\Checkout\Session::create([
             'customer_email' => $user->getEmail(),
             'payment_method_types' => ['card'],
@@ -125,16 +133,10 @@ class RegistrationController extends AbstractController
     
     }
 
-    #[Route('/confirmation/{abonnement}', name: 'app_confirmation')]
-    function confirmation(Abonnement $abonnement, User $user, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, Security $security, Request $request) {
+    #[Route('/confirmation/{id}', name: 'app_confirmation')]
+    function confirmation(Abonnement $abonnement, EntityManagerInterface $entityManager, Security $security, Request $request) {
         $session = $request->getSession();
         $user = $session->get('user');
-         $user->setPassword(
-                $userPasswordHasher->hashPassword(
-                    $user,
-                    $user->getPassword()
-                )
-            );
 
             // $user->getAbonner()->setEmail($user->getEmail());
             $user->getAbonner()->setSubscription($abonnement);

@@ -12,15 +12,16 @@
       <h2 class="padding">Abonnez-vous à AccèsGym !</h2>
     </div>
   </header>
-  <section class="">
+  <section>
   
     {# {{ form_start(inscriptionForm) }} #}
 
-
       {# {{ form_errors(registrationForm) }} #}
 
-    
-{{ form_start(registrationForm, {'attr': {'class': 'form'}}) }}
+    <form method="post" action="{{ path('app_register', {name: abonnement.name}) }}">
+
+{{ form_widget(registrationForm._token) }}
+{# {{ form_start(registrationForm, {'attr': {'class': 'form'}}) }} #}
 {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -101,7 +102,7 @@
                                       <div class="mb-3 form-check">
                                         {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
                                         <label class="form-check-label" for="checkLabel3">j'accepte les <a id="condition" href="{{ path('app_rgpd') }}">Conditions</a></label>
-                                        
+                                        {# {{ form_row(registrationForm.verificationCode) }} #}
                                           </div>
                                           <div class="space">
 <button type="submit" class="bouton">suivant<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button>
@@ -109,8 +110,9 @@
 </div>
 
 
-      
-    {{ form_end(registrationForm) }}</div>
+      </form>
+    {# {{ form_end(registrationForm) }} #}
+    </div>
   </section> 
   {% block javascripts %}
 <script src={{asset("js/formInscription.js")}}></script>

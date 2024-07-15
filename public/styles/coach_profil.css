@@ -5,27 +5,15 @@
 
 /* Déclaration des variables CSS */
 :root {
-  --color-background: rgb(242, 240, 240);
-  --color-font: white;
-  --color-navbar-bg: #fe7000;
-  --color-navbar-hover: black;
-  --color-link: black;
-  --color-box-bg: rgba(191, 191, 191, 0.5);
-  --color-separation: #fe7000;
-  --color-section-bg: #413434;
-  --color-scroll-bg: #fe7000;
-  --color-scroll-icon: white;
-  --color-button-bg: white;
-  --color-button-border: #fe7000;
-  --color-button-hover-bg: #fe7000;
-  --color-button-hover-border: #fe7000;
-  --color-button-icon: #fe7000;
-  --color-button-icon-hover: white;
-  --color-form-bg: #fff;
-  --color-form-border: #ccc;
-  --color-form-submit-bg: #007bff;
-  --color-form-submit-hover-bg: #0056b3;
-  --color-box-shadow: rgba(0, 0, 0, 0.1);
+  --color-bg-button-hover: #fe7000;
+  --arrow-cercle-button-hover-color: black;
+  --color-bg-cercle-button-hover: white;
+  --color-button-shadow: rgba(0, 0, 0, 0.35);
+  --text-button-color: black;
+  --color-border-button-hover: #fe7000;
+  --color-border-button: #fe7000;
+  --color-bg-cercle-button: #fe7000;
+  --color-bg-button: white;
 }
 
 
@@ -264,6 +252,9 @@ li {
   text-align: start;
   font-size: 1.5rem;
 }
+li .bouton {
+font-size: 0.9rem;
+}
 
 section {
   padding-top: 50px;
@@ -293,11 +284,11 @@ section {
 
 .bouton {
   justify-content: center;
-  border: 2px solid #fe7000;
+  border: 2px solid var(--color-border-button);
   border-radius: 50px;
   padding: 12px 43px 12px 43px;
-  background-color: white;
-  color: black;
+  background-color: var(--color-bg-button);
+  color: var(--text-button-color);
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -311,6 +302,7 @@ section {
   transition: all 300ms ease-in-out;
   text-align: center; /* Centrer le texte horizontalement */
   margin-top: 15px;
+  font-size: 1rem;
 }
 
 .bouton:hover {
@@ -425,19 +417,6 @@ textarea {
     height: 100px;
 }
 
-button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
 
 .test1 {
   background-color:  var(--color-section-bg);
@@ -451,4 +430,9 @@ button[type="submit"]:hover {
 .test3 {
   background-color: var(--color-section-bg);
   padding: 0;
+}
+@media (max-width: 1320px) {
+  section {
+    flex-direction: column;
+  }
 }

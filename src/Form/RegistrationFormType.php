@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -51,6 +52,11 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            // ->add('verificationCode', TextType::class, [
+            //     'mapped' => false,
+            //     'label' => 'Code de vérification',
+            //     'required' => true,
+            // ]);
         ;
     }
 

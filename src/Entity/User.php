@@ -43,7 +43,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    private ?string $test = null;
 
     #[ORM\OneToMany(targetEntity: Recette::class, mappedBy: 'user')]
     private Collection $recettes;
@@ -168,17 +167,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->isVerified = $isVerified;
 
         return $this;
-    }
-
-    public function setTest(string $test): static
-    {
-        $this->test = $test;
-        return $this;
-    }
-
-    public function getTest(): string
-    {
-        return $this->test;
     }
 
     /**

@@ -25,7 +25,7 @@
 
 
 
-  <section class="d-flex justify-content-space-around ">
+  <section  class="d-flex justify-content-space-around ">
       <div class="d-flex justify-content-center container test1">
         {% if abonner %}
           <div class="corner">
@@ -80,7 +80,7 @@
                 {{ form_label(form.ingredient, 'Ingrédients:') }}
                 {{ form_widget(form.ingredient, {'attr': {'class': 'form-control'}}) }}
             </div>
-            <button type="submit">Ajouter</button>
+           <a href=""><button type="submit" class="bouton">Ajouter<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a>
             {{ form_end(form) }}
         {# </form> #}
     </div>
@@ -94,7 +94,7 @@
               <i class="fa-regular fa-hand-point-down hidden"></i>
               </li>
               {% for recette in recettes %}
-              <li class="hidden"><p class="d-flex align-items-center">{{recette.name}}<a href="{{path('app_recette_delete', {id: recette.id})}}" class="bouton ms-3">supprimer<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a></p></li>
+              <li class="hidden"><p class="d-flex align-items-center">{{recette.name}}<a href="{{path('app_recette_delete', {id: recette.id})}}" class="bouton ms-3">supprimer<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></a></p></li>
               <li class="hidden"></li>
               <li class="hidden"></li>
               <li class="hidden"></li>

@@ -32,52 +32,54 @@ class RecetteController extends AbstractController
         ]);
     }
 
-    #[Route('/recette/new', name: 'app_recette_new')]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $recette = new Recette();
-        $form = $this->createForm(RecetteType::class, $recette);
-        $form->handleRequest($request);
+    // #[Route('/recette', name: 'app_recette_new')]
+    // public function new(Request $request, EntityManagerInterface $entityManager): Response
+    // {
+    //     $recette = new Recette();
+    //     $form = $this->createForm(RecetteType::class, $recette);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $pictureFile = $form->get('picture')->getData();
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $pictureFile = $form->get('picture')->getData();
+    //         dd($pictureFile);
+    //         if ($pictureFile) {
+    //             $originalFilename = pathinfo($pictureFile->getClientOriginalName(), PATHINFO_FILENAME);
+    //             $newFilename = uniqid() . '.' . $pictureFile->guessExtension();
 
-            if ($pictureFile) {
-                $originalFilename = pathinfo($pictureFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $newFilename = uniqid() . '.' . $pictureFile->guessExtension();
+    //             try {
+    //                 $pictureFile->move(
+    //                     $this->getParameter('pictures_directory'),
+    //                     $newFilename
+    //                 );
+    //             } catch (FileException $e) {
+    //                 // Handle exception if something happens during file upload
+    //                 $this->addFlash('error', 'Failed to upload image.');
+    //                 return $this->render('recette.html.twig', [
+    //                     'form' => $form->createView(),
+                        
+    //                 ]);
+    //             }
 
-                try {
-                    $pictureFile->move(
-                        $this->getParameter('pictures_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // Handle exception if something happens during file upload
-                    $this->addFlash('error', 'Failed to upload image.');
-                    return $this->render('recette/new.html.twig', [
-                        'form' => $form->createView(),
-                    ]);
-                }
+    //             $recette->setPicture($newFilename);
+    //         } else {
+    //             // Handle the case when no image is uploaded
+    //             $this->addFlash('error', 'You must upload an image.');
+    //             return $this->render('recette.html.twig', [
+    //                 'form' => $form->createView(),
+    //             ]);
+    //         }
 
-                $recette->setPicture($newFilename);
-            } else {
-                // Handle the case when no image is uploaded
-                $this->addFlash('error', 'You must upload an image.');
-                return $this->render('recette/new.html.twig', [
-                    'form' => $form->createView(),
-                ]);
-            }
+    //         $entityManager->persist($recette);
+    //         $entityManager->flush();
 
-            $entityManager->persist($recette);
-            $entityManager->flush();
+    //         return $this->redirectToRoute('app_recette');
+    //     }
 
-            return $this->redirectToRoute('app_recette');
-        }
-
-        return $this->render('recette/new.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
+    //     return $this->render('recette.html.twig', [
+    //         'form' => $form->createView(),
+    //         'picture' => $pictureFile,
+    //     ]);
+    // }
 
     #[Route('/recette/delete/{id}', name: 'app_recette_delete')]
     function delete(Recette $recette, EntityManagerInterface $entityManager){

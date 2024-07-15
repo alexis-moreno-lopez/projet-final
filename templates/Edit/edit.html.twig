@@ -7,7 +7,7 @@
 {% block body %}
     <h1 class="text-dark">Modifier mon profil</h1>
 
-  <section class="">
+  <section>
 {{ form_start(form) }}
   <div class="responssive d-flex justify-content-center">
         <div class="space-un">
@@ -77,7 +77,8 @@
                                       {{ form_widget(form.plainPassword, {'attr': {'class': 'form-control'}, 'label': 'Password'}) }}
                                     
                                     </div>
-
-        <input type="submit" class="valider" value="Valider" />
+                                    <div class="space">
+<button type="submit" class="bouton">valider<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button>
+        </div>
     {{ form_end(form) }}
 {% endblock %}

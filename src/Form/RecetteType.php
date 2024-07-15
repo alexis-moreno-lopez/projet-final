@@ -44,7 +44,7 @@ class RecetteType extends AbstractType
             //     'choice_label' => 'id',
             //     'multiple' => true,
             // ])
-            ->add('submit', SubmitType::class)
+            
         ;
     }
 

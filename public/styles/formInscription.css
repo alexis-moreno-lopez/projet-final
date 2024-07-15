@@ -185,7 +185,7 @@ input:hover {
   justify-content: center;
   border: 2px solid var(--color-border-button);
   border-radius: 50px;
-  padding: 15px 47px 15px 47px;
+  padding: 12px 43px 12px 43px;
   background-color: var(--color-bg-button);
   color: var(--text-button-color);
   display: inline-block;
@@ -194,7 +194,7 @@ input:hover {
   width: auto; /* Vous pouvez définir une largeur fixe ici si nécessaire */
   min-width: 150px; /* Largeur minimale du bouton */
   max-width: 300px; /* Largeur maximale du bouton */
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--alt-font);
   font-weight: 500;
   position: relative; /* Permet le positionnement absolu du span */
   overflow: hidden; /* Pour masquer le cercle quand il est en dehors du bouton */
@@ -204,7 +204,7 @@ input:hover {
 }
 
 .bouton:hover {
-  background: var(--color-bg-button-hover);
+  background: var(--color-bg-button-hover); 
   border: 2px solid var(--color-border-button-hover);
   color: var(--text-button-color);
 }

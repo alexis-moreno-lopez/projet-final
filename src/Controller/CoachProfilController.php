@@ -9,16 +9,18 @@ use App\Repository\RecetteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 // ICI autoriser que les coachs
 
 class CoachProfilController extends AbstractController
 {
     #[Route('/coachprofil', name: 'app_coach_profil')]
-    public function index(Request $request, AbonnerRepository $abonnerRepository, EntityManagerInterface $entityManager, RecetteRepository $recetteRepository): Response
+    public function index(Request $request, AbonnerRepository $abonnerRepository, EntityManagerInterface $entityManager, RecetteRepository $recetteRepository, SluggerInterface $slugger): Response
     {
         $user = $this->getUser(); // Récupère l'utilisateur connecté
         $abonner = $abonnerRepository->findOneBy(['user' => $user]); // Récupère l'objet Abonner correspondant à l'utilisateur connecté
@@ -35,6 +37,10 @@ class CoachProfilController extends AbstractController
         $rue = $abonner->getStreet();
         $numeroRue = $abonner->getAddress();
 
+        /**
+         * @var User $user
+         * retrouver toutes les recettes de l'utilisateur
+         */
         $recettes = $recetteRepository->findBy(['user' => $user->getId()]);
 
 
@@ -43,7 +49,24 @@ class CoachProfilController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // $pictures = $form->get('pictures')->getData();
+            $picture = $form->get('picture')->getData();
+      
+
+            if ($picture) {
+                $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $picture->guessExtension();
+
+                try {
+                    $picture->move($this->getParameter('pictures_directory'), $newFilename);
+                } catch (FileException $e) {
+                    // Throw Error image invalide 
+                }
+
+                $recette->setPicture($newFilename);
+
+            }
 
             // foreach($pictures as $picture){
             //     $fichier = md5(uniqId()) . '.' . $picture->guessExtension();
@@ -56,18 +79,15 @@ class CoachProfilController extends AbstractController
 
 
             // }
-
-    $recette->setUser($user);
     
-    // Vérification si l'image est fournie, sinon définir une valeur par défaut
-    if (is_null($recette->getPicture()) || empty($recette->getPicture())) {
-        $recette->setPicture('img/bol.jpeg'); // Chemin de l'image par défaut
-    }
+            /**
+             * @var User $user
+             */
+            $recette->setUser($user);
 
     $entityManager->persist($recette);
     $entityManager->flush();
 
-    $this->addFlash('success', 'Recette ajoutée avec succès.');
 
     return $this->redirectToRoute('app_coach_profil');
 }
@@ -103,4 +123,5 @@ class CoachProfilController extends AbstractController
 
 
     
-}
+} 
+

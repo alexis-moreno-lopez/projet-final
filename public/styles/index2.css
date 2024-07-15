@@ -104,7 +104,7 @@ h1 {
   height: 3px;
   position: absolute;
   background: var(--navbar-bar-hover-color);
-   top: -5px;
+  top: -5px;
   left: 50%;
   transform: translateX(-50%);
   transition: width 0.3s ease; /* Transition fluide */
