@@ -226,9 +226,17 @@ a {
   }
 }
 
+@media (max-width: 900px) {
+  .texte {
+    padding: 0px 100px 0px 100px;
+  }
+}
 @media (max-width: 800px) {
   header {
     flex-direction: column;
+  }
+  .texte {
+    padding: 0px 50px 0px 50px;
   }
 }
 

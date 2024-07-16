@@ -1,56 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{%  block metaEtLinkSupplementaire %}
+{% block metaEtLinkSupplementaire %}
 <link rel="stylesheet" href={{asset('styles/coach_profil.css')}} />
 {% endblock %}
 
 {% block body %}
 <header>
     <div class="padding">
-      <div> <img class="appareil" src="../img/appareil-photo-numerique.png" alt=""></div>
-      <img class="photo" src="{{ imageUrl }}" alt="Photo de profil">
-      <div class="prenom">
-      {% if abonner %}
-        <p>{{ abonner.name }}</p>
-      </div>
-      <div>
-        ID :
-      </div>
-      {% endif %}
-    </div>
-
-
-     
-  </header>
-
-
-
-  <section  class="d-flex justify-content-space-around ">
-      <div class="d-flex justify-content-center container test1">
+        <div><img class="appareil" src="../img/appareil-photo-numerique.png" alt=""></div>
+        <img class="photo" src="/img/profil.png" alt="">
+        <div class="prenom">
         {% if abonner %}
-          <div class="corner">
+            <p>{{ abonner.name }}</p>
+        </div>
+        <div>ID :</div>
+        {% endif %}
+    </div>
+</header>
+
+<section class="d-flex justify-content-space-around">
+    <div class="d-flex justify-content-center container bulle-un">
+        {% if abonner %}
+        <div class="corner">
             <ul class="list">
-              <li class="toggle-table">Données personnelles
-              <i class="fa-regular fa-hand-pointer"></i>
-              <i class="fa-regular fa-hand-point-down hidden"></i>
-              </li>
-              <li class="hidden"> Nom:  {{ abonner.name }}</li>
-              <li class="hidden"> Prénom: {{ abonner.firstName }}</li>
-              <li class="hidden"> Date de Naissance:{{ abonner.dateOfBirth|date('d/m/Y') }} </li>
-              <li class="hidden"> Numéro de téléphone:{{ abonner.telephone }}</li>
-              <li class="hidden"> Email:{{ abonner.emailConfirmation }}</li>
-              <li class="hidden"> Code Postale: {{ abonner.postalCode }}</li>
-              <li class="hidden"> Ville:{{ abonner.city }}</li>
-              <li class="hidden"> Rue:{{ abonner.street }}</li>
-              <li class="hidden"> Numéro de Rue: {{ abonner.address }}</li>
-              <li class="hidden"> Info Complémentaire:{{ abonner.subscription }}</li>
-              <li class="hidden"><a class="no" href="{{ path('app_edit') }}"><button class="bouton">Modifier<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a></li>
+                <li class="toggle-table">Données personnelles
+                    <i class="fa-regular fa-hand-pointer"></i>
+                    <i class="fa-regular fa-hand-point-down hidden"></i>
+                </li>
+                <li class="hidden">Nom: {{ abonner.name }}</li>
+                <li class="hidden">Prénom: {{ abonner.firstName }}</li>
+                <li class="hidden">Date de Naissance: {{ abonner.dateOfBirth|date('d/m/Y') }}</li>
+                <li class="hidden">Numéro de téléphone: {{ abonner.telephone }}</li>
+                <li class="hidden">Email: {{ abonner.emailConfirmation }}</li>
+                <li class="hidden">Code Postale: {{ abonner.postalCode }}</li>
+                <li class="hidden">Ville: {{ abonner.city }}</li>
+                <li class="hidden">Rue: {{ abonner.street }}</li>
+                <li class="hidden">Numéro de Rue: {{ abonner.address }}</li>
+                <li class="hidden">Info Complémentaire: {{ abonner.subscription }}</li>
+                <li class="hidden"><a class="no" href="{{ path('app_edit') }}"><button class="bouton">Modifier <span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a></li>
             </ul>
-          </div>
-      </div>
+        </div>
+    </div>
     {% endif %}
-    <div class="container test2">
-        <h2>Ajouter une recette</h2>
+    <div class="container bulle-deux">
+        <h2>Ajouter une recette <i id="toggleFormButton" class="fa fa-chevron-down ms-5" style="cursor: pointer; font-size: 24px;"></i></h2>
+       
+        <div id="recipeForm" style="display: none;">
             {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
             <div class="form-group">
                 {{ form_label(form.name, 'Nom:') }}
@@ -80,75 +75,31 @@
                 {{ form_label(form.ingredient, 'Ingrédients:') }}
                 {{ form_widget(form.ingredient, {'attr': {'class': 'form-control'}}) }}
             </div>
-           <a href=""><button type="submit" class="bouton">Ajouter<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a>
+            <button type="submit" class="bouton">Ajouter <span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button>
             {{ form_end(form) }}
-        {# </form> #}
+        </div>
     </div>
-</div>
-<div class="container d-flex justify-content-center container test3">
-        
-          <div class="corner">
-            <ul class="list">
-              <li class="toggle-table">recettes
-              <i class="fa-regular fa-hand-pointer"></i>
-              <i class="fa-regular fa-hand-point-down hidden"></i>
-              </li>
-              {% for recette in recettes %}
-              <li class="hidden"><p class="d-flex align-items-center">{{recette.name}}<a href="{{path('app_recette_delete', {id: recette.id})}}" class="bouton ms-3">supprimer<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></a></p></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-              <li class="hidden"></li>
-               {% endfor %} 
+<div class="container d-flex justify-content-center container bulle-trois">
+    <div class="corner">
+        <ul class="list">
+            <li class="toggle-table">Recettes
+                <i class="fa-regular fa-hand-pointer"></i>
+                <i class="fa-regular fa-hand-point-down hidden"></i>
+            </li>
+            {% for recette in recettes %}
+            <li class="hidden">
+                <div class="recipe-item">
+                    <p>{{ recette.name }}</p>
+                    <a href="{{ path('app_recette_delete', { id: recette.id }) }}" class="bouton">Supprimer <span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
+            </li>
+            {% endfor %}
             </ul>
-          </div>
-      </div>
-
-</div>
-  </section>
-    {# <section>
- <div class="container">
-        <h2>Ajouter une recette</h2>
-        {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
-            <div class="form-group">
-                {{ form_label(form.name) }}
-        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.picture) }}
-        {{ form_widget(form.picture, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.text) }}
-        {{ form_widget(form.text, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.category) }}
-        {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                 {{ form_label(form.summarize) }}
-        {{ form_widget(form.summarize, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.time) }}
-        {{ form_widget(form.time, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.ingredient) }}
-        {{ form_widget(form.ingredient, {'attr': {'class': 'form-control'}}) }}
-            </div>
-            <button type="submit">Ajouter</button>
-        {{ form_end(form) }}
+        </div>
     </div>
-
-  </section> #}
+</section>
 {% endblock %}
+
 {% block javascripts %}
-<script src={{asset('js/profil.js')}}></script>
+<script src={{ asset('js/coach_profil.js') }}></script>
 {% endblock %}

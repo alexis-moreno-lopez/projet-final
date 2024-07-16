@@ -339,7 +339,7 @@ padding: 10px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 900px;
+  width: 70%;
   height: fit-content;
   overflow-y: auto;
   background-color: var(--modal-bg-color);
@@ -424,15 +424,12 @@ padding: 10px;
 
 #myModal .image {
   width: 100%;
-  height: 30rem;
+  height: auto;
   object-fit: cover;
   word-wrap: break-word; /* permet au texte de revenir à la ligne */
   word-break: break-word; /* coupe les mots trop longs */
   white-space: normal; /* permet de revenir à la ligne automatiquement */
- 
-
 }
-
 
 .scroll-to-top {
   position: fixed;
@@ -469,12 +466,6 @@ padding: 10px;
   text-align: start;
 }
 
-@media (max-width: 1500px) {
-  .modalImg {
-    width: 500px;
-  }
-}
-
 @media (max-width: 1200px) {
   .nav-link {
     color: black;
@@ -485,10 +476,7 @@ padding: 10px;
 }
 
 @media (max-width: 1080px) {
-  .modalImg {
-    width: fit-content;
-    right: 50px;
-  }
+
 }
 @media (max-width: 1035px) {
   .container {
@@ -496,9 +484,3 @@ margin-bottom: 100px;
   }
 }
 
-@media (max-width: 850px) {
-  .modalImg {
-    width: fit-content;
-    right: 50px;
-  }
-}

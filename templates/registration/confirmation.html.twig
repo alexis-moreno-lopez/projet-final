@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement Réussi{% endblock %}
+
+{% block metaEtLinkSupplementaire %}
+<link rel="stylesheet" href={{asset('styles/confirmation.css')}} />
+{% endblock %}
+
+
+{% block body %}
+    <div class="message-confirmation">
+        <h1>Paiement Réussi</h1>
+        <a href="{{ path('app_index') }}"><button class="bouton">ok<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a>
+    </div>
+{% endblock %}

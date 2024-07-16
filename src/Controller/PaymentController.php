@@ -18,7 +18,6 @@ class PaymentController extends AbstractController
     public function stripeCheckout(Abonnement $abonnement, User $user)
     {
 
-  
         $price = intval($abonnement->getTarif()) + 0.99;
 
 
@@ -44,7 +43,7 @@ class PaymentController extends AbstractController
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . 'confirmation/' . $abonnement->getId(),
+            'success_url' => $YOUR_DOMAIN . 'confirmation' . $abonnement->getId(),
             'cancel_url' => $YOUR_DOMAIN . 'cancel',
             'automatic_tax' => [
                 'enabled' => true,

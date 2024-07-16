@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement Refusé{% endblock %}
+
+{% block metaEtLinkSupplementaire %}
+<link rel="stylesheet" href={{asset('styles/cancel.css')}} />
+{% endblock %}
+
+
+{% block body %}
+    <div class="message-erreur">
+        <h1>Paiement Refusé</h1>
+        <a href="{{ path('app_abonnement') }}"><button class="bouton">ok<span class="bg-base-color text-white"><i class="fa-solid fa-arrow-right"></i></span></button></a>
+    </div>
+{% endblock %}

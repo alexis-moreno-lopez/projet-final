@@ -118,11 +118,6 @@ h1 {
 }
 
 /*-------------------------------------------- Titre------------------------------------------------------------*/
-h1 {
-  text-align: center;
-  margin: 1%;
-  padding: 10px 10px 10px 10px;
-}
 
 /*-------------------------------------------- Fin--------------------------------------------------------------*/
 /*-------------------------------------------- Header------------------------------------------------------------*/
@@ -143,6 +138,7 @@ header {
 }
 
 .margin {
+  width: 100%;
   margin-left: 50px;
 }
 /*-------------------------------------------- Fin--------------------------------------------------------------*/
@@ -177,6 +173,7 @@ header {
   align-items: center;
   display: flex;
   text-align: left;
+  padding: 5%;
 }
 
 .ajustement {
@@ -232,9 +229,10 @@ header {
   }
   .margin {
     padding-bottom: 30px;
+    margin-left: 0;
   }
   .h {
-    padding-top: 200px;
+    padding-top: 150px;
   }
 
   .ajustement {
@@ -267,3 +265,28 @@ header {
     padding: 0px 0px 50px 0px;
   }
 }
+
+@media (max-width: 640px) {
+  .paragraphe-un {
+    font-size: 1.3rem;
+  }
+  .paragraphe-deux {
+    font-size: 1.3rem;
+  }
+
+.h {
+  padding-top: 50px;
+}
+}
+@media (max-width: 540px) {
+.h {
+  padding-top: 20px;
+}
+}
+@media (max-width: 500px) {
+.h {
+  padding-top: 10px;
+}
+}
+
+

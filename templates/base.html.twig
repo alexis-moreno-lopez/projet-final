@@ -53,7 +53,7 @@
               <select name="pets" id="pet-select" onchange="redirectToPage()">
     <option value="">plus</option>
     {% if 'ROLE_COACH' in app.user.roles %}
-        <option value="seul" href="{{ path('app_coach_profil') }}">cProfil</option>
+        <option value="seul" href="{{ path('app_coach_profil') }}">Profil</option>
         <option value="recette" href="{{ path('app_recette') }}">Recette</option>
         <option value="coach" href="{{ path('app_coach')}}">Coach</option>
     {% else %}

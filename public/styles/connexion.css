@@ -129,7 +129,7 @@ a {
 .box {
   min-height: auto;
   height: 100%;
-  width: 30%;
+  width: 30rem;
   background-color: var(--box-color);
 }
 
@@ -226,9 +226,7 @@ h1 {
 }
 
 @media (max-width: 1300px) {
-  input {
-    margin: 10px 60px 30px 60px;
-  }
+
 }
 
 @media (max-width: 1240px) {
@@ -238,9 +236,6 @@ h1 {
   img {
     height: 55px;
     width: 180px;
-  }
-  input {
-    margin: 10px 60px 30px 60px;
   }
 }
 
@@ -254,12 +249,16 @@ h1 {
 }
 
 @media (max-width: 1050px) {
-  input {
-    margin: 10px 40px 30px 40px;
+
+  .box {
+    width: 30rem;
   }
 }
 
 @media (max-width: 800px) {
+  .box {
+    width: 20rem;
+  }
   input {
     margin: 10px 20px 30px 20px;
   }
@@ -273,9 +272,6 @@ h1 {
   .margin {
     margin-top: 150px;
     margin-bottom: 150px;
-  }
-  input {
-    margin: 10px 10px 30px 10px;
   }
 }
 

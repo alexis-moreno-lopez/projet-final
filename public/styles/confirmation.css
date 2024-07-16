@@ -1,0 +1,197 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+
+/* Déclaration des variables CSS */
+:root {
+  --navbar-bg-color: #fe7000;
+  --navbar-burger-color: #fe7000;
+  --navbar-bar-hover-color: black;
+  --navbar-text-burger-color: black;
+  --navbar-text-color: white;
+
+  --color-border-button:#fe7000;
+  --color-bg-button: white;
+  --color-bg-cercle-button-hover: white;
+  --color-bg-cercle-button: #fe7000;
+  --color-bg-button-hover: #fe7000;
+  --text-button-color: black;
+  --arrow-cercle-button-color: black;
+  --color-border-button-hover: #fe7000;
+
+  --box-color: rgb(0, 0, 0, 0.4);
+  --color-shadow: rgba(0, 0, 0, 0.35);
+}
+
+.message-confirmation {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    font-size: 2em;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+  }
+  
+  body {
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  html,
+  body {
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  
+  #connexion {
+    background-image: url(../img/sportif-5.webp);
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--navbar-text-color);
+  }
+  
+  .navbar {
+    background-color: var(--navbar-bg-color);
+    height: 80px;
+    min-width: 80px;
+  }
+  
+  .navbar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    list-style-type: none;
+    padding: 0 100px;
+  }
+  
+  .navbar li {
+    position: relative;
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+  
+  .navbar li::before {
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    background: black;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease; /* Transition fluide */
+  }
+  
+  .navbar li:hover img {
+    opacity: 1; /* Annule l'effet de la barre sur les images */
+  }
+  
+  /* nav li:first-child {
+    color: white;
+    } */
+  
+  .navbar li:hover:before {
+    width: 100%; /* Ajuste la largeur au survol */
+  }
+  
+  .logoProfil {
+    height: 40px;
+    width: 40px;
+    border-radius:10px;
+  }
+  
+  
+  #offcanvasDarkNavbar {
+    background-color: var( --navbar-burger-color);
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--navbar-text-burger-color);
+  }
+  
+  .nav-img {
+    width: 50px;
+  }
+.bouton {
+    justify-content: center;
+    border: 2px solid var(--color-border-button);
+    border-radius: 50px;
+    background-color: var(--color-bg-button);
+    color: var(--text-button-color);
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: auto; /* Vous pouvez définir une largeur fixe ici si nécessaire */
+    min-width: 150px; /* Largeur minimale du bouton */
+    max-width: 300px; /* Largeur maximale du bouton */
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    position: relative; /* Permet le positionnement absolu du span */
+    overflow: hidden; /* Pour masquer le cercle quand il est en dehors du bouton */
+    transition: all 300ms ease-in-out;
+    text-align: center; /* Centrer le texte horizontalement */
+    margin-top: 15px;
+  }
+  
+  .bouton:hover {
+    background: var(--color-bg-button-hover);
+    border: 2px solid var(--color-border-button-hover);
+  }
+  
+  .bouton > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Taille du cercle */
+    height: 30px; /* Taille du cercle */
+    position: absolute;
+    border-radius: 100%;
+    background-color: var(--color-bg-cercle-button); /* Couleur du cercle */
+    left: 8px; /* Positionne le cercle à gauche du bouton */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 0.5s ease-in-out; /* Transition pour le mouvement du cercle */
+    -webkit-box-shadow: 0 5px 10px 0 var(--color-shadow);
+    box-shadow: 0 5px 10px 0 var(--color-shadow);
+    opacity: 1; /* Le cercle est visible par défaut */
+  }
+  
+  .bouton > span > i {
+    opacity: 0; /* La flèche est invisible par défaut */
+    transition: opacity 0.5s ease-in-out; /* Transition pour l'opacité de la flèche */
+  }
+  
+  .bouton:hover > span {
+    left: calc(
+      100% - 38px
+    ); /* Positionne le cercle à l'intérieur du bouton à droite */
+    background-color: var(--color-bg-cercle-button-hover);
+  }
+  
+  .bouton:hover > span > i {
+    opacity: 1; /* Rendre la flèche visible lors du survol */
+    color: var(--arrow-cercle-button-color);
+  }

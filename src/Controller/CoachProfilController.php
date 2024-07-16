@@ -37,7 +37,6 @@ class CoachProfilController extends AbstractController
         $rue = $abonner->getStreet();
         $numeroRue = $abonner->getAddress();
 
-        $imageUrl = $abonner->getProfileImageUrl();
 
         /**
          * @var User $user

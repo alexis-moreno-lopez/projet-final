@@ -35,3 +35,18 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggleButton = document.getElementById('toggleFormButton');
+    var form = document.getElementById('recipeForm');
+    toggleButton.addEventListener('click', function() {
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'block';
+            toggleButton.classList.remove('fa-chevron-down');
+            toggleButton.classList.add('fa-chevron-up');
+        } else {
+            form.style.display = 'none';
+            toggleButton.classList.remove('fa-chevron-up');
+            toggleButton.classList.add('fa-chevron-down');
+        }
+    });
+});

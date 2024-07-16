@@ -154,7 +154,8 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $security->login($user, LoginAuthenticator::class, 'main');
+         // return
+          $security->login($user, LoginAuthenticator::class, 'main');
 
         return $this->render('registration/confirmation.html.twig', [
             

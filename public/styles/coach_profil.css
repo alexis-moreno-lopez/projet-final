@@ -259,6 +259,7 @@ font-size: 0.9rem;
 section {
   padding-top: 50px;
   background: #413434;
+  padding-bottom: 100px;
 }
 
 .scroll-to-top {
@@ -366,6 +367,9 @@ section {
   .corner {
     width: 300px;
   }
+  .bulle-deux {
+    width: 300px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -373,6 +377,28 @@ section {
     width: 300px;
   }
 }
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li.hidden {
+  padding-bottom: 20px; /* Espace entre chaque élément (ajustez selon votre préférence) */
+}
+
+.recipe-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc; /* Ligne de séparation entre chaque élément */
+  padding: 10px 0; /* Espacement intérieur */
+}
+
+.recipe-item p {
+  margin: 0; /* Supprime les marges autour du nom de la recette */
+}
+
 
 body {
     font-family: Arial, sans-serif;
@@ -418,16 +444,16 @@ textarea {
 }
 
 
-.test1 {
+.bulle-un {
   background-color:  var(--color-section-bg);
   padding: 0;
 }
 
-.test2 {
+.bulle-deux {
   background-color: white;
 }
 
-.test3 {
+.bulle-trois {
   background-color: var(--color-section-bg);
   padding: 0;
 }
